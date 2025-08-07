@@ -15,6 +15,11 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
 # Use the ReadTheDocs theme
 theme:
   name: material
@@ -34,6 +39,8 @@ theme:
   features:
     - content.code.copy
     - content.tooltips
+extra_css:
+  - css/overrides.css
 
 # Define navigation structure
 nav:
@@ -81,6 +88,6 @@ nav:
           - contacto: "proyectos/scada/contacto.md"
           - programacion: "proyectos/scada/programacion.md"
           - diseno: "proyectos/scada/diseno.md"
-  - FAQs:        "faqs.md"
+  - Plan Mecatronica:        "recursos/Plan_Mecatronica.md"
 
-   
+
