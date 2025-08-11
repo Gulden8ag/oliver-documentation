@@ -1,122 +1,137 @@
-# Instalación de ROS 2 Jazzy Jalisco (WSL2 + WSLg)
+# Cortadora Laser
 
-## ¿Qué es ROS?
+## Software
 
-Aunque se llame “sistema operativo”, en realidad es un conjunto de herramientas y librerías que te ayudan a conectar y coordinar los distintos bloques de tu robot.
+### Descargar y operar el instalador
 
-Define cómo intercambian información las partes (por ejemplo, tu módulo de visión envía “veo un obstáculo” y tu módulo de movimiento recibe ese mensaje y frena).
+El software deberá pedirlo a un instructor local, quien nos proporcionará el enlace para descargar el instalador.  
+Es fundamental seguir sus instrucciones al utilizarlo, ya que tiene algunas secciones escritas completamente en chino.
 
-Cuenta con cientos de paquetes que ya resuelven tareas comunes (planificar rutas, procesar imágenes, simular en ordenador…), de modo que no tienes que escribir todo desde cero.
+![Laser 1](images/laser_1.jpg){loading=lazy}
 
-Al dia de actualizacion de esta pagina 21 de mayo de 2025 Jazzy Jalisco es la distribucion mas moderna estable sacada en mayo 23, 2024 con soporte hasta Mayo 2029. Revisar la [documentacion de ROS](https://docs.ros.org/en/rolling/Releases.html "ROS2 Distributions") Para mas informacion.
+Uno de los pasos más importantes de la instalación es seleccionar el idioma y el tipo de sistema correctos.  
+Nuestra cortadora láser es del quinto sistema normal, como se muestra en esta imagen:
 
-ROS es nativo a Linux, el cual deberia ser usado en proceso de alto rendimiento. Sin embargo para experimentacion o si no se quiere sacar una particion de Linux WSL2 es una mejora del Subsistema de Windows para Linux (WSL), que permite ejecutar distribuciones Linux nativas en Windows sin necesidad de máquinas virtuales tradicionales.
+![Laser 2](images/laser_2.jpg){loading=lazy}
 
-## 1. Instalar WSL2 y Ubuntu 24.04  
-- **Si ya estás en Ubuntu nativo:**  Omite este **Paso 1** completo (instalación de WSL2 y Ubuntu)
-- **Si estás en Windows 11:**  Sigue todos los pasos. 
+Una vez instalado correctamente, necesitaremos la clave de licencia USB.  
+Solicítela a su instructor y cuídela bien; puede parecer modesta, pero es un equipo importante y costoso. Al conectarla a su ordenador, podrá iniciar el software.
 
-WSL2 (Windows Subsystem for Linux 2) es una mejora del Subsistema de Windows para Linux (WSL), que permite ejecutar distribuciones Linux nativas en Windows sin necesidad de máquinas virtuales tradicionales.
+### Importar archivo
 
-Abre **powershell** como administrador 
-```powershell
-wsl --install -d Ubuntu-24.04
-```
-Este comando:
+Al iniciar el programa, veremos la opción **Archivo** en la esquina superior izquierda de la pantalla. Al seleccionarla, se abrirá el menú **Archivo**, donde haremos clic en **Importar**.  
+Importaremos el archivo `.dxf` que creamos a partir de nuestro dibujo.
 
-- Habilita el Subsistema de Windows para Linux (WSL) y la plataforma de maquina virtual
-- Configura WSL2 comola version default
-- Descarga e instala Ubuntu 24.04 LTS (Noble Numbat es el distro estable actual)
+![Laser 3](images/laser_3.jpg){loading=lazy}
 
-## 2.  Primer arranque y actualización del sistema
+Una vez importado, el dibujo se alineará con el punto de origen predeterminado en el programa, que en nuestro caso es la esquina inferior derecha.
 
-Si estas en windows inicia Ubuntu (Desdes inicio) y crea un usuario/contrasena de UNIX(La contrasena no mostrara caracteres cuando escribes), posteriormente en el shell corre los siguientes comandos:
+### Parámetros de entrada del láser
 
-```bash
-sudo apt update
-sudo apt full-upgrade -y
-```
-Esto actualizara to Ubuntu
+Seleccione todos los elementos del dibujo; a la derecha de la pantalla verá el panel de control. Aquí seleccionaremos el mismo color que el del dibujo, en este caso el negro.  
+Una vez seleccionado el color, introduzca la potencia máxima y mínima del láser, así como su velocidad de trabajo. Obtuvimos estos valores en las pruebas realizadas en grupo para determinar el equilibrio correcto entre potencia y velocidad que nos permita obtener los cortes más rápidos y limpios posibles, minimizando las ranuras.  
 
-## 3. Configuración del sistema para ROS 2
+En nuestras pruebas, determinamos que la combinación óptima de valores oscila entre el **60 %** y el **80 %** de potencia y una velocidad de **40 a 60 mm/s**.  
+Decidí optar por un **70 %** de potencia y una velocidad de **40 mm/s**, con la que, tras las pruebas, quedé satisfecho. Tras configurar los parámetros, hago clic en el botón **Aplicar** en la parte inferior del panel gráfico, a la izquierda de la pantalla.
 
-Antes de instalar ROS, debemos configurar nuestro sistema para hacerlo compatible.
+![Laser 4](images/laser_4.jpg){loading=lazy}
 
-### 3.1 Configurar el locale (codificación de texto)
+Una vez terminado, guarde el archivo en una USB para utilizarlo en la computadora de la láser.
 
-Primero debemos configurar el locale que se refiere a los ajutes de un sistema para un idioma, ROS utiliza **UTF-8**.  Evitando problemas con caracteres especiales en ROS y otros programas.
+---
 
-```bash
-sudo apt update && sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-export LANG=en_US.UTF-8
-```
-Estos settings utilizan ingles estados unidos, sin embargo cualquier esta bien UTF-8 sirve.
+## Encendido de Máquina
 
-```bash
-locale # Verificamos que sea UTF-8
-```
+Fab Lab Puebla cuenta con tres cortadoras láser de CO₂ de la marca **CAMFive**. Estas máquinas pueden cortar y grabar diversos materiales, como tableros de fibra de densidad media (MDF), acrílico y cartón.  
+La máquina utilizada para clases es la **CFL-CMA1390T**, con un área de trabajo de 1300 x 900 mm, una potencia de 100 vatios y un sistema de cabezal láser dual.  
+Para más detalles, puede consultar nuestra tarea grupal aquí: **LINK PÁGINA PUEBLA**.
 
-### 3.2 Habilitar “universe” y añadir el repositorio de ROS 2
+Para usar esta máquina, debemos seguir este proceso:
 
-Primero debemos asegurar que el repositorio de [Ubuntu Universe](https://docs.ros.org/en/rolling/Releases.html "Ubuntu Repositories") este habilitado. 
+### 1. Registro
 
-```bash
-sudo apt install -y software-properties-common
-sudo add-apt-repository universe
-```
+Al recibir la licencia, también obtenemos la llave de la máquina. Usaremos esta última para operar la cortadora láser.  
+Antes de comenzar a trabajar, debemos registrar la hora de inicio de uso en el registro del Fab Lab con **Andrés López** o **Zeus Zapotl**, junto con nuestro nombre, número de identificación de estudiante, el departamento o curso para el que la usamos y el nombre del responsable. *(Es muy importante que haya sido autorizado previamente por tu coordinador).*  
 
-Ahora agreguemos la clave [GPG](https://es.wikipedia.org/wiki/GNU_Privacy_Guard "GNU Privacy Guard (GnuPG o GPG)") ROS 2 con [apt](https://es.wikipedia.org/wiki/GNU_Privacy_Guard "Advanced Packaging Tool").
+### 2. Ventilación
 
-```bash
-sudo apt update
-sudo apt install -y curl
-curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
-  | sudo tee /usr/share/keyrings/ros-archive-keyring.gpg
-```
+Para empezar a trabajar, el primer paso es activar el sistema de ventilación. Para ello, encendemos el contacto múltiple en la parte trasera de la máquina.  
+Una vez activado, comprobamos que no haya obstrucciones y que el depósito de agua esté lleno.
 
-Finalmente agregemos el repositorio a tu lista de sources para instalar.
+![Laser 5](images/laser_5.jpg){loading=lazy}
 
-```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
-  http://packages.ros.org/ros2/ubuntu \
-  $(. /etc/os-release && echo $UBUNTU_CODENAME) main" \
-  | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-```
+![Laser 6](images/laser_6.jpg){loading=lazy}
 
-## 4. Instalar ROS 2 Jazzy Desktop
+### 3. Energía
 
-Primero actualiza tu repositorio de apt para tomar en cuenta los cambios que hicimos.
-```bash
-sudo apt update
-sudo apt upgrade
-```
+En el lado izquierdo de la máquina, veremos un interruptor azul en posición de apagado. Lo accionamos para darle energía a los sistemas principales.
 
-Realizamos la instalacion completa
+![Laser 7](images/laser_7.jpg){loading=lazy}
 
-```bash
-sudo apt install ros-jazzy-desktop
-```
+### 4. Paro de emergencia
 
-## 5. Verifica instalacion con un ejemplo
+En la parte frontal derecha se encuentra el botón de parada de emergencia, que siempre está activado cuando la máquina no está en uso.  
+Para desactivarlo, hay que girarlo en sentido horario hasta que salte.
 
-Para esta prueba necesitaras dos terminales porque lo que abre una segunda terminal.
+![Laser 8](images/laser_8.jpg){loading=lazy}
 
-En una terminal vamos a correr un codigo sencillo en C++ llamado talker:
+### 5. Llave
 
-```bash
-source /opt/ros/jazzy/setup.bash
-ros2 run demo_nodes_cpp talker
-```
+El último paso es insertar y girar la llave en la cerradura situada en la parte superior derecha, detrás de la consola. Con esto, la máquina está lista para cortar.
 
-En otra terminal vamos correr un codigo en python llamado Listener:
+---
 
-```bash
-source /opt/ros/jazzy/setup.bash
-ros2 run demo_nodes_py listener
-```
+## Proceso de corte por láser
 
-Deberias ver que talker imprime en consola, **Publishing: numbers** y en la consola on listener se imprime **I heard: numbers** coincidiendo el mensaje. Verificando que los APIs de C++ y python funcionan.
+Una vez finalizada la activación y la máquina se encuentra en pleno estado operativo, tenemos que seguir estos pasos para comenzar nuestro proceso de corte:
 
-Felicidades has isntalado ROS.
+### 1. Abrir Archivo en la computadora
+
+### 2. Cargar Material
+
+Para cargar el material, en mi caso una lámina de MDF de 1,5 x 1 metro y 2,5 mm de grosor, primero debemos despejar el área de trabajo del cabezal láser. Podemos controlar su posición con las flechas. Esto se puede hacer desde el menú principal o tras seleccionar nuestro archivo.  
+Pulsamos la flecha hacia arriba hasta que el cabezal láser esté lo suficientemente atrás, donde podamos asegurarnos de no golpearlo al cargar el material. También revisamos el área de trabajo para detectar cualquier residuo que pueda alterar la elevación del material.  
+Una vez despejada el área de trabajo, simplemente colocamos el material dentro; podemos ayudarnos con los bordes del área de trabajo para mantener el material en una posición óptima.
+
+![Laser 10](images/laser_10.jpg){loading=lazy}
+
+### 4. Calibrar altura láser
+
+Para asegurar un corte preciso con una ranura mínima, debemos ajustar la elevación del cabezal láser en relación con el material, siendo la distancia óptima entre ellos de 5 mm.  
+Debemos ser extremadamente cuidadosos durante este paso para evitar dañarlo.  
+Primero, colocamos el cabezal láser sobre un borde del material donde podamos observarlo y manipularlo fácilmente. Procedemos a verificar la distancia entre el cabezal láser y el material. Podemos hacer esto con cualquier objeto de 5 mm de altura, que, casualmente, es la altura aproximada de un conector USB, por lo que puede usar el mismo USB que usó para cargar sus archivos.  
+Si la distancia es demasiado corta o demasiado larga, podemos ajustarla aflojando el tornillo grande del cabezal láser y moviéndolo hacia arriba o hacia abajo.  
+Tenga mucho cuidado, sujete el cabezal firmemente para evitar que se caiga y asegúrese de no desconectar ningún componente.  
+Una vez en la posición correcta, vuelva a apretar el tornillo.
+
+![Laser 11](images/laser_11.jpg){loading=lazy}
+
+### 5. Activar Láser
+
+El último paso antes de comenzar el corte es activar el láser. Dado que el láser es invisible al ojo humano y está expuesto sobre el eje del cabezal, debemos cerrar la puerta de la máquina como medida de seguridad para evitar el contacto accidental con el láser.  
+Una vez cerrada la puerta, giramos el potenciómetro del láser elegido en sentido horario hasta el máximo, o ambos potenciómetros si queremos cortar el mismo diseño dos veces al mismo tiempo.  
+Al usar ambos láseres, ajuste correctamente las dimensiones de sus diseños y la distancia entre los cabezales, que puede cambiar manualmente.  
+Usaré solo el cabezal láser derecho, así que giro el potenciómetro derecho a su posición máxima.  
+Cuando la potencia del láser esté al máximo, presionamos el botón de activación del láser junto al puerto de la llave; esto encenderá el láser.  
+**Recuerde:** una vez que el láser esté encendido, no abra la puerta.
+
+![Laser 12](images/laser_12.jpg){loading=lazy}
+
+### 6. Corte
+
+Realizamos una comprobación final: lima, origen, marco y salida láser. Ahora podemos pulsar el botón de inicio y el corte comenzará de inmediato.
+
+![Laser 13](images/laser_13.jpg){loading=lazy}
+
+Ahora solo queda supervisar la máquina hasta que finalice el proceso. Debemos estar preparados para activar el tope de seguridad en cualquier momento si observamos alguna anomalía, especialmente incendios.
+
+![Laser 14](images/laser_14.jpg){loading=lazy}
+
+### 7. Desactivación de Láser
+
+1. Presione el botón de encendido del láser para apagarlo y devuelva el potenciómetro a su posición cero.  
+2. Traslade el cabezal láser a la parte trasera para retirar la lámina sin riesgo de colisión accidental con las lentes. Abra la puerta y retire la lámina.  
+3. Retire el producto final y cualquier residuo en el área de trabajo.  
+4. Desactive la máquina repitiendo la secuencia de activación, pero en orden inverso: retire la llave, active el tope de seguridad, apague el interruptor de corriente y, por último, apague el sistema de ventilación.  
+5. Retire todo el material sobrante de las instalaciones, no olvide el USB y devuelva la clave de licencia del software y la llave de la máquina a su instructor.  
+6. Registre la hora en que terminó de trabajar en el log del Fab Lab.

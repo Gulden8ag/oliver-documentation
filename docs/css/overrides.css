@@ -117,3 +117,53 @@
   background-color: rgba(155,89,182,0.1) !important;
   border-left: 4px solid #9B59B6 !important;
 }
+
+/* Tabla 'horario' dentro de admoniciones */
+.md-typeset .admonition table.horario {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.md-typeset .admonition .horario th,
+.md-typeset .admonition .horario td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* Colores de celdas (con mayor especificidad y !important) */
+.md-typeset .admonition .horario td.docencia  { background-color: #ef9a9a !important; }
+.md-typeset .admonition .horario td.gestion   { background-color: #bbdefb !important; }
+.md-typeset .admonition .horario td.atencion  { background-color: #c8e6c9 !important; }
+.md-typeset .admonition .horario td.comida    { background-color: #eeeeee !important; }
+.md-typeset .admonition .horario td.circun    { background-color: #fff59d !important; }
+.md-typeset .admonition .horario td.off       { background-color: #fafafa !important; color: #999 !important; }
+
+/* Scroll horizontal y primera columna adhesiva en pantallas pequeñas */
+@media (max-width: 900px) {
+  .md-typeset .admonition table.horario { display: block; overflow-x: auto; white-space: nowrap; }
+  .md-typeset .admonition .horario th,
+  .md-typeset .admonition .horario td { min-width: 120px; }
+  .md-typeset .admonition .horario th:first-child {
+    position: sticky; left: 0; z-index: 1;
+    background: var(--md-default-bg-color, #fff);
+  }
+}
+
+.md-typeset .admonition .horario thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--md-default-bg-color, #fff);
+}
+
+/* Asegura legibilidad del texto sobre fondos claros */
+.md-typeset .admonition .horario td.docencia,
+.md-typeset .admonition .horario td.gestion,
+.md-typeset .admonition .horario td.atencion,
+.md-typeset .admonition .horario td.comida,
+.md-typeset .admonition .horario td.circun {
+  color: #111 !important;
+}

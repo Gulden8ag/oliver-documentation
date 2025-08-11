@@ -1,6 +1,6 @@
 === "Semestre 1"
 
-    ??? info coord-mecanica "📐 Dibujo por Computadora I (LIIM2101)"
+    ??? info coord-mecanica "📐 Dibujo por Computadora I LIIM2101"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** L  
@@ -13,7 +13,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-oliver "🔌 Electrónica Digital (LIIE2102)"
+    ??? info coord-oliver "🔌 Electrónica Digital LIIE2102"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -27,7 +27,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-oliver "🤖 Introducción a la Mecatrónica (LIIT0401)"
+    ??? info coord-oliver "🤖 Introducción a la Mecatrónica LIIT0401"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -41,7 +41,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-sistemas "💻 Laboratorio de Programación (LIIS2101)"
+    ??? info coord-sistemas "💻 Laboratorio de Programación LIIS2101"
         **Créditos:** 4  
         **Horas/semana con académico:** 4  
         **Instalación:** L  
@@ -54,7 +54,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Antonio Benítez (Sistemas Computacionales)
 
-    ??? info coord-ciencias "⚗️ Laboratorio de Química General (LICB1219)"
+    ??? info coord-ciencias "⚗️ Laboratorio de Química General LICB1219"
         **Créditos:** 2  
         **Horas/semana con académico:** 2  
         **Instalación:** L  
@@ -66,7 +66,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-ciencias "📐 Matemáticas Universitarias (LICB2101)"
+    ??? info coord-ciencias "📐 Matemáticas Universitarias LICB2101"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -78,7 +78,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería I (LIIB2101)"
+    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería I LIIB2101"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -90,7 +90,7 @@
         ??? tip "⭐ Coordinación"
             - Mtra. Ana Moreno (Biomédica)
 
-    ??? info coord-ciencias "📖 Química General (LICB1224)"
+    ??? info coord-ciencias "📖 Química General LICB1224"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -105,7 +105,7 @@
 
 === "Semestre 2"
 
-    ??? info coord-ciencias "➗ Álgebra Lineal (LICB1202)"
+    ??? info coord-ciencias "➗ Álgebra Lineal LICB1202"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -119,7 +119,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-ciencias "∫ Cálculo Diferencial e Integral (LICB2103)"
+    ??? info coord-ciencias "∫ Cálculo Diferencial e Integral LICB2103"
         **Créditos:** 8  
         **Horas/semana con académico:** 6  
         **Instalación:** A  
@@ -135,7 +135,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-mecanica "📐 Dibujo por Computadora II (LIIM2102)"
+    ??? info coord-mecanica "📐 Dibujo por Computadora II LIIM2102"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** L  
@@ -150,7 +150,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-ciencias "📊 Estadística y Probabilidad (LICB2102)"
+    ??? info coord-ciencias "📊 Estadística y Probabilidad LICB2102"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -164,7 +164,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-mecanica "🧪 Laboratorio de Mecánica I (LICB2107)"
+    ??? info coord-mecanica "🧪 Laboratorio de Mecánica I LICB2107"
         **Créditos:** 2  
         **Horas/semana con académico:** 2  
         **Instalación:** L  
@@ -177,7 +177,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-otros "📖 Lectura y Expresión Académica (LHLF1201)"
+    ??? info coord-otros "📖 Lectura y Expresión Académica (LHLF1201"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -190,7 +190,7 @@
         ??? tip "⭐ Coordinación"
             - Coordinación de Reflexión Universitaria
 
-    ??? info coord-mecanica "📐 Mecánica I (LICB2106)"
+    ??? info coord-mecanica "📐 Mecánica I LICB2106"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -203,7 +203,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería II (LIIB2102)"
+    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería II LIIB2102"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -219,7 +219,7 @@
             - Mtra. Ana Moreno (Biomédica)
 === "Semestre 3"
 
-    ??? info coord-sistemas "🖥️ Programación Avanzada y Algoritmos (LIIS2105)"
+    ??? info coord-sistemas "🖥️ Programación Avanzada y Algoritmos LIIS2105"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** L  
@@ -232,7 +232,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Antonio Benítez (Sistemas Computacionales)
 
-    ??? info coord-oliver "🔧 Producción Electrónica (LIIE2103)"
+    ??? info coord-oliver "🔧 Producción Electrónica LIIE2103"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** L  
@@ -245,7 +245,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-ciencias "⚡ Electromagnetismo (LICB2110 y LICB2111)"
+    ??? info coord-ciencias "⚡ Electromagnetismo LICB2110 y LICB2111"
         **Créditos:** 8  
         **Horas/semana con académico:** 6  
         **Instalación:** A/L  
@@ -258,7 +258,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-ciencias "∑ Cálculo Multivariable (LICB2105)"
+    ??? info coord-ciencias "∑ Cálculo Multivariable LICB2105"
         **Créditos:** 8  
         **Horas/semana con académico:** 6  
         **Instalación:** A  
@@ -273,7 +273,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-ciencias "🔧 Mecánica II (LICB2108 y LICB2109)"
+    ??? info coord-ciencias "🔧 Mecánica II LICB2108 y LICB2109"
         **Créditos:** 8  
         **Horas/semana con académico:** 6  
         **Instalación:** A/L  
@@ -288,7 +288,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-negocios "🗂️ Formulación de Proyectos (LICB0423)"
+    ??? info coord-negocios "🗂️ Formulación de Proyectos LICB0423"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -301,7 +301,7 @@
         ??? tip "⭐ Coordinación"
             - Dra. Yvonne Montaudon (Negocios)
 
-    ??? info coord-otros "🤝 Persona y Humanismo (LYRU2101)"
+    ??? info coord-otros "🤝 Persona y Humanismo LYRU2101"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -316,7 +316,7 @@
 
 === "Semestre 4"
 
-    ??? info coord-ciencias "➗ Métodos Numéricos (LICB1229)"
+    ??? info coord-ciencias "➗ Métodos Numéricos LICB1229"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -329,7 +329,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-ciencias "∫ Ecuaciones Diferenciales (LICB2113)"
+    ??? info coord-ciencias "∫ Ecuaciones Diferenciales LICB2113"
         **Créditos:** 8  
         **Horas/semana con académico:** 6  
         **Instalación:** A  
@@ -344,7 +344,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-oliver "🔌 Circuitos Electrónicos I (LIIE2104)"
+    ??? info coord-oliver "🔌 Circuitos Electrónicos I LIIE2104"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -357,7 +357,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-mecanica "🛠️ Laboratorio de Resistencia de Materiales (LIIM1208)"
+    ??? info coord-mecanica "🛠️ Laboratorio de Resistencia de Materiales LIIM1208"
         **Créditos:** 2  
         **Horas/semana con académico:** 2  
         **Instalación:** L  
@@ -370,7 +370,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-mecanica "📐 Resistencia de Materiales (LIIM1214)"
+    ??? info coord-mecanica "📐 Resistencia de Materiales LIIM1214"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -383,7 +383,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-ciencias "⚙️ Mecánica III (LICB2112)"
+    ??? info coord-ciencias "⚙️ Mecánica III LICB2112"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -398,7 +398,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Alfredo Loranca (Ciencias Básicas)
 
-    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería III (LIIB2103)"
+    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería III LIIB2103"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -415,7 +415,7 @@
 
 === "Semestre 5"
 
-    ??? info coord-oliver "🔌 Circuitos Electrónicos II (LIIE2105)"
+    ??? info coord-oliver "🔌 Circuitos Electrónicos II LIIE2105"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -430,7 +430,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-mecanica "📐 Diseño de Mecanismos (LIIM2103)"
+    ??? info coord-mecanica "📐 Diseño de Mecanismos LIIM2103"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -443,7 +443,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-mecanica "🔍 Metrología Dimensional (LIIM2105)"
+    ??? info coord-mecanica "🔍 Metrología Dimensional LIIM2105"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** L  
@@ -456,7 +456,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-oliver "🖥️ Modelado de Control Continuo (LIIE2106)"
+    ??? info coord-oliver "🖥️ Modelado de Control Continuo LIIE2106"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -469,7 +469,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería IV (LIIB2104)"
+    ??? info coord-biomedica "🛠️ Proyecto de Ingeniería IV LIIB2104"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -484,7 +484,7 @@
         ??? tip "⭐ Coordinación"
             - Mtra. Ana Moreno (Biomédica)
 
-    ??? info coord-sistemas "💻 Sistemas Embebidos I (LIIS2106)"
+    ??? info coord-sistemas "💻 Sistemas Embebidos I LIIS2106"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -498,7 +498,7 @@
             - Dr. Antonio Benítez (Sistemas Computacionales)
 === "Semestre 6"
 
-    ??? info coord-oliver "📦 Desarrollo de Proyectos en Ingeniería Mecatrónica (LIIE2109)"
+    ??? info coord-oliver "📦 Desarrollo de Proyectos en Ingeniería Mecatrónica LIIE2109"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -513,7 +513,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-sistemas "🤖 Fundamentos de Inteligencia Artificial (LIIS2109)"
+    ??? info coord-sistemas "🤖 Fundamentos de Inteligencia Artificial LIIS2109"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -526,7 +526,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Antonio Benítez (Sistemas Computacionales)
 
-    ??? info coord-oliver "🔌 Instrumentación Electrónica (LIIE2107)"
+    ??? info coord-oliver "🔌 Instrumentación Electrónica LIIE2107"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -539,7 +539,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-oliver "⚙️ Modelado de Control Discreto (LIIE2108)"
+    ??? info coord-oliver "⚙️ Modelado de Control Discreto LIIE2108"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -551,7 +551,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-industrial "🏭 Procesos Mecánicos de Manufactura (LIII2116)"
+    ??? info coord-industrial "🏭 Procesos Mecánicos de Manufactura LIII2116"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** L  
@@ -562,9 +562,9 @@
             - NX de Siemens (licencia OAT)  
             - Alternativa libre: FreeCAD  
         ??? tip "⭐ Coordinación"
-            - Ing. Industrial y Logística
+            - Mtro. Victor Hernandez (Industrial y Logistica)
 
-    ??? info coord-sistemas "🛠️ Sistemas Embebidos II (LIIS2107)"
+    ??? info coord-sistemas "🛠️ Sistemas Embebidos II LIIS2107"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -581,7 +581,7 @@
 
 === "Semestre 7"
 
-    ??? info coord-otros "🤝 Reflexión y Acción Social (LRSS2102)"
+    ??? info coord-otros "🤝 Reflexión y Acción Social LRSS2102"
         **Créditos:** 4  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -596,7 +596,7 @@
         ??? tip "⭐ Coordinación"
             - Coordinación de Servicio Social Oficial
 
-    ??? info coord-oliver "🔌 Circuitos Electrónicos de Potencia (LIIE2110)"
+    ??? info coord-oliver "🔌 Circuitos Electrónicos de Potencia LIIE2110"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -609,7 +609,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-mecanica "📐 Diseño Mecánico (LIIM2107)"
+    ??? info coord-mecanica "📐 Diseño Mecánico LIIM2107"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -622,7 +622,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Darío Gómez (Mecánica)
 
-    ??? info coord-negocios "💡 Proyecto de Innovación Frugal (LIIN2104)"
+    ??? info coord-negocios "💡 Proyecto de Innovación Frugal LIIN2104"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -637,7 +637,7 @@
         ??? tip "⭐ Coordinación"
             - Dra. Yvonne Montaudon (Negocios)
 
-    ??? info coord-sistemas "🌐 Redes Digitales e Internet (LIIS2108)"
+    ??? info coord-sistemas "🌐 Redes Digitales e Internet LIIS2108"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -650,7 +650,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Antonio Benítez (Sistemas Computacionales)
 
-    ??? info coord-oliver "⚡ Sistemas Eléctricos (LIIE1238)"
+    ??? info coord-oliver "⚡ Sistemas Eléctricos LIIE1238"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -664,7 +664,7 @@
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 === "Semestre 8"
 
-    ??? info coord-oliver "🏭 Automatización y Control Industrial (LIIE2111)"
+    ??? info coord-oliver "🏭 Automatización y Control Industrial LIIE2111"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -677,7 +677,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-negocios "🚀 Emprendimiento Tecnológico (LIIN2105)"
+    ??? info coord-negocios "🚀 Emprendimiento Tecnológico LIIN2105"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -690,7 +690,7 @@
         ??? tip "⭐ Coordinación"
             - Dra. Yvonne Montaudon (Negocios)
 
-    ??? info coord-negocios "🏢 Práctica Profesional I (LIIN2103)"
+    ??? info coord-negocios "🏢 Práctica Profesional I LIIN2103"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -703,7 +703,7 @@
         ??? tip "⭐ Coordinación"
             - Dra. Yvonne Montaudon (Negocios)
 
-    ??? info coord-negocios "🛠️ Taller de Emprendimiento Tecnológico (LIIN2106)"
+    ??? info coord-negocios "🛠️ Taller de Emprendimiento Tecnológico LIIN2106"
         **Créditos:** 8  
         **Horas/semana con académico:** 2  
         **Instalación:** L  
@@ -718,7 +718,7 @@
 
 === "Semestre 9"
 
-    ??? info coord-otros "⚖️ Dilemas Éticos en la Ingeniería (LYRU2118)"
+    ??? info coord-otros "⚖️ Dilemas Éticos en la Ingeniería LYRU2118"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -733,7 +733,7 @@
         ??? tip "⭐ Coordinación"
             - Coordinación de Reflexión Universitaria
 
-    ??? info coord-negocios "📊 Implementación y Evaluación de Proyectos (LIIN1203)"
+    ??? info coord-negocios "📊 Implementación y Evaluación de Proyectos LIIN1203"
         **Créditos:** 8  
         **Horas/semana con académico:** 4  
         **Instalación:** A  
@@ -748,7 +748,7 @@
         ??? tip "⭐ Coordinación"
             - Dra. Yvonne Montaudon (Negocios)
 
-    ??? info coord-negocios "🏭 Práctica Profesional II (LIIN2107)"
+    ??? info coord-negocios "🏭 Práctica Profesional II LIIN2107"
         **Créditos:** 4  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -765,7 +765,7 @@
 
 === "Optativas"
 
-    ??? info coord-sistemas "📡 Control Remoto e Internet (LIIS2104)"
+    ??? info coord-sistemas "📡 Control Remoto e Internet LIIS2104"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -778,7 +778,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Antonio Benítez (Sistemas Computacionales)
 
-    ??? info coord-oliver "🤖 Robótica Industrial (LIIE2101)"
+    ??? info coord-oliver "🤖 Robótica Industrial LIIE2101"
         **Créditos:** 6  
         **Horas/semana con académico:** 4  
         **Instalación:** A/L  
@@ -791,7 +791,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-oliver "📶 Sistemas de Control y Monitoreo (LIIE2112)"
+    ??? info coord-oliver "📶 Sistemas de Control y Monitoreo LIIE2112"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -804,7 +804,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-oliver "🦾 Temas Selectos de Robótica (LIIE2113)"
+    ??? info coord-oliver "🦾 Temas Selectos de Robótica LIIE2113"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A/L  
@@ -817,7 +817,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-oliver "⚙️ Tópicos Avanzados de Automatización (LIIE2114)"
+    ??? info coord-oliver "⚙️ Tópicos Avanzados de Automatización LIIE2114"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -830,7 +830,7 @@
         ??? tip "⭐ Coordinación"
             - Mtro. Oliver Ochoa (Electrónica / Mecatrónica)
 
-    ??? info coord-negocios "💼 Tópicos de Ingeniería de Negocios (LIIN2110)"
+    ??? info coord-negocios "💼 Tópicos de Ingeniería de Negocios LIIN2110"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -843,7 +843,7 @@
         ??? tip "⭐ Coordinación"
             - Dra. Yvonne Montaudon (Negocios)
 
-    ??? info coord-industrial "🚚 Tópicos de Ingeniería en Logística (LIIL2102)"
+    ??? info coord-industrial "🚚 Tópicos de Ingeniería en Logística LIIL2102"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -854,9 +854,9 @@
             - Microsoft Excel (Office 365, licencia OAT)  
             - Alternativa libre: R (packages dplyr, ggplot2)  
         ??? tip "⭐ Coordinación"
-            - Ing. Industrial y Logística
+            - Mtro. Victor Hernandez (Industrial y Logistica)
 
-    ??? info coord-industrial "🏭 Tópicos de Ingeniería Industrial (LIII2106)"
+    ??? info coord-industrial "🏭 Tópicos de Ingeniería Industrial LIII2106"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -867,9 +867,9 @@
             - Minitab (licencia OAT)  
             - Alternativa libre: FreeFEM, FreeCAD  
         ??? tip "⭐ Coordinación"
-            - Ing. Industrial y Logística
+            - Mtro. Victor Hernandez (Industrial y Logistica)
 
-    ??? info coord-sistemas "💾 Tópicos en Gestión de la Información (LIIS2103)"
+    ??? info coord-sistemas "💾 Tópicos en Gestión de la Información LIIS2103"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -882,7 +882,7 @@
         ??? tip "⭐ Coordinación"
             - Dr. Antonio Benítez (Sistemas Computacionales)
 
-    ??? info coord-industrial "🔧 Tópicos en Gestión de Tecnología (LIII2107)"
+    ??? info coord-industrial "🔧 Tópicos en Gestión de Tecnología LIII2107"
         **Créditos:** 6  
         **Horas/semana con académico:** 2  
         **Instalación:** A  
@@ -893,4 +893,4 @@
             - Microsoft Project (Office 365, licencia OAT)  
             - Alternativa libre: OpenProject  
         ??? tip "⭐ Coordinación"
-            - Ing. Industrial y Logística
+            - Mtro. Victor Hernandez (Industrial y Logistica)

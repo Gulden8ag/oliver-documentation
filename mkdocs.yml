@@ -1,4 +1,4 @@
-site_name: Oliver Documentation
+site_name: COORDINACIÓN IMT/ICE
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -25,16 +25,16 @@ theme:
   name: material
   highlightjs: true 
   palette:
-      - scheme: slate
-        toggle:
-            icon: material/weather-sunny
-            name: Dark mode
-        primary: red
-
       - scheme: default
         toggle:
             icon: material/weather-night
             name: Light mode
+        primary: red
+
+      - scheme: slate
+        toggle:
+            icon: material/weather-sunny
+            name: Dark mode
         primary: red
   features:
     - content.code.copy
@@ -44,31 +44,31 @@ extra_css:
 
 # Define navigation structure
 nav:
-  - Home: "index.md"
-  - Clases:
-      - Sistemas Embebidos I:
-            - Tema 1: "clases/sistemas-embebidos-i/tema1.md"
-            - Tema 2: "clases/sistemas-embebidos-i/tema2.md"
-      - Sistemas Embebidos II: 
-            - Tema 1: "clases/sistemas-embebidos-ii/tema1.md"
-      - Robotica Movil:              
-            - Instalar ROS: "clases/robotica-movil/tema1.md"
-            - Crear paqueteria ROS: "clases/robotica-movil/tema2.md"
-            - Cmds Comunes ROS: "clases/robotica-movil/tema3.md"
-      - Robotica Articulada:         
-            - Tema 1: "clases/robotica-articulada/tema1.md"
-            - Tema 2: "clases/robotica-articulada/tema2.md"
-            - Tema 3: "clases/robotica-articulada/tema3.md"
-      - Proyectos de Ingenieria 1:   
-            - Tema 1: "clases/proyectos-ingenieria-1/tema1.md"
-      - Introduccion a la mecatronica: 
-            - Tema 1: "clases/introduccion-mecatronica/tema1.md"
-      - Produccion Electronica:      
-            - Tema 1: "clases/produccion-electronica/tema1.md"
-      - Temas Selectos Ing Mecatronica: 
-            - Tema 1: "clases/temas-selectos-im/tema1.md"
-      - Fab Academy:                
-            - Tema 1: "clases/fab-academy/tema1.md"
+#   - Home: "index.md"
+#   - Clases:
+#       - Sistemas Embebidos I:
+#             - Tema 1: "clases/sistemas-embebidos-i/tema1.md"
+#             - Tema 2: "clases/sistemas-embebidos-i/tema2.md"
+#       - Sistemas Embebidos II: 
+#             - Tema 1: "clases/sistemas-embebidos-ii/tema1.md"
+#       - Robotica Movil:              
+#             - Instalar ROS: "clases/robotica-movil/tema1.md"
+#             - Crear paqueteria ROS: "clases/robotica-movil/tema2.md"
+#             - Cmds Comunes ROS: "clases/robotica-movil/tema3.md"
+#       - Robotica Articulada:         
+#             - Tema 1: "clases/robotica-articulada/tema1.md"
+#             - Tema 2: "clases/robotica-articulada/tema2.md"
+#             - Tema 3: "clases/robotica-articulada/tema3.md"
+#       - Proyectos de Ingenieria 1:   
+#             - Tema 1: "clases/proyectos-ingenieria-1/tema1.md"
+#       - Introduccion a la mecatronica: 
+#             - Tema 1: "clases/introduccion-mecatronica/tema1.md"
+#       - Produccion Electronica:      
+#             - Tema 1: "clases/produccion-electronica/tema1.md"
+#       - Temas Selectos Ing Mecatronica: 
+#             - Tema 1: "clases/temas-selectos-im/tema1.md"
+#       - Fab Academy:                
+#             - Tema 1: "clases/fab-academy/tema1.md"
   - Tutoriales:  
      - Maquinas: 
           - Laser: "tutoriales_Laser.md"
@@ -89,5 +89,8 @@ nav:
           - programacion: "proyectos/scada/programacion.md"
           - diseno: "proyectos/scada/diseno.md"
   - Plan Mecatronica:        "recursos/Plan_Mecatronica.md"
-
-
+  - Contacto:               
+      - Academicos Mecatronica: "Contactos/oliver.md"
+      - Fablab: "Contactos/fablab.md"
+      - Departamento de Ciencias e Ingenierias: "Contactos/departamento.md"
+      - Otros contactos: "Contactos/otros.md"
