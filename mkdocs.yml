@@ -44,7 +44,7 @@ extra_css:
 
 # Define navigation structure
 nav:
-#   - Home: "index.md"
+   - Home: "index.md"
 #   - Clases:
 #       - Sistemas Embebidos I:
 #             - Tema 1: "clases/sistemas-embebidos-i/tema1.md"
