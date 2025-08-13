@@ -69,26 +69,28 @@ nav:
 #             - Tema 1: "clases/temas-selectos-im/tema1.md"
 #       - Fab Academy:                
 #             - Tema 1: "clases/fab-academy/tema1.md"
-  - tutoriales:  
+  - Tutoriales:  
      - Maquinas: 
           - Laser: "tutoriales_Laser.md"
-          - Router: "tutoriales_Router.md"
-          - MonoFab: "tutoriales_monofab.md"
-          - Impresora 3d: "tutoriales_print3d.md"
+          #- Router: "tutoriales_Router.md"
+          #- MonoFab: "tutoriales_monofab.md"
+          #- Impresora 3d: "tutoriales_print3d.md"
      - Software:
-          - PrusaSlicer: "tutoriales_pslicer.md"
+          #- PrusaSlicer: "tutoriales_pslicer.md"
           - Cura: "tutoriales_cura.md"
-          - Mods: "tutoriales_mods.md"
-  - Proyectos:   
-      - AMR: 
-          - contacto: "proyectos/amr/contacto.md"
-          - programacion: "proyectos/amr/programacion.md"
-          - diseno: "proyectos/amr/diseno.md"
-      - Scada: 
-          - contacto: "proyectos/scada/contacto.md"
-          - programacion: "proyectos/scada/programacion.md"
-          - diseno: "proyectos/scada/diseno.md"
+          #- Mods: "tutoriales_mods.md"
+  # - Proyectos:   
+  #     - AMR: 
+  #         - contacto: "proyectos/amr/contacto.md"
+  #         - programacion: "proyectos/amr/programacion.md"
+  #         - diseno: "proyectos/amr/diseno.md"
+  #     - Scada: 
+  #         - contacto: "proyectos/scada/contacto.md"
+  #         - programacion: "proyectos/scada/programacion.md"
+  #         - diseno: "proyectos/scada/diseno.md"
   - Plan Mecatronica:        "recursos/Plan_Mecatronica.md"
+  - Plan Electronica:        "recursos/Plan_Electronica.md"
+  - Intercambios: "recursos/intercambios_mecatronica_electronica.md"
   - Contacto:               
       - Academicos Mecatronica: "Contactos/oliver.md"
       - Fablab: "Contactos/fablab.md"
