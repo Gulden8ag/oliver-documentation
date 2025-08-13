@@ -1,3 +1,41 @@
+**Leyenda de coordinaciones**
+
+<div class="leyenda-wrap">
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-sistemas"></span> Sistemas Computacionales
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-mecanica"></span> Mecánica
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-oliver"></span> Electrónica / Mecatrónica
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-biomedica"></span> Biomédica
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-negocios"></span> Negocios
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-ciencias"></span> Ciencias Básicas
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-industrial"></span> Ingeniería Industrial
+  </span>
+
+  <span class="leyenda-coord">
+    <span class="swatch swatch-otros"></span> Reflexión Universitaria / Otros
+  </span>
+
+</div>
+
 === "Semestre 1"
 
     ??? info coord-mecanica "📐 Dibujo por Computadora I LIIM2101"

@@ -3,11 +3,15 @@
 ### Mtro. Oliver Ochoa García
 Coordinador de Ing. Mecatrónica y Electrónica
 ??? info "Contacto"
-    - 📍 Oficina: J-146  
-    - 🕗 Horario: 8:00–17:00  
-    - ☎️ Número: 3723000 Ext. 12708  
-    - 📧 Correo: oliver.ochoa2@iberopuebla.mx 
-
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <img src="../../images/oliver.jfif" alt="Oliver Ochoa" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
+        <div>
+            <p>📍 <strong>Oficina:</strong> J-146</p>
+            <p>🕗 <strong>Horario:</strong> 8:00–17:00</p>
+            <p>☎️ <strong>Número:</strong> 3723000 Ext. 12708</p>
+            <p>📧 <strong>Correo:</strong> <a href="mailto:oliver.ochoa2@iberopuebla.mx">oliver.ochoa2@iberopuebla.mx</a></p>
+        </div>
+    </div>
 
 
   <p>
@@ -298,6 +302,13 @@ Academico de Tiempo Completo de Sistemas Computacionales
     </tbody>
   </table>
 
+### Mtro. Javier Osorio
+
+  - 📧 Correo: javier.osorio.figueroa@iberopuebla.mx
+
+  <table class="horario"> <thead> <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr> </thead> <tbody> <tr><th>07:00–09:00</th><td class="docencia">Docencia</td><td></td><td class="docencia">Docencia</td><td></td><td></td></tr> <tr><th>09:00–11:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> <tr><th>11:00–13:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> <tr><th>13:00–15:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> </tbody> </table>
+
+
 ### Dr. Renan Contreras
   - 📧 Correo: isiing@prodigy.net.mx
 
@@ -337,11 +348,6 @@ COORDINADOR DE OPERACIONES Y SERVICIOS ACADÉMICOS IDIT
 
   <table class="horario"> <thead> <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr> </thead> <tbody> <tr><th>07:00–09:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td></td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> </tbody> </table>
 
-### Mtro. Javier Osorio
-
-  - 📧 Correo: javier.osorio.figueroa@iberopuebla.mx
-
-  <table class="horario"> <thead> <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr> </thead> <tbody> <tr><th>07:00–09:00</th><td class="docencia">Docencia</td><td></td><td class="docencia">Docencia</td><td></td><td></td></tr> <tr><th>09:00–11:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> <tr><th>11:00–13:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> <tr><th>13:00–15:00</th><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td><td class="docencia">Docencia</td></tr> </tbody> </table>
 
 ### Mtro. Luis Arenas
 

@@ -18,6 +18,7 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - pymdownx.emoji
   - pymdownx.tabbed:
       alternate_style: true
 # Use the ReadTheDocs theme
@@ -41,6 +42,8 @@ theme:
     - content.tooltips
 extra_css:
   - css/overrides.css
+  - https://use.fontawesome.com/releases/v6.5.2/css/all.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
 
 # Define navigation structure
 nav:
@@ -91,11 +94,12 @@ nav:
   - Plan Mecatronica:        "recursos/Plan_Mecatronica.md"
   - Plan Electronica:        "recursos/Plan_Electronica.md"
   - Intercambios: "recursos/intercambios_mecatronica_electronica.md"
+  - CER: "recursos/cer.md"
   - Contacto:               
       - Academicos Mecatronica: "Contactos/oliver.md"
-      - Fablab: "Contactos/fablab.md"
+      #- Fablab: "Contactos/fablab.md"
       - Departamento de Ciencias e Ingenierias: "Contactos/departamento.md"
-      - Otros contactos: "Contactos/otros.md"
+      #- Otros contactos: "Contactos/otros.md"
 
 validation:
   nav:

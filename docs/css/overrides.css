@@ -167,3 +167,31 @@
 .md-typeset .admonition .horario td.circun {
   color: #111 !important;
 }
+
+
+.img-circular {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+  border: 3px solid #ccc;
+}
+
+/* Leyenda de coordinaciones: estilo base */
+.leyenda-coord { display:inline-flex; align-items:center; gap:.4rem; margin:.25rem .75rem .25rem 0; }
+.leyenda-coord .swatch {
+  width:14px; height:14px; border-radius:3px; border:2px solid currentColor; display:inline-block;
+}
+
+/* Colores tomados de tus clases coord-* */
+.swatch-sistemas   { color:#008080; background:rgba(0,128,128,0.12); }
+.swatch-mecanica   { color:#E67E22; background:rgba(230,126,34,0.12); }
+.swatch-oliver     { color:#1E90FF; background:rgba(30,144,255,0.12); }
+.swatch-biomedica  { color:#27AE60; background:rgba(39,174,96,0.12); }
+.swatch-negocios   { color:#F1C40F; background:rgba(241,196,15,0.18); }
+.swatch-ciencias   { color:#7F8C8D; background:rgba(127,140,141,0.15); }
+.swatch-industrial { color:#2C3E50; background:rgba(44,62,80,0.12); }
+.swatch-otros      { color:#9B59B6; background:rgba(155,89,182,0.14); }
+
+/* Opcional: contenedor para alinear en varias filas si se desborda */
+.leyenda-wrap { display:flex; flex-wrap:wrap; gap:.25rem .75rem; align-items:center; }
