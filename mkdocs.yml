@@ -44,7 +44,7 @@ extra_css:
 
 # Define navigation structure
 nav:
-   - Home: "index.md"
+  - Home: "index.md"
 #   - Clases:
 #       - Sistemas Embebidos I:
 #             - Tema 1: "clases/sistemas-embebidos-i/tema1.md"
@@ -69,7 +69,7 @@ nav:
 #             - Tema 1: "clases/temas-selectos-im/tema1.md"
 #       - Fab Academy:                
 #             - Tema 1: "clases/fab-academy/tema1.md"
-  - Tutoriales:  
+  - tutoriales:  
      - Maquinas: 
           - Laser: "tutoriales_Laser.md"
           - Router: "tutoriales_Router.md"
@@ -94,3 +94,7 @@ nav:
       - Fablab: "Contactos/fablab.md"
       - Departamento de Ciencias e Ingenierias: "Contactos/departamento.md"
       - Otros contactos: "Contactos/otros.md"
+
+validation:
+  nav:
+    omitted_files: ignore
