@@ -1,3 +1,6 @@
+[📄 Version para Imprimir](../images/PLANIMTSUJ.pdf)
+
+
 **Leyenda de coordinaciones**
 
 <div class="leyenda-wrap">

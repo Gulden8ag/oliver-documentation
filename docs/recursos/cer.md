@@ -120,3 +120,4 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
 ![](../images/humanitarian.jpg){width=220}
 ![](../images/andes.jpg){width=220}
 ![](../images/wro.jpg){width=220}
+![](../images/oriente.jpg){width=400}
