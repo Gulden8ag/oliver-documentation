@@ -33,17 +33,14 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         </div>
     </div>
 
-!!! info "Por definir — Secretario"
+!!! info "Leonardo Zamora Hernandez — Secretario"
     <div style="display: flex; align-items: center; gap: 1rem;">
-        <img src="../../images/secretario.jpg" alt="Secretario" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
+        <img src="../../images/leonardo.jpg" alt="Mesa de trabajo" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
         <div>
             <p><strong>Carrera:</strong> Ingeniería Mecatrónica</p>
-            <p><strong>Tel:</strong> —</p>
-            <p><strong>Correo:</strong> —</p>
+            <p><strong>Correo:</strong> <a href="mailto:leonardo.zamora@iberopuebla.mx">leonardo.zamora@iberopuebla.mx</a></p>
         </div>
     </div>
-
-
 
 !!! info "Guillermo Michel Gonzalez — Mesa de trabajo"
     <div style="display: flex; align-items: center; gap: 1rem;">
@@ -99,14 +96,7 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         </div>
     </div>
 
-!!! info "Leonardo Zamora Hernandez — Mesa de trabajo"
-    <div style="display: flex; align-items: center; gap: 1rem;">
-        <img src="../../images/leonardo.jpg" alt="Mesa de trabajo" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
-        <div>
-            <p><strong>Carrera:</strong> Ingeniería Mecatrónica</p>
-            <p><strong>Correo:</strong> <a href="mailto:leonardo.zamora@iberopuebla.mx">leonardo.zamora@iberopuebla.mx</a></p>
-        </div>
-    </div>
+
 
 !!! info "Joseph Alavez Jaimes — Mesa de trabajo"
     <div style="display: flex; align-items: center; gap: 1rem;">
@@ -117,3 +107,16 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         </div>
     </div>
 
+---
+
+## 🎉 Eventos
+![](../images/malinche.jpg){width=220} 
+![](../images/luchas.jpg){width=220} 
+![](../images/praga.jpg){width=220}
+![](../images/fab24.jpg){width=220}
+![](../images/cdmx.jpg){width=220}
+![](../images/leon.jpg){width=220}
+![](../images/ieeeday.jpg){width=220}
+![](../images/humanitarian.jpg){width=220}
+![](../images/andes.jpg){width=220}
+![](../images/wro.jpg){width=220}
