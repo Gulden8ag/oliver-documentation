@@ -48,49 +48,49 @@ extra_css:
 # Define navigation structure
 nav:
   - Home: "index.md"
-#   - Clases:
+  - Clases:
 #       - Sistemas Embebidos I:
 #             - Tema 1: "clases/sistemas-embebidos-i/tema1.md"
 #             - Tema 2: "clases/sistemas-embebidos-i/tema2.md"
 #       - Sistemas Embebidos II: 
 #             - Tema 1: "clases/sistemas-embebidos-ii/tema1.md"
-#       - Robotica Movil:              
-#             - Instalar ROS: "clases/robotica-movil/tema1.md"
-#             - Crear paqueteria ROS: "clases/robotica-movil/tema2.md"
-#             - Cmds Comunes ROS: "clases/robotica-movil/tema3.md"
-#       - Robotica Articulada:         
-#             - Tema 1: "clases/robotica-articulada/tema1.md"
-#             - Tema 2: "clases/robotica-articulada/tema2.md"
-#             - Tema 3: "clases/robotica-articulada/tema3.md"
-#       - Proyectos de Ingenieria 1:   
-#             - Tema 1: "clases/proyectos-ingenieria-1/tema1.md"
-#       - Introduccion a la mecatronica: 
-#             - Tema 1: "clases/introduccion-mecatronica/tema1.md"
-#       - Produccion Electronica:      
-#             - Tema 1: "clases/produccion-electronica/tema1.md"
-#       - Temas Selectos Ing Mecatronica: 
-#             - Tema 1: "clases/temas-selectos-im/tema1.md"
-#       - Fab Academy:                
-#             - Tema 1: "clases/fab-academy/tema1.md"
+    - Robotica Movil:              
+      - Instalar ROS: "clases/robotica-movil/tema1.md"
+      - Crear paqueteria ROS: "clases/robotica-movil/tema2.md"
+      - Cmds Comunes ROS: "clases/robotica-movil/tema3.md"
+    - Robotica Articulada:         
+      - Tema 1: "clases/robotica-articulada/tema1.md"
+      - Tema 2: "clases/robotica-articulada/tema2.md"
+      - Tema 3: "clases/robotica-articulada/tema3.md"
+#   - Proyectos de Ingenieria 1:   
+#     - Tema 1: "clases/proyectos-ingenieria-1/tema1.md"
+#   - Introduccion a la mecatronica: 
+#     - Tema 1: "clases/introduccion-mecatronica/tema1.md"
+#   - Produccion Electronica:      
+#     - Tema 1: "clases/produccion-electronica/tema1.md"
+#   - Temas Selectos Ing Mecatronica: 
+#     - Tema 1: "clases/temas-selectos-im/tema1.md"
+#   - Fab Academy:                
+#     - Tema 1: "clases/fab-academy/tema1.md"
   - Tutoriales:  
-     - Maquinas: 
-          - Laser: "tutoriales_Laser.md"
-          #- Router: "tutoriales_Router.md"
-          #- MonoFab: "tutoriales_monofab.md"
-          #- Impresora 3d: "tutoriales_print3d.md"
-     - Software:
-          #- PrusaSlicer: "tutoriales_pslicer.md"
-          - Cura: "tutoriales_cura.md"
-          #- Mods: "tutoriales_mods.md"
-  # - Proyectos:   
-  #     - AMR: 
-  #         - contacto: "proyectos/amr/contacto.md"
-  #         - programacion: "proyectos/amr/programacion.md"
-  #         - diseno: "proyectos/amr/diseno.md"
-  #     - Scada: 
-  #         - contacto: "proyectos/scada/contacto.md"
-  #         - programacion: "proyectos/scada/programacion.md"
-  #         - diseno: "proyectos/scada/diseno.md"
+    - Maquinas: 
+      - Laser: "tutoriales_Laser.md"
+      #- Router: "tutoriales_Router.md"
+      #- MonoFab: "tutoriales_monofab.md"
+      #- Impresora 3d: "tutoriales_print3d.md"
+    - Software:
+      #- PrusaSlicer: "tutoriales_pslicer.md"
+      - Cura: "tutoriales_cura.md"
+      #- Mods: "tutoriales_mods.md"
+  #- Proyectos:   
+  #  - AMR: 
+  #      - contacto: "proyectos/amr/contacto.md"
+  #      - programacion: "proyectos/amr/programacion.md"
+  #      - diseno: "proyectos/amr/diseno.md"
+  #  - Scada: 
+  #      - contacto: "proyectos/scada/contacto.md"
+  #      - programacion: "proyectos/scada/programacion.md"
+  #      - diseno: "proyectos/scada/diseno.md"
   - Plan Mecatronica:        "recursos/Plan_Mecatronica.md"
   - Plan Electronica:        "recursos/Plan_Electronica.md"
   - Intercambios: "recursos/intercambios_mecatronica_electronica.md"
@@ -100,6 +100,20 @@ nav:
       #- Fablab: "Contactos/fablab.md"
       - Departamento de Ciencias e Ingenierias: "Contactos/departamento.md"
       #- Otros contactos: "Contactos/otros.md"
+
+plugins:
+  - meta                      # aplica metadatos por carpeta (.meta.yml)
+  - search
+  - encryptcontent:
+      # que lo protegido NO entre al índice de búsqueda
+      search_index: 'encrypted'
+      # que recuerde las llaves entre páginas
+      remember_keys: true
+      # (opcional) agrega un botón junto al campo
+      # password_button: true
+      password_inventory:
+        robotica_movil:       !ENV [RM_PASSWORD, 'MISSING_RM_PASSWORD']
+        robotica_articulada:  !ENV [RA_PASSWORD, 'MISSING_RA_PASSWORD']
 
 validation:
   nav:

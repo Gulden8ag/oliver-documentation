@@ -1,0 +1,3 @@
+mkdocs-material
+mkdocs-encryptcontent-plugin
+pymdown-extensions   # si vas a cifrar solo bloques dentro de una página
