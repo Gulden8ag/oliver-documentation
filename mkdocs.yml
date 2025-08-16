@@ -114,7 +114,7 @@ plugins:
       password_inventory:
         robotica_movil:       !ENV [RM_PASSWORD, 'MISSING_RM_PASSWORD']
         robotica_articulada:  !ENV [RA_PASSWORD, 'MISSING_RA_PASSWORD']
-
+      threshold_warning_min_entropy: 0
 validation:
   nav:
     omitted_files: ignore

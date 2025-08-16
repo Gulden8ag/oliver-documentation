@@ -121,7 +121,7 @@ Cuando la potencia del láser esté al máximo, presionamos el botón de activac
 
 Realizamos una comprobación final: lima, origen, marco y salida láser. Ahora podemos pulsar el botón de inicio y el corte comenzará de inmediato.
 
-![Laser 13](images/laser_13.jpg){loading=lazy}
+
 
 Ahora solo queda supervisar la máquina hasta que finalice el proceso. Debemos estar preparados para activar el tope de seguridad en cualquier momento si observamos alguna anomalía, especialmente incendios.
 
