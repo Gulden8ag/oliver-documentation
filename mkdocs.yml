@@ -7,7 +7,6 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
   - pymdownx.critic:
       mode: view
   - pymdownx.caret
@@ -15,7 +14,34 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
-  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.caret
+  - pymdownx.keys
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.superfences:
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
   - pymdownx.details
   - pymdownx.emoji
@@ -40,66 +66,12 @@ theme:
   features:
     - content.code.copy
     - content.tooltips
+    - toc.integrate
+    - navigation.sections
 extra_css:
   - css/overrides.css
   - https://use.fontawesome.com/releases/v6.5.2/css/all.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
-
-# Define navigation structure
-nav:
-  - Home: "index.md"
-  - Clases:
-#       - Sistemas Embebidos I:
-#             - Tema 1: "clases/sistemas-embebidos-i/tema1.md"
-#             - Tema 2: "clases/sistemas-embebidos-i/tema2.md"
-#       - Sistemas Embebidos II: 
-#             - Tema 1: "clases/sistemas-embebidos-ii/tema1.md"
-    - Robotica Movil:              
-      - Instalar ROS: "clases/robotica-movil/tema1.md"
-      - Crear paqueteria ROS: "clases/robotica-movil/tema2.md"
-      - Cmds Comunes ROS: "clases/robotica-movil/tema3.md"
-    - Robotica Articulada:         
-      - Tema 1: "clases/robotica-articulada/tema1.md"
-      - Tema 2: "clases/robotica-articulada/tema2.md"
-      - Tema 3: "clases/robotica-articulada/tema3.md"
-#   - Proyectos de Ingenieria 1:   
-#     - Tema 1: "clases/proyectos-ingenieria-1/tema1.md"
-#   - Introduccion a la mecatronica: 
-#     - Tema 1: "clases/introduccion-mecatronica/tema1.md"
-#   - Produccion Electronica:      
-#     - Tema 1: "clases/produccion-electronica/tema1.md"
-#   - Temas Selectos Ing Mecatronica: 
-#     - Tema 1: "clases/temas-selectos-im/tema1.md"
-#   - Fab Academy:                
-#     - Tema 1: "clases/fab-academy/tema1.md"
-  - Tutoriales:  
-    - Maquinas: 
-      - Laser: "tutoriales_Laser.md"
-      #- Router: "tutoriales_Router.md"
-      #- MonoFab: "tutoriales_monofab.md"
-      #- Impresora 3d: "tutoriales_print3d.md"
-    - Software:
-      #- PrusaSlicer: "tutoriales_pslicer.md"
-      - Cura: "tutoriales_cura.md"
-      #- Mods: "tutoriales_mods.md"
-  #- Proyectos:   
-  #  - AMR: 
-  #      - contacto: "proyectos/amr/contacto.md"
-  #      - programacion: "proyectos/amr/programacion.md"
-  #      - diseno: "proyectos/amr/diseno.md"
-  #  - Scada: 
-  #      - contacto: "proyectos/scada/contacto.md"
-  #      - programacion: "proyectos/scada/programacion.md"
-  #      - diseno: "proyectos/scada/diseno.md"
-  - Plan Mecatronica:        "recursos/Plan_Mecatronica.md"
-  - Plan Electronica:        "recursos/Plan_Electronica.md"
-  - Intercambios: "recursos/intercambios_mecatronica_electronica.md"
-  - CER: "recursos/cer.md"
-  - Contacto:               
-      - Academicos Mecatronica: "Contactos/oliver.md"
-      #- Fablab: "Contactos/fablab.md"
-      - Departamento de Ciencias e Ingenierias: "Contactos/departamento.md"
-      #- Otros contactos: "Contactos/otros.md"
 
 plugins:
   - meta                      # aplica metadatos por carpeta (.meta.yml)
@@ -115,6 +87,8 @@ plugins:
         robotica_movil:       !ENV [RM_PASSWORD, 'MISSING_RM_PASSWORD']
         robotica_articulada:  !ENV [RA_PASSWORD, 'MISSING_RA_PASSWORD']
       threshold_warning_min_entropy: 0
+      arithmatex: false   # silence "arithmatex" INFO
+      mermaid2:  false    # silence "mermaid2" INFO
 validation:
   nav:
     omitted_files: ignore

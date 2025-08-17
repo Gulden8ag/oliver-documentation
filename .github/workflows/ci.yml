@@ -52,12 +52,11 @@ jobs:
           echo "RA present? ${RA_PASSWORD:+yes}  len=${#RA_PASSWORD}"
           env | grep -E '^(RM|RA)_|^GITHUB_' || true
 
-      - name: Install dependencies
+      - name: Install dependencies (MkDocs + Mermaid)
         run: |
           python -m pip install --upgrade pip
-          python -m pip install mkdocs-material mkdocs-encryptcontent-plugin
-          # if you encrypt partial blocks, also:
-          # python -m pip install pymdown-extensions
+          # Material already brings in pymdown-extensions, but we pin it explicitly for Mermaid fences.
+          python -m pip install "mkdocs-material>=9" "pymdown-extensions>=10" mkdocs-encryptcontent-plugin
 
       # keep this check; it will now pass if secrets are truly present
       - name: Check secrets

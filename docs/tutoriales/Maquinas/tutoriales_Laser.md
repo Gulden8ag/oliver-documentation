@@ -7,12 +7,12 @@
 El software deberá pedirlo a un instructor local, quien nos proporcionará el enlace para descargar el instalador.  
 Es fundamental seguir sus instrucciones al utilizarlo, ya que tiene algunas secciones escritas completamente en chino.
 
-![Laser 1](images/laser_1.jpg){loading=lazy}
+![Laser 1](../../images/laser_1.jpg){loading=lazy}
 
 Uno de los pasos más importantes de la instalación es seleccionar el idioma y el tipo de sistema correctos.  
 Nuestra cortadora láser es del quinto sistema normal, como se muestra en esta imagen:
 
-![Laser 2](images/laser_2.jpg){loading=lazy}
+![Laser 2](../../images/laser_2.jpg){loading=lazy}
 
 Una vez instalado correctamente, necesitaremos la clave de licencia USB.  
 Solicítela a su instructor y cuídela bien; puede parecer modesta, pero es un equipo importante y costoso. Al conectarla a su ordenador, podrá iniciar el software.
@@ -22,7 +22,7 @@ Solicítela a su instructor y cuídela bien; puede parecer modesta, pero es un e
 Al iniciar el programa, veremos la opción **Archivo** en la esquina superior izquierda de la pantalla. Al seleccionarla, se abrirá el menú **Archivo**, donde haremos clic en **Importar**.  
 Importaremos el archivo `.dxf` que creamos a partir de nuestro dibujo.
 
-![Laser 3](images/laser_3.jpg){loading=lazy}
+![Laser 3](../../images/laser_3.jpg){loading=lazy}
 
 Una vez importado, el dibujo se alineará con el punto de origen predeterminado en el programa, que en nuestro caso es la esquina inferior derecha.
 
@@ -34,7 +34,7 @@ Una vez seleccionado el color, introduzca la potencia máxima y mínima del lás
 En nuestras pruebas, determinamos que la combinación óptima de valores oscila entre el **60 %** y el **80 %** de potencia y una velocidad de **40 a 60 mm/s**.  
 Decidí optar por un **70 %** de potencia y una velocidad de **40 mm/s**, con la que, tras las pruebas, quedé satisfecho. Tras configurar los parámetros, hago clic en el botón **Aplicar** en la parte inferior del panel gráfico, a la izquierda de la pantalla.
 
-![Laser 4](images/laser_4.jpg){loading=lazy}
+![Laser 4](../../images/laser_4.jpg){loading=lazy}
 
 Una vez terminado, guarde el archivo en una USB para utilizarlo en la computadora de la láser.
 
@@ -58,22 +58,22 @@ Antes de comenzar a trabajar, debemos registrar la hora de inicio de uso en el r
 Para empezar a trabajar, el primer paso es activar el sistema de ventilación. Para ello, encendemos el contacto múltiple en la parte trasera de la máquina.  
 Una vez activado, comprobamos que no haya obstrucciones y que el depósito de agua esté lleno.
 
-![Laser 5](images/laser_5.jpg){loading=lazy}
+![Laser 5](../../images/laser_5.jpg){loading=lazy}
 
-![Laser 6](images/laser_6.jpg){loading=lazy}
+![Laser 6](../../images/laser_6.jpg){loading=lazy}
 
 ### 3. Energía
 
 En el lado izquierdo de la máquina, veremos un interruptor azul en posición de apagado. Lo accionamos para darle energía a los sistemas principales.
 
-![Laser 7](images/laser_7.jpg){loading=lazy}
+![Laser 7](../../images/laser_7.jpg){loading=lazy}
 
 ### 4. Paro de emergencia
 
 En la parte frontal derecha se encuentra el botón de parada de emergencia, que siempre está activado cuando la máquina no está en uso.  
 Para desactivarlo, hay que girarlo en sentido horario hasta que salte.
 
-![Laser 8](images/laser_8.jpg){loading=lazy}
+![Laser 8](../../images/laser_8.jpg){loading=lazy}
 
 ### 5. Llave
 
@@ -93,7 +93,7 @@ Para cargar el material, en mi caso una lámina de MDF de 1,5 x 1 metro y 2,5 mm
 Pulsamos la flecha hacia arriba hasta que el cabezal láser esté lo suficientemente atrás, donde podamos asegurarnos de no golpearlo al cargar el material. También revisamos el área de trabajo para detectar cualquier residuo que pueda alterar la elevación del material.  
 Una vez despejada el área de trabajo, simplemente colocamos el material dentro; podemos ayudarnos con los bordes del área de trabajo para mantener el material en una posición óptima.
 
-![Laser 10](images/laser_10.jpg){loading=lazy}
+![Laser 10](../../images/laser_10.jpg){loading=lazy}
 
 ### 4. Calibrar altura láser
 
@@ -104,7 +104,7 @@ Si la distancia es demasiado corta o demasiado larga, podemos ajustarla aflojand
 Tenga mucho cuidado, sujete el cabezal firmemente para evitar que se caiga y asegúrese de no desconectar ningún componente.  
 Una vez en la posición correcta, vuelva a apretar el tornillo.
 
-![Laser 11](images/laser_11.jpg){loading=lazy}
+![Laser 11](../../images/laser_11.jpg){loading=lazy}
 
 ### 5. Activar Láser
 
@@ -115,7 +115,7 @@ Usaré solo el cabezal láser derecho, así que giro el potenciómetro derecho a
 Cuando la potencia del láser esté al máximo, presionamos el botón de activación del láser junto al puerto de la llave; esto encenderá el láser.  
 **Recuerde:** una vez que el láser esté encendido, no abra la puerta.
 
-![Laser 12](images/laser_12.jpg){loading=lazy}
+![Laser 12](../../images/laser_12.jpg){loading=lazy}
 
 ### 6. Corte
 
@@ -125,9 +125,9 @@ Realizamos una comprobación final: lima, origen, marco y salida láser. Ahora p
 
 Ahora solo queda supervisar la máquina hasta que finalice el proceso. Debemos estar preparados para activar el tope de seguridad en cualquier momento si observamos alguna anomalía, especialmente incendios.
 
-![Laser 14](images/laser_14.jpg){loading=lazy}
+![Laser 14](../../images/laser_14.jpg){loading=lazy}
 
-### 7. Desactivación de Láser
+### 7. Desactivación de Láser 
 
 1. Presione el botón de encendido del láser para apagarlo y devuelva el potenciómetro a su posición cero.  
 2. Traslade el cabezal láser a la parte trasera para retirar la lámina sin riesgo de colisión accidental con las lentes. Abra la puerta y retire la lámina.  
