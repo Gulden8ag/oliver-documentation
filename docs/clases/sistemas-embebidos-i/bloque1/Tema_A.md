@@ -1,10 +1,10 @@
 # ¿Qué es un sistema embebido?
 
-## Definicion
+## Definición
 
 Un **sistema embebido** es un sistema de cómputo **diseñado para realizar funciones específicas** dentro de un producto mayor, que interactúa con el mundo físico mediante sensores y actuadores.
 
-!!! Importante 
+!!! important "Importante" 
     Debe ser un producto final, no una PC independiente.
 
 ### Rasgos característicos
@@ -31,6 +31,12 @@ Un **sistema embebido** es un sistema de cómputo **diseñado para realizar func
 | Ciclo de vida               | Corto/mediano                     | Largo (años o décadas)                             |
 | Ciberseguridad funcional    | Importante                        | Crítica (seguridad física + seguridad informática) |
 
+### ¿Qué no es un sistema embebido?
+
+- Una PC de escritorio usada tal cual (no integrada a un producto).
+- Un servidor genérico de propósito general.
+- Un script en laptop que lee un sensor USB (salvo que la laptop sea parte del producto final).
+
 ### Casos de uso
 
 | Dominio      | Producto/Función          | Requisito clave                   | Tiempo real |
@@ -42,6 +48,9 @@ Un **sistema embebido** es un sistema de cómputo **diseñado para realizar func
 | IoT portátil | Wearable (smartwatch)     | Bajo consumo y UX                 | Blando      |
 | Domótica     | Cerradura inteligente     | Seguridad/cifrado                 | Variable    |
 
+
+_**Tiempo real duro**_: incumplir una deadline implica fallo del sistema (p. ej., Freno ABS).  
+_**Tiempo real blando**_: las demoras degradan la calidad pero no implican fallo (p. ej., audio).
 ---
 
 ## Estructura típica de un sistema embebido
@@ -124,7 +133,7 @@ flowchart LR
 | Componente            | Función principal                          | Puntos de diseño / riesgo típico                                           |
 |-----------------------|---------------------------------------------|----------------------------------------------------------------------------|
 | ALU / FPU / DSP       | Cálculo entero, flotante, señal             | Latencia, precisión, consumo; ¿se justifica FPU?                           |
-| Unidad de Control     | Secuenciar instrucciones                    | Soporte ISA, manejo de excepciones/interrupciones                          |
+| Unidad de Control     | Secuenciar instrucciones                    | Soporte ISA                           |
 | Registros/PC/SP       | Estado interno y flujo                      | Tamaño de banco, llamadas/ISR anidadas                                     |
 | NVIC/INTC             | Gestión de interrupciones                   | Prioridades, latencias, determinismo                                       |
 | DMA                   | Transferencia sin CPU                       | Configuración correcta, coherencia de caché                                |
@@ -144,14 +153,17 @@ flowchart LR
 
 Dentro de un sistema embebido, los bloques funcionales se comunican entre sí a través de buses de interconexión. Estos buses permiten la transferencia de datos, direcciones y señales de control entre los diferentes componentes del sistema. Existen varios tipos de buses, cada uno con sus propias características y propósitos:
 
+!!! note "Nota"
+    Un bus es el conjunto de conexiones físicas que permiten la comunicación entre los diferentes componentes de un sistema.
+
 1. **Bus de datos**: Transporta la información entre los componentes.
 2. **Bus de direcciones**: Lleva las direcciones de memoria a las que se accede.
 3. **Bus de control**: Transmite señales de control que coordinan las operaciones del sistema.
 
 Así mismo podemos denominar:
 
-- **Maestros**: Dispositivos que inician las transferencias de datos (p. ej., CPU, DMA).
-- **Esclavos**: Dispositivos que responden a las solicitudes de los maestros (p. ej., memoria, periféricos).
+- **Maestros/Iniciadores** (AMBA: Initiator): Dispositivos que inician las transferencias de datos (p. ej., CPU, DMA).
+- **Esclavos/Objetivos** (AMBA: Target): Dispositivos que responden a las solicitudes de los maestros (p. ej., memoria, periféricos).
 
 
 ```mermaid
@@ -172,6 +184,55 @@ flowchart LR
   DMA2 <---> MEM2
   DMA2 <---> P2
 ```
+
+## Memorias: tipos y usos
+
+En un sistema embebido elegimos memorias según **volatilidad**, **latencia/ancho de banda**, **endurance** (ciclos de escritura), **tamaño** y **costo/energía**. Aquí un mapa práctico.
+
+### Volátiles (rápidas, se pierden al apagar)
+
+| Tipo             | Volátil | Lectura/Escritura | Endurance aprox. | Tamaño típico en MCUs | Uso típico                                  | Riesgos / diseño |
+|------------------|:------:|-------------------|------------------:|-----------------------:|---------------------------------------------|------------------|
+| **SRAM**         |  Sí    | Muy rápida / rápida| Ilimitada (lógica)| 2–512 KiB              | Variables en ejecución, buffers             | Consumo en sleep; tamaño limitado |
+| **TCM (ITCM/DTCM)** | Sí | **Muy rápida** (casi 1 ciclo) | Ilimitada | 16–512 KiB | Código crítico o datos de ISR en tiempo real | Tamaño pequeño; requiere linker script |
+| **Caché (I/D)**  |  Sí    | Transparente (aceleración) | — | — | Acelerar acceso a Flash/externa            | Inval./coherencia con DMA |
+| **PSRAM**        |  Sí    | Media / media      | Ilimitada        | 2–16 MiB (externa)     | Framebuffers, UI, ML ligero                 | Latencia mayor que SRAM; consumo |
+| **SDRAM/DDR**    |  Sí    | Alta BW / latencia media | Ilimitada | 16–1024 MiB (MPU/SoC) | Linux/GUI, visión/ML, grandes buffers       | Controlador complejo; refresh, EMC |
+
+### No volátiles (persisten sin energía)
+
+| Tipo                 | Volátil | Lectura/Escritura         | Endurance aprox. | Tamaño típico | Uso típico                                        | Riesgos / diseño |
+|----------------------|:------:|---------------------------|------------------:|--------------:|---------------------------------------------------|------------------|
+| **Flash interna (NOR)** | No  | Lectura rápida; **escritura/borrado por páginas/bloques** | 10³–10⁵ ciclos | 64 KiB–2 MiB | **Firmware**, constantes, a veces logs            | Tamaño de página; _wait states_; **wear leveling** para logs |
+| **QSPI NOR externa** | No     | Lectura rápida; XIP posible | 10³–10⁵          | 4–256 MiB     | Código XIP, assets (UI), modelos pequeños         | Latencia > interna; líneas QSPI; protección/firmware seguro |
+| **NAND (eMMC/SD)**   | No     | BW alto secuencial; aleatorio lento | 10³–10⁵ | 4–256 GiB | Datos masivos: archivos, audio/video, _databases_ | Sistema de archivos, **wear leveling**, integridad (journaling) |
+| **EEPROM**           | No     | Escritura por bytes/páginas (simple) | 10⁵–10⁶       | 512 B–256 KiB | **Parámetros** de calibración/configuración       | Endurance: distribuir escrituras; tiempo de escritura |
+| **FRAM**             | No     | **Casi SRAM** (rápida) lectura/escritura | 10¹²–10¹⁴ | 4–1024 KiB | Logs frecuentes, contadores, estado crítico       | Costo/KB; disponibilidad |
+| **MRAM** *(opc.)*    | No     | Rápida; no volátil        | 10¹²+            | 128 KiB–16 MiB | Estado seguro ante fallos de energía              | Costo; oferta limitada |
+| **OTP / eFuse**      | No     | Programación única        | 1                | Decenas–cientos bits | IDs, claves, configuración de arranque        | **Irreversible**; planificar bien campos |
+
+!!! tip "Reglas rápidas"
+    - **Código**: Flash interna; si no cabe o quieres **XIP**, QSPI NOR externa.  
+    - **Datos en tiempo real** (colas ISR, filtros): SRAM/TCM.  
+    - **Parámetros** que cambian poco: EEPROM / FRAM (si cambian mucho).  
+    - **Logs frecuentes**: FRAM o estrategia de wear leveling en Flash.  
+    - **Activos grandes** (imágenes, audio): QSPI NOR o SD/eMMC.  
+    - **Linux/GUI/ML pesado**: SDRAM/DDR + almacenamiento masivo.
+
+!!! note "¿Qué es XIP (Execute-In-Place)?"
+    Ejecutar código **directamente** desde una memoria externa (p. ej., QSPI NOR) sin copiarlo a SRAM. Ahorra SRAM, a costa de latencia; ideal para código no crítico.
+
+
+### Checklist de memoria 
+- Tamaño de **firmware** (Flash) y **datos en ejecución** (SRAM/TCM).  
+- ¿Necesitas **XIP**? ¿Qué latencia tolera tu bucle crítico?  
+- **Endurance** esperado (parámetros/logs) y estrategia de **wear leveling**.  
+- ¿DMA y caché? Plan de coherencia/inval.  
+- Consumo en **sleep/retención** y tiempos de **wake-up**.  
+- Integridad/seguridad: **firmware firmado**, protección de lectura/escritura.
+
+
+
 
 
 ## Modelos de memoria
@@ -237,7 +298,7 @@ class VN_MEM,VN_CPU,VN_IO,HV_PM,HV_DM,HV_CPU,HV_IO box;
 linkStyle default stroke:#444,stroke-width:1px;
 ```
 
-### "Tamano de la arquitectura"
+## "Tamaño de la arquitectura"
 
 El “tamaño de la arquitectura” suele referirse al ancho de palabra de la CPU (número de bits de sus registros generales y de la ALU: 8, 16, 32, 64 bits). Sin embargo, para decidir hardware también interesan:
 
@@ -245,10 +306,10 @@ El “tamaño de la arquitectura” suele referirse al ancho de palabra de la CP
 - **Ancho del bus de datos** (cuántos bits se pueden transferir en paralelo).
 - **Tamaño de punteros** (cuántos bits se utilizan para representar una dirección de memoria).
 
-!!! Nota
+!!! note "Nota"
     Puede haber combinaciones, es decir CPU de 32 bits con 24 bits de direcciones, o buses de datos hacia perifericos de 8/16 bits.
 
-#### Efectos  del tamano:
+#### Efectos  del Tamaño:
 
 1. El ancho de direcciones limita la memoria maxima
 2. Mas bits permiten operaciones aritmeticas y de memoria en menos ciclos
@@ -265,7 +326,7 @@ El “tamaño de la arquitectura” suele referirse al ancho de palabra de la CP
 |                   64 bit |         16 EiB (teórico) |
 
 
-#### Comparacion entre tamanos
+#### Comparacion entre Tamaños
 
 | Criterio                                | **8/16 bits**                                                                            | **32 bits (MCU/MPU)**                                                                                                                                          | **64 bits (SoC)**                                                                                                                                                            |
 | --------------------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -364,3 +425,67 @@ Ciclos ≈ 2·(32/w) + 1
 |             **16 bits** |             2 |            2 |      1 |          **≈ 5** |
 |             **32 bits** |             1 |            1 |      1 |          **≈ 3** |
 
+
+!!! note "Nota"
+    En la práctica abundan diseños **Harvard modificados** (separación I/D con caminos de cruce o regiones compartidas para facilitar DMA/bootloader).
+
+---
+
+## ISA y microarquitectura: RISC vs CISC para embebidos
+
+- ISA (Instruction Set Architecture) es el conjunto de instrucciones que un procesador puede entender y ejecutar, así como el manejo de excepciones/interrupciones.
+- Una microarquitectura es la manera en que una arquitectura del conjunto de instrucciones (ISA) se implementa físicamente en un procesador que caen en principalmente dos categorías.
+  - RISC (Reduced Instruction Set Computer).
+  - CISC (Complex Instruction Set Computer).
+
+### RISC (Reduced Instruction Set Computer).
+
+La idea principal detrás de esto es simplificar el hardware mediante el uso de un conjunto de instrucciones de unos pocos pasos basicos para cargar, evaluar y almacenar operación, por ejemplo un comando de carga (LOAD) o un comando de almacenamiento (STORE).
+
+Sus principales características son:
+
+- Instrucciones más simples, por lo tanto decodificación de instrucciones sencilla.
+- La instrucción viene en un tamaño inferior a una palabra.
+- La instrucción permite un pipeline corto; idealmente ~1 instrucción/ciclo.
+- Registros más generales.
+- Modos de direccionamiento simples.
+- Menos tipos de datos.
+- Es posible crear un pipeline.
+
+### CISC (Complex Instruction Set Computer).
+
+La idea principal es que una sola instrucción realizará todas las operaciones de carga, evaluación y almacenamiento, tal como un comando de multiplicación hará cosas como cargar datos, evaluarlos y almacenarlos, por lo tanto, es complejo.
+
+Sus principales características son:
+
+- Instrucción compleja, por lo tanto decodificación de instrucciones complejas.
+- Las instrucciones tienen un tamaño mayor a una palabra.
+- La instrucción puede tardar más de un ciclo de reloj para ejecutarse.
+- Históricamente menor número de registros de propósito general, ya que las operaciones se realizan en la propia memoria.
+- Modos de direccionamiento complejos.
+- Más tipos de datos.
+
+### Comparativa RISC vs CISC
+
+
+| Categoría                          | RISC                                                                 | CISC                                                                                 |
+|-----------------------------------|----------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| **Tamaño de código**              | Mayor (se requieren más instrucciones).                              | Menor (instrucciones complejas reducen líneas de código).                           |
+| **Velocidad de ejecución**        | Más rápida (instrucciones simples, fácil decodificación).            | Más lenta (instrucciones complejas, mayor tiempo de decodificación).                |
+| **Consumo de energía**            | Menor (ventaja para dispositivos portátiles/embebidos).              | Mayor (complejidad del conjunto de instrucciones).                                   |
+| **Uso de memoria (programa)**     | Mayor (más instrucciones para tareas complejas).                     | Menor / más eficiente (menos instrucciones para tareas complejas).                   |
+| **Complejidad del diseño/ISA**    | Menor (conjunto más pequeño y regular).                              | Mayor (conjunto amplio y heterogéneo; diseño y fabricación más complejos).          |
+| **Número de instrucciones**       | Se necesitan más instrucciones para tareas complejas.                | Menos instrucciones para la misma tarea (cada instrucción hace más).                |
+| **Costo de desarrollo/fabricación** | Puede ser mayor (según tu nota original).                            | Puede ser menor relativo a RISC (según tu nota original).                            |
+| **Ejemplos de ISAs/familias y usos típicos** | **ARM** (Cortex-M/A/R): STMicro (STM32), NXP, TI, Microchip (SAM), Nordic, Renesas, Samsung Exynos, Qualcomm Snapdragon, Broadcom (Raspberry Pi), Apple M-series; **RISC-V**: SiFive, Espressif (ESP32-C3/C6/H2), Kendryte K210, Bouffalo Lab BL602/604, StarFive; **MIPS** (hist.): Microchip PIC32, Loongson (GP); **Power/PowerPC**: NXP MPC5xxx (auto), IBM (servidor); **SPARC** (LEON en aeroespacial); **SuperH** (Renesas SH); **AVR** (Atmel/Microchip 8-bit); **MSP430** (TI 16-bit); **ARC** (Synopsys); **Xtensa** (Cadence, p.ej. ESP32 “clásico” LX6/LX7); **OpenRISC**; **Nios II** (Intel FPGA), **MicroBlaze** (Xilinx FPGA). | **x86/x86-64**: Intel (Core/Atom), AMD (Ryzen/EPYC); **Motorola 68000/ColdFire** (hist./embebidos clásicos), **VAX** (hist.); **Z80** (Zilog, clásico/retro/embebido simple), **6502** (WDC 65C02/65C816, retro/industrial), **8051** (MCS-51, múltiples fabricantes como Nuvoton/Silicon Labs), **Renesas RX/RL78** (CISC 32/16-bit), **68HC11/HC12** (clásicos). |
+
+## Checklist para elegir un MCU
+
+**Checklist rápido para elegir MCU**
+
+- Requisitos de tiempo real (duro/blando) y latencia de E/S
+- Consumo/energía y modos sleep
+- Periféricos clave (ADC, PWM, DMA, comms)
+- Memoria necesaria (Flash/SRAM) + seguridad (WDT, MPUs)
+- Ecosistema (HAL, RTOS, toolchain, comunidad)
+- Coste y disponibilidad (vida útil del producto)

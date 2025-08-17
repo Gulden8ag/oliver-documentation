@@ -1,6 +1,7 @@
 site_name: COORDINACIÓN IMT/ICE
 
 markdown_extensions:
+  - abbr
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
