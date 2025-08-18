@@ -97,3 +97,33 @@ graph TD
 ??? warning "Error de carga"
     En caso de que aparezca el error  `No accessible RP2040/RP2350 devices in BOOTSEL mode were found.` acompañado de  `Device at bus 1, address 7 appears to be a RP2040 device in BOOTSEL mode, but picotool was unable to connect` descarga y corre [zadig](https://zadig.akeo.ie/), selecciona `RP2 Boot (Interface 1)` y selecciona `WinUSB` y dale clic a instalar driver.
     ![Zadig](../../../images/zadig.png){loading=lazy}
+
+## Primer Codigo
+
+Codigo minimo para un blink
+
+```c
+#include "pico/stdlib.h"
+
+int main(void) {
+    const uint led = PICO_DEFAULT_LED_PIN;
+    gpio_init(led);
+    gpio_set_dir(led, GPIO_OUT);
+    while (true) {
+        gpio_put(led, 1);
+        sleep_ms(250);
+        gpio_put(led, 0);
+        sleep_ms(250);
+    }
+}
+```
+
+### Descripcion de partes
+
+- `#include "pico/stdlib.h"`: Incluye la biblioteca estándar de Pico, que proporciona funciones para interactuar con el hardware.
+- `int main(void)`: Punto de entrada de la aplicación, En embebidos, el startup code inicializa memoria y llama a `main`.
+- `const uint led = PICO_DEFAULT_LED_PIN;`: 
+    -`const` protege contra reasignaciones accidentales.
+    -`uint`: entero sin signo (un GPIO no es negativo). Alternativa fija: uint32_t.
+    - `PICO_DEFAULT_LED_PIN`: constante que representa el pin LED predeterminado de la placa.
+- `while(true)`: Bucle infinito que mantiene el programa en ejecución.
