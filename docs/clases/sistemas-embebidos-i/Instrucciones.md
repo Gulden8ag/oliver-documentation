@@ -2,27 +2,10 @@
 
 El proyecto **Micromouse** consiste en diseñar y programar un robot móvil autónomo capaz de **explorar** un laberinto, **construir un mapa** y ejecutar una **carrera rápida (fast run)** desde el inicio hasta el objetivo en el centro. 
 
-<div class="video-container">
-  <iframe
-    src="https://www.youtube.com/watch?v=IngelKjmecg&ab_channel=JUING-HUEI"
-    title="Demo"
-    frameborder="0"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IngelKjmecg?si=9EK3V4aegkhExXMP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<div class="video-container">
-  <iframe
-    src="https://www.youtube.com/watch?v=kMOssi5IcP0&ab_channel=JUING-HUEI"
-    title="Demo"
-    frameborder="0"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kMOssi5IcP0?si=zZLUoDwHL0lH90OW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Alcance y entregables
 
