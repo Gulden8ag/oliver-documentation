@@ -69,7 +69,7 @@ Tiempo en minutos
 - **01:50–02:00** Premiación y firma de actas.
 
 
-## 12. Inspección técnica (checklist)
+## Inspección técnica (checklist)
 - [ ] Dimensiones dentro de 12×12×12 cm.  
 - [ ] **Kill switch** accesible y probado.  
 - [ ] Batería y cables asegurados; sin bordes peligrosos.  
@@ -77,7 +77,7 @@ Tiempo en minutos
 - [ ] CLI y telemetría **solo** para setup.   
 - [ ] Sin control remoto durante la carrera.
 
-## 13. Puntuación, bonos y penalizaciones
+## Puntuación, bonos y penalizaciones
 **Tiempo base (Tc):** mejor **fast run** del equipo (en segundos).
 
 **Bonos:**
@@ -93,13 +93,13 @@ Tiempo en minutos
 
 P = Tc + Bonos - Penalizaciones
 
-## 14. Criterios de desempate
+## Criterios de desempate
 
 1. Menor **fast run** (sin bonos/penalizaciones).  
 2. Menor tiempo de **exploración**.  
 3. Persistiendo empate: sorteo supervisado (coin toss).
 
-## 17. Documentación y entrega final
+## Documentación y entrega final
 - **Bitácora final (Pagina)** con:  
   - Arquitectura (diagrama), pinout, clocks.  
   - Pruebas clave (PIO/DMA/UART/WDT/energia/EMC/multicore).  
@@ -111,18 +111,18 @@ P = Tc + Bonos - Penalizaciones
 
 ## Calificacion
 
-- **Desempeño en competencia (ranking, P)** — **40%**  
-    - **Primer lugar** — **40%**
-    - **Segundo lugar** — **36%**
-    - **Tercer lugar** — **32%**
-    - **Cuarto lugar** — **28%**
-    - **Quinto lugar** — **24%**
-    - **Sexto lugar** — **20%**
-    - **Septimo lugar** — **16%**
-    - **Octavo lugar** — **12%**
-- **Ingeniería y robustez del mouse** — **30%**  
+- **Desempeño en competencia (ranking, P)** — 40%  
+    - **Primer lugar** — 40%
+    - **Segundo lugar** — 36%
+    - **Tercer lugar** — 32%
+    - **Cuarto lugar** — 28%
+    - **Quinto lugar** — 24%
+    - **Sexto lugar** — 20%
+    - **Septimo lugar** — 16%
+    - **Octavo lugar** — 12%
+- **Ingeniería y robustez del mouse** — 30%  
     - PCB
     - Programación
     - Pruebas
-- **Requisitos técnicos** — **20%**  
-- **Bitácora técnica** — **10%**
+- **Requisitos técnicos** — 20%
+- **Bitácora técnica** — 10%
