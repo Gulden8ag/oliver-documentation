@@ -23,7 +23,7 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         </div>
     </div>
 
-!!! info "Danna Paola Garcia Sanchez — Tesorera"
+!!! info "Danna Paola Garcia Sanchez del Villar — Tesorera"
     <div style="display: flex; align-items: center; gap: 1rem;">
         <img src="../../images/danna.jpg" alt="Tesorera" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
         <div>
@@ -48,6 +48,15 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         <div>
             <p><strong>Carrera:</strong> Ingeniería Electrónica</p>
             <p><strong>Correo:</strong> <a href="mailto:guillermo.michel@iberopuebla.mx">guillermo.michel@iberopuebla.mx</a></p>
+        </div>
+    </div>
+
+!!! info "Jose Emmanuel del Villar Soto de Garcia— Mesa de trabajo"
+    <div style="display: flex; align-items: center; gap: 1rem;">
+        <img src="../../images/emma.jpg" alt="Mesa de trabajo" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
+        <div>
+            <p><strong>Carrera:</strong> Ingeniería Mecatrónica</p>
+            <p><strong>Correo:</strong> <a href="mailto:jose.emmanuel@iberopuebla.mx">jose.emmanuel@iberopuebla.mx</a></p>
         </div>
     </div>
 
