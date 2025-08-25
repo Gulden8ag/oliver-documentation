@@ -108,10 +108,11 @@ SIO es la unidad del RP2040 para acceso rápido a GPIO. Proporciona registros de
 * `gpio_oe` → estado de dirección (1 = salida, 0 = entrada)
 * `gpio_oe_set` → pone bits a 1 (salida)
 * `gpio_oe_clr` → pone bits a 0 (entrada)
+* `gpio_oe_togl` → invierte bits (entrada ↔ salida)
 * `gpio_out` → estado actual de salidas
-* `gpio_out_set` → pone pines en alto (1) de forma atómica multipin
-* `gpio_out_clr` → pone pines en bajo (0) de forma atómica multipin
-* `gpio_out_xor` → invierte pines de forma atómica multipin
+* `gpio_set` → pone pines en alto (1) de forma atómica multipin
+* `gpio_clr` → pone pines en bajo (0) de forma atómica multipin
+* `gpio_togl` → invierte pines de forma atómica multipin
 * `gpio_in` → lectura de entradas
 
 Cada bit corresponde a un GPIO (bit 2 controla GPIO2, etc.).
@@ -145,64 +146,57 @@ Cada bit corresponde a un GPIO (bit 2 controla GPIO2, etc.).
 #include "pico/stdlib.h"
 #include "hardware/structs/sio.h"
 
-#define LED_PIN 25
-
-
 int main() {
-    // 1) Máscara del pin
-    const uint32_t bit = (1u << LED_PIN);
-    gpio_init(LED_PIN);  
-    // 2) Dirección: salida (OE = 1) de forma atómica
-    sio_hw->gpio_oe_set = bit;
+    const uint32_t bit = 1u << PICO_DEFAULT_LED_PIN;
 
-    // 3) Escribe SET/CLR (atómico) y alterna nivel con retraso simple
+    gpio_init(PICO_DEFAULT_LED_PIN);           // pone función SIO y habilita I/O
+    sio_hw->gpio_oe_set = bit;    // salida (OE=1) atómico
+
     while (true) {
-        sio_hw->gpio_out_set = bit;  // OUT |= bit
+        sio_hw->gpio_set = bit;   // alto (usa campo del SDK)
         sleep_ms(500);
-        sio_hw->gpio_out_clr = bit;  // OUT &= ~bit
+        sio_hw->gpio_clr = bit;   // bajo
         sleep_ms(500);
     }
 }
 ```
 
 ```c title="sdk_blink.c"
-
 // Archivo: sdk_blink.c
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
-#define LED_PIN 2
 
 int main() {
     // stdio_init_all(); // OPCIONAL: solo para printf
 
-    gpio_init(LED_PIN);            // enruta el pin a GPIO/SIO
-    gpio_set_dir(LED_PIN, true);   // salida
+    gpio_init(PICO_DEFAULT_LED_PIN);            // enruta el pin a GPIO/SIO
+    gpio_set_dir(PICO_DEFAULT_LED_PIN, true);   // salida
 
     while (true) {
-        gpio_put(LED_PIN, 1);      // ON
+        gpio_put(PICO_DEFAULT_LED_PIN, 1);      // ON
         sleep_ms(500);
-        gpio_put(LED_PIN, 0);      // OFF
+        gpio_put(PICO_DEFAULT_LED_PIN, 0);      // OFF
         sleep_ms(500);
     }
 }
 ```
 
-```c title="sio_toggle_xor.c"
+---
 
+```c title="sio_toggle_xor.c"
 #include "pico/stdlib.h"
 #include "hardware/structs/sio.h"
 
-#define LED_PIN 2
-static inline void busy_cycles(uint32_t n) { while (n--) { __asm volatile ("nop"); } }
-
 int main() {
-    const uint32_t bit = (1u << LED_PIN);
-    sio_hw->gpio_oe_set = bit;        // salida
+    const uint32_t bit = 1u << PICO_DEFAULT_LED_PIN;
+
+    gpio_init(PICO_DEFAULT_LED_PIN);            // asegura función SIO
+    sio_hw->gpio_oe_set = bit;     // salida
 
     while (true) {
-        sio_hw->gpio_out_xor = bit;   // OUT ^= bit (toggle atómico)
-        busy_cycles(500000);
+        sio_hw->gpio_togl = bit;   // toggle atómico (no gpio_out_xor)
+        sleep_ms(500);
     }
 }
 ```
@@ -211,13 +205,12 @@ int main() {
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
-#define LED_PIN 2
 
 int main() {
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, true);
+    gpio_init(PICO_DEFAULT_LED_PIN);
+    gpio_set_dir(PICO_DEFAULT_LED_PIN, true);
 
-    const uint32_t bit = (1u << LED_PIN);
+    const uint32_t bit = (1u << PICO_DEFAULT_LED_PIN);
     while (true) {
         gpio_xor_mask(bit); // alternar SOLO ese pin
         sleep_ms(500);
@@ -225,5 +218,197 @@ int main() {
 }
 ```
 
+---
+
 ## Máscaras
+
+ Una máscara es un patrón de bits utilizado para seleccionar, modificar o verificar bits específicos dentro de un registro o un conjunto de datos. Las máscaras se utilizan comúnmente en operaciones de manipulación de bits, como la configuración de pines GPIO, donde se puede utilizar una máscara para afectar solo a un subconjunto de pines en lugar de a todos ellos.
+
+```yaml
+ ... 0000 0000 0000 0000 0000 0101 0100
+                              ^ ^  ^
+                              | |  └─ selecciona GPIO 2
+                              | └─── selecciona GPIO 4
+                              └───── selecciona GPIO 6
+```
+Si esa máscara es `MASK = (1u<<2) | (1u<<4) | (1u<<6)`, entonces una sola escritura a los registros SET/CLR/XOR del SIO puede encender, apagar o alternar todos esos pines a la vez.
+
+### Construccion de Mascaras
+
+- Un solo pin: `1u << PIN`
+- Varios pines: `((1u << PIN1) | (1u << PIN2) | (1u << PIN3))`
+- Rango contiguo("bus"): `MASK_N_BITS = ((1u << N) - 1u) << SHIFT`
+        - para 3 bits en GPIO de 10..12 -> `MASK = ((1u << 3) - 1u) << 10`
+
+### Ejemplos de mascara aplicada
+
+```c title="SIO-atomico"
+#include "pico/stdlib.h"
+#include "hardware/structs/sio.h"
+
+#define PIN_A 2
+#define PIN_B 4
+#define PIN_C 6
+
+int main() {
+    // 1) Máscara con varios pines
+    const uint32_t MASK = (1u<<PIN_A) | (1u<<PIN_B) | (1u<<PIN_C);
+
+    // 2) Asegura función SIO en cada pin (necesario una sola vez)
+    gpio_init(PIN_A);
+    gpio_init(PIN_B);
+    gpio_init(PIN_C);
+
+    // 3) Dirección: salida (OE=1) para TODOS los pines con UNA sola instrucción
+    sio_hw->gpio_oe_set = MASK;
+
+    while (true) {
+        // 4) SET: pone en alto TODOS los pines de la máscara en una sola operación
+        sio_hw->gpio_set = MASK;
+        sleep_ms(500);
+
+        // 5) CLR: pone en bajo TODOS los pines de la máscara en una sola operación
+        sio_hw->gpio_clr = MASK;
+        sleep_ms(500);
+
+        // 6) TOGL (XOR): alterna TODOS los pines de la máscara en una sola operación
+        sio_hw->gpio_togl = MASK;
+        sleep_ms(500);
+    }
+}
+```
+
+En el SDK los comandos tipicos son:
+
+- `gpio_set_mask(MASK);` → pone en alto los pines de MASK
+- `gpio_clr_mask(MASK);` → pone en bajo los pines de MASK
+- `gpio_xor_mask(MASK);` → alterna los pines de MASK
+- `gpio_put_masked(MASK, VALUE);` → pone en alto/bajo los pines de MASK según el valor de VALUE
+
+Ejemplo
+```c title="SDK"
+
+#include "pico/stdlib.h"
+#include "hardware/structs/sio.h"
+
+#define PIN_A 2
+#define PIN_B 4
+#define PIN_C 6
+
+int main() {
+    // 1) Máscara con varios pines
+    const uint32_t MASK = (1u<<2) | (1u<<4) | (1u<<6);
+
+    // 2) Asegura función SIO en cada pin (necesario una sola vez)
+    gpio_init(2);
+    gpio_init(4);
+    gpio_init(6);
+
+    // 3) Dirección: salida (OE=1) para TODOS los pines con UNA sola instrucción
+    sio_hw->gpio_oe_set = MASK;
+
+    while (true) {
+        gpio_set_mask(MASK);            // alto en 2,4,6
+        sleep_ms(200);
+        gpio_clr_mask(MASK);            // bajo en 2,4,6
+        sleep_ms(200);
+        gpio_xor_mask(MASK);            // toggle en 2,4,6
+    }
+}
+```
+
+```c title="EJEMPLO1"
+#include "pico/stdlib.h"
+#include "hardware/gpio.h"
+
+#define A   0
+#define B   1
+#define C   2
+
+int main() {
+    const uint32_t MASK = (1u<<A) | (1u<<B) | (1u<<C);
+    const uint32_t PATRON = (1u<<C) | (1u<<A);
+
+    gpio_init_mask(MASK);
+    gpio_put_masked(MASK, PATRON);
+    gpio_set_dir_masked(MASK, MASK);   
+
+    while (true) {
+        sleep_ms(500);
+        gpio_xor_mask(MASK);
+    }
+}
+```
+
+```c title="EJEMPLO2"
+#include "pico/stdlib.h"
+#include "hardware/gpio.h"
+
+#define A   0
+#define B   1
+#define C   2
+
+int main() {
+    const uint32_t MASK = (1u<<0) | (1u<<1) | (1u<<2);
+    gpio_init(0); gpio_init(1); gpio_init(2);
+    sio_hw->gpio_oe_set = MASK;                 // outputs
+    sio_hw->gpio_clr    = MASK;                 // clear first
+    sio_hw->gpio_set    = (1u<<2) | (1u<<0);    // load 101
+
+    while (true) {
+        sleep_ms(500);
+        sio_hw->gpio_togl = MASK; 
+    }
+}
+```
+
+
+## Referencias
+
+### Pinout Pico 2
+
+![Pinout Pico 2](../../../images/pico-2-r4-pinout.svg)
+
+### Reset Cableado
+
+![Reset Cableado](../../../images/pico-reset-button-1.png)
+
+### ATOMICO un ciclo
+
+!!! note "Necesario para usarlo"
+        `#include "hardware/structs/sio.h"`
+        Antes conecta cada pin a SIO con `gpio_init(pin);`
+
+
+| Propósito                 | Registro / Campo               | Qué hace                                                                   |
+| ------------------------- | ------------------------------ | -------------------------------------------------------------------------- |
+| Leer entradas (todos)     | `sio_hw->gpio_in`              | Lee niveles de todos los GPIO; enmascara para quedarte con los de interés. |
+| Salida: **SET**           | `sio_hw->gpio_set = mask;`     | Pone en **alto** los pines de `mask` (atómico).                            |
+| Salida: **CLR**           | `sio_hw->gpio_clr = mask;`     | Pone en **bajo** los pines de `mask` (atómico).                            |
+| Salida: **TOGGLE**        | `sio_hw->gpio_togl = mask;`    | Alterna los pines de `mask` (XOR atómico).                                 |
+| Salida: escritura directa | `sio_hw->gpio_out = value;`    | Sobrescribe todo el registro de salida (no atómico).                       |
+| Dirección: **OUT**        | `sio_hw->gpio_oe_set = mask;`  | Pasa a **salida** los pines de `mask` (atómico).                           |
+| Dirección: **IN**         | `sio_hw->gpio_oe_clr = mask;`  | Pasa a **entrada** los pines de `mask` (atómico).                          |
+| Dirección: alternar       | `sio_hw->gpio_oe_togl = mask;` | Alterna IN/OUT (atómico).                                                  |
+
+### SDK - alto nivel
+
+!!! note "Necesario para usarlo"
+        `#include "hardware/gpio.h"`
+        Antes conecta cada pin a SIO con `gpio_init(pin);`
+
+| Propósito           | Llamada                            | Qué hace                                                 |
+| ------------------- | ---------------------------------- | -------------------------------------------------------- |
+| Enrutar a SIO       | `gpio_init(pin);`                  | Selecciona `GPIO_FUNC_SIO` y habilita buffer de entrada. |
+| Init varios pines   | `gpio_init_mask(mask);`            | Igual, pero para múltiples pines.                        |
+| Habilitar entrada   | `gpio_set_input_enabled(pin, en);` | Controla el buffer de entrada.                           |
+| Fijar dirección (uno) | `gpio_set_dir(pin, out);`           | `true`=salida, `false`=entrada.     |
+| Dir. enmascarada      | `gpio_set_dir_masked(mask, value);` | En `mask`: 1→salida, 0→entrada.     |
+| Todos salida          | `gpio_set_dir_out_masked(mask);`    | Pasa a salida los pines de `mask`.  |
+| Todos entrada         | `gpio_set_dir_in_masked(mask);`     | Pasa a entrada los pines de `mask`. |
+| Escribir un pin             | `gpio_put(pin, value);`         | Alto/Bajo en un pin.                   |
+| Escribir patrón enmascarado | `gpio_put_masked(mask, value);` | Actualiza **sólo** los bits de `mask`. |
+| SET en máscara              | `gpio_set_mask(mask);`          | Pone en alto todos los bits de `mask`. |
+| CLR en máscara              | `gpio_clr_mask(mask);`          | Pone en bajo todos los bits de `mask`. |
+| TOGGLE en máscara           | `gpio_xor_mask(mask);`          | Alterna todos los bits de `mask`.      |
 
