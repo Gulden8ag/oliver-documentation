@@ -90,29 +90,36 @@ Las entradas flotantes o cables largos capturan interferencia.
 ### Bajo nivel (PADS/SIO)
 
 ```c
-#include "hardware/regs/padsbank0.h"
-#include "hardware/structs/padsbank0.h"
-#include "hardware/structs/sio.h"
 #include "pico/stdlib.h"
+#include "hardware/structs/sio.h"
 
-#define PIN 10
+#define button_pin 16
 
-int main() {
-    // Habilitar entrada, pull-up y Schmitt en el pad
-    hw_set_bits(&padsbank0_hw->io[PIN],
-        PADS_BANK0_GPIO0_IE_BITS |     // Input enable
-        PADS_BANK0_GPIO0_PUE_BITS |    // Pull-up
-        PADS_BANK0_GPIO0_SCHMITT_BITS  // Schmitt trigger
-    );
-    hw_clear_bits(&padsbank0_hw->io[PIN], PADS_BANK0_GPIO0_PDE_BITS); // sin pull-down
+int main(void) {
+    const uint32_t LED_BIT = 1u << PICO_DEFAULT_LED_PIN; // LED (p. ej. 25 en Pico/Pico2)
+    const uint32_t BTN_BIT = 1u << button_pin;                    // Botón en GPIO1
 
-    // Asegurar que el GPIO no esté en salida (SIO)
-    sio_hw->gpio_oe_clr = 1u << PIN;
+    // Asegura función GPIO
+    gpio_init(PICO_DEFAULT_LED_PIN);
+    gpio_init(button_pin);
+
+    // LED como salida; botón como entrada
+    sio_hw->gpio_oe_set = LED_BIT; // salida
+    sio_hw->gpio_oe_clr = BTN_BIT; // entrada
+
+    // IMPORTANTE: pull-up externo -> desactivar pulls internos
+    gpio_disable_pulls(button_pin);
 
     while (true) {
-        bool v = (sio_hw->gpio_in >> PIN) & 1u; // leer pin
-        // ... usar v ...
-        sleep_ms(1); // ~1 kHz de muestreo (evita busy-wait)
+        // Con pull-up (externo), presionado = 0 (nivel bajo)
+        if ((sio_hw->gpio_in & BTN_BIT)) {
+            sio_hw->gpio_set = LED_BIT;   // LED ON
+        } else {
+            sio_hw->gpio_clr = LED_BIT;   // LED OFF
+        }
+
+        // Breve descanso / anti-rebote mínimo
+        sleep_ms(1);
     }
 }
 ```
@@ -121,22 +128,26 @@ int main() {
 
 ```c
 #include "pico/stdlib.h"
-#include "hardware/gpio.h"
 
-#define BTN  10
-#define LED  25
+int main(void) {
+    const uint LED = PICO_DEFAULT_LED_PIN; // En Pico/Pico 2 suele ser 25
+    const uint BTN = 16;
 
-int main() {
-    stdio_init_all();
+    // LED salida
+    gpio_init(LED);
+    gpio_set_dir(LED, 1);
 
-    gpio_init(LED); gpio_set_dir(LED, true);
-    gpio_init(BTN); gpio_set_dir(BTN, false); // false = input
-    gpio_pull_up(BTN); // activo-bajo: presionado = 0
+    // Botón entrada con pull-up (presionado = 0)
+    gpio_init(BTN);
+    gpio_set_dir(BTN, 0);
 
     while (true) {
-        bool pressed = (gpio_get(BTN) == 0);
-        gpio_put(LED, pressed);
-        sleep_ms(1);  // CPU friendly
+        if (gpio_get(BTN) == 0) {
+            gpio_put(LED, 1);   // ON
+        } else {
+            gpio_put(LED, 0);   // OFF
+        }
+        sleep_ms(1); // anti-rebote mínimo / descanso
     }
 }
 ```
