@@ -2,6 +2,8 @@ site_name: COORDINACIÓN IMT/ICE
 
 markdown_extensions:
   - abbr
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -73,6 +75,10 @@ extra_css:
   - css/overrides.css
   - https://use.fontawesome.com/releases/v6.5.2/css/all.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 
 plugins:
   - meta                      # aplica metadatos por carpeta (.meta.yml)
