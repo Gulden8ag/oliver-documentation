@@ -6,7 +6,7 @@
 
 Una **interrupción** es un evento asíncrono que **preempta** el flujo normal de ejecución para correr una rutina corta y de alta prioridad llamada **ISR**. Se usan para reaccionar **de inmediato** a eventos de hardware o software (timer, UART RX, DMA done, PIO, GPIO, etc.) sin *busy-waiting*.
 
-**Acrónimos y conceptos (manteniendo inglés → traducción):**
+**Acrónimos y conceptos:**
 - **ISR** — *Interrupt Service Routine* — Rutina de Servicio de Interrupción.  
 - **IRQ** — *Interrupt ReQuest* — Petición de Interrupción (la línea/evento).  
 - **NVIC** — *Nested Vectored Interrupt Controller* — Controlador de Interrupciones Anidado y Vectorizado (prioridades, despacho, anidamiento).  
@@ -15,6 +15,7 @@ Una **interrupción** es un evento asíncrono que **preempta** el flujo normal d
 - **Priority** — *Interrupt Priority* — Prioridad (número menor = mayor urgencia en Cortex-M).  
 - **Edge vs Level** — *Edge-triggered vs Level-triggered* — Disparo por flanco vs por nivel.  
 - **Polarity** — *Polarity* — Polaridad (Rising/Falling, Active-High/Active-Low).  
+- **NMI** — *Non-Maskable Interrupt* — Interrupción No Enmascarable (prioridad máxima, no se puede bloquear).
 
 ---
 
@@ -86,15 +87,18 @@ Una **interrupción** es un evento asíncrono que **preempta** el flujo normal d
 
 ## Vectores de ISR y **Prioridades NVIC en Cortex-M33 (16 niveles)**
 
-**Idea clave:** en Cortex-M, un **número de prioridad más bajo significa mayor prioridad** (p. ej., `0` > `1` > …).  
+**Idea clave:** en Cortex-M, un **número de prioridad más bajo significa mayor prioridad** 
+
 En M33, el número de niveles efectivos es `2^(__NVIC_PRIO_BITS)`. En muchos M33 hay **4 bits → 16 niveles (0–15)**.
 
-```c
+<!-- ```c
 // Macro útil para programar prioridades correctamente (escala a 8 bits de registro)
 #define NVIC_PRIO(level) ((uint8_t)((level) << (8 - __NVIC_PRIO_BITS)))
-```
+``` -->
 
-**Asignación sugerida (ajústala a tu práctica):**
+
+
+**Asignación sugerida:**
 
 | Nivel (0 = altísima) | Uso típico | Motivo |
 |---|---|---|
@@ -106,209 +110,238 @@ En M33, el número de niveles efectivos es `2^(__NVIC_PRIO_BITS)`. En muchos M33
 | 11–13 | GPIO y tareas no críticas |  |
 | 14–15 | Telemetría/depuración | Menor prioridad |
 
-**Máscaras útiles (Cortex-M33):**  
-- **PRIMASK** (*Interrupt Mask*): bloquea **todas** las IRQ “normales” (NMI/HardFault siguen).  
-- **BASEPRI** (*Priority Mask*): bloquea IRQ con prioridad **numéricamente ≥** a un umbral; deja pasar las más urgentes.
+**Timers (2 instancias × 4 alarmas)**
 
-Ejemplo (bloquear ≥ 8, permitir 0..7):
-```c
+- `TIMER0_IRQ_0..3`, `TIMER1_IRQ_0..3`.
+
+
+**PWM**
+
+- `PWM_IRQ_WRAP_0`, `PWM_IRQ_WRAP_1`.
+
+
+**DMA**
+
+- `DMA_IRQ_0`, `DMA_IRQ_1`, `DMA_IRQ_2`, `DMA_IRQ_3`.
+
+
+**USB**
+
+- `USBCTRL_IRQ`.    
+
+**PIO (3 bloques, 2 IRQ c/u)**
+
+- `PIO0_IRQ_0`, `PIO0_IRQ_1`, `PIO1_IRQ_0`, `PIO1_IRQ_1`, `PIO2_IRQ_0`, `PIO2_IRQ_1`.
+
+
+**GPIO / IO Banks**
+
+- `IO_IRQ_BANK0` (GPIO “normales”)
+
+- `IO_IRQ_BANK0_NS` (versión Non-Secure para TrustZone)
+
+- `IO_IRQ_QSPI` (Banco 1: QSPI/USB)
+
+- `IO_IRQ_QSPI_NS` (Non-Secure)
+
+
+**SIO (core-local)**
+
+- `SIO_IRQ_FIFO`, `SIO_IRQ_BELL`, `SIO_IRQ_FIFO_NS`, `SIO_IRQ_BELL_NS`, `SIO_IRQ_MTIMECMP`. 
+
+
+**Relojes / buses / periféricos**
+
+- `CLOCKS_IRQ`, `SPI0_IRQ`, `SPI1_IRQ`, `UART0_IRQ`, `UART1_IRQ`, `ADC_IRQ_FIFO`, `I2C0_IRQ`, `I2C1_IRQ`, `OTP_IRQ`, `TRNG_IRQ`, `PROC0_IRQ_CTI`, `PROC1_IRQ_CTI`, `PLL_SYS_IRQ`, `PLL_USB_IRQ`, `POWMAN_IRQ_POW`, `POWMAN_IRQ_TIMER`.
+
+
+??? Note "Tips de Interrupciones"
+    - Una ISR solo puede ser preemptada por otra con número de prioridad menor (más urgente).
+    - Misma prioridad ≠ preempción. Se encolan; el NVIC optimiza con tail-chaining (salir de una ISR y entrar a la siguiente sin pasar por el hilo).
+    - Si mientras ejecutas una ISR llega una más urgente, puede aplicarse late arrival: el NVIC salta directamente a la más urgente.
+
+
+**Máscaras de interrupción en Cortex-M33:**  
+
+Son **registros globales** dentro del núcleo que controlan qué interrupciones pueden activarse:
+
+- PRIMASK: 1 = bloquea todas las IRQ configurables (las “normales”). No bloquea NMI ni HardFault.
+- BASEPRI: valor ≠ 0 = bloquea las IRQ con prioridad numérica ≥ umbral; deja pasar las más urgentes (con número menor).
+- FAULTMASK: 1 = bloquea todo excepto NMI. Incluso mantiene en pausa HardFault. Es la más “dura”.
+
+No son máscaras “por bit” de cada IRQ. Son puertas globales: PRIMASK y FAULTMASK apagan “todo” (con excepciones), y BASEPRI pone un umbral de prioridad.
+
+```c title="Glosario de máscaras"
+// PRIMASK: todo OFF (menos NMI/HardFault) → Úsalo muy poco y muy corto.
+__disable_irq();         // PRIMASK = 1
+// ... sección ultracorta ...
+__enable_irq();          // PRIMASK = 0
+
+// BASEPRI: umbral (recomendado para secciones críticas “RTOS-friendly”)
 uint32_t old = __get_BASEPRI();
-__set_BASEPRI(NVIC_PRIO(8));   // umbral
-// sección crítica con altas prioridades habilitadas
+__set_BASEPRI(NVIC_PRIO(8));  // bloquea 8..15; deja pasar 0..7
+__DSB(); __ISB();              // garantizar efecto inmediato
+// ... sección crítica con urgentes habilitadas ...
 __set_BASEPRI(old);
+
+// Levantar solo el umbral (nunca bajarlo accidentalmente)
+__set_BASEPRI_MAX(NVIC_PRIO(6));
+
+// FAULTMASK: extremo; casi nunca en app normal
+__set_FAULTMASK(1);     // bloquea todo excepto NMI
+// ... código de emergencia ...
+__set_FAULTMASK(0);
 ```
 
-**Excepciones del sistema:** NMI (no enmascarable), HardFault, y *system handlers* (SysTick, SVCall) con prioridades programables vía `SCB->SHPR` o `NVIC_SetPriority()` (IRQs negativos en CMSIS).
 
----
+## Programacion de IRQ
 
-## Glosario Pico SDK (control de interrupciones y periféricos)
+**Comandos Basicos**
 
-**NVIC / control global** (`hardware/irq.h`):
-- `irq_set_exclusive_handler(irq_number_t irq, irq_handler_t fn)` — ISR exclusiva.  
-- `irq_add_shared_handler(irq_number_t irq, irq_handler_t fn, int order)` — ISR compartida.  
-- `irq_remove_handler(irq_number_t irq, irq_handler_t fn)` — Quitar handler.  
-- `irq_set_enabled(irq_number_t irq, bool enabled)` — Habilitar línea NVIC.  
-- `irq_is_enabled(irq_number_t irq)` — Consultar.  
-- `irq_set_priority(irq_number_t irq, uint8_t prio)` — Fijar prioridad (usa `NVIC_PRIO(x)`).  
-- `uint32_t f = save_and_disable_interrupts(); ... restore_interrupts(f);` — Sección crítica atómica.
+- `gpio_set_irq_enabled_with_callback(gpio, events, enabled, callback)`
+    - Habilita/deshabilita IRQ en un pin y registra un callback 
+    - Eventos:
+        - `GPIO_IRQ_EDGE_FALL`
+        - `GPIO_IRQ_EDGE_RISE`
+        - `GPIO_IRQ_LEVEL_HIGH`
+        - `GPIO_IRQ_LEVEL_LOW`
+    - Un callback es una función que se llama cuando ocurre el evento de interrupción.
+    - Ejemplo de uso:
+    ```c
+    gpio_set_irq_enabled_with_callback(16, GPIO_IRQ_EDGE_FALL, true, &isr);
+    ```
+- `gpio_set_irq_enabled(gpio, events, enabled)`
+    - Habilita/deshabilita IRQ en un pin sin callback
+    - Ejemplo de uso:
+    ```c
+    gpio_set_irq_enabled(16, GPIO_IRQ_EDGE_FALL, true);
+    ```
+- `gpio_acknowledge_irq(gpio, event_mask)`
+    - Limpia el flag latcheado del evento en la ISR (si no, sigue disparando).
+    - Ejemplo de uso:
+    ```c
+    void isr(uint gpio, uint32_t events) {
+        if (events & GPIO_IRQ_EDGE_FALL) { /* ... */ }
+        gpio_acknowledge_irq(gpio, events);
+    }
+    ```
+- `gpio_get_irq_event_mask(gpio)`
+    - Lee qué evento(s) activaron la IRQ (útil para decidir lógica).
+    - Ejemplo de uso:
+    ```c
+    if (gpio_get_irq_event_mask(16) & GPIO_IRQ_EDGE_FALL) { /* ... */ }
+    ```
 
-**Timer** (`hardware/timer.h`): `timer_hw->alarm[i]`, `timer_hw->intr`, `timer_hw->inte`, `timer_hw->timerawl`.  
-**UART** (`hardware/uart.h`): `uart_init`, `uart_is_readable`, `uart_getc`, `uart_is_writable`, `uart_putc_raw`, `uart_set_irq_enables`.  
-**GPIO** (`hardware/gpio.h`): `gpio_set_irq_enabled`, `gpio_set_irq_enabled_with_callback`, `gpio_acknowledge_irq`.
-
----
-
-## Patrones de configuración (aplican a *cualquier* periférico)
-
-1) **Preparar periférico** (clocks/pines, modo, estado).  
-2) **Instalar handler**: `irq_set_exclusive_handler(IRQn, isr);`  
-3) **Fijar prioridad**: `irq_set_priority(IRQn, NVIC_PRIO(nivel));`  
-4) **Habilitar NVIC**: `irq_set_enabled(IRQn, true);`  
-5) **Habilitar fuente** en el periférico (RX en UART, Alarm en Timer, etc.).  
-6) **En la ISR: ack/clear temprano**, trabajo **mínimo**, diferir lo pesado.
-
----
-
-## Ejemplo A — **Timer Alarm** (IRQ periódica, bajo nivel con NVIC)
-
-```c
-// timer_irq_example.c
+```c title="Ejemplo de uso Basico"
 #include "pico/stdlib.h"
-#include "hardware/irq.h"
-#include "hardware/timer.h"
+#include "hardware/gpio.h"
 
-#ifndef __NVIC_PRIO_BITS
-#  error "__NVIC_PRIO_BITS no definido por CMSIS"
-#endif
-#define NVIC_PRIO(level) ((uint8_t)((level) << (8 - __NVIC_PRIO_BITS)))
+#define LED_PIN 25   // LED onboard (Pico 2)
+#define BTN_PIN 16   // botón con pull-up externo a 3V3, pulsador a GND
 
-#define LED_PIN 25
-static const uint32_t PERIOD_US = 1000; // 1 kHz
-
-void on_timer0_irq(void) {
-    // 1) Ack (write-one-to-clear)
-    timer_hw->intr = 1u << 0;
-    // 2) Programar siguiente disparo
-    timer_hw->alarm[0] = timer_hw->timerawl + PERIOD_US;
-    // 3) Trabajo mínimo (observable)
-    gpio_xor_mask(1u << LED_PIN);
+static void button_isr(uint gpio, uint32_t events) {
+    if (gpio == BTN_PIN && (events & GPIO_IRQ_EDGE_RISE)) {
+        gpio_xor_mask(1u << LED_PIN);   
+    }
+    gpio_acknowledge_irq(gpio, events);  // limpia el flag de la IRQ
 }
 
-int main() {
+int main(void) {
     stdio_init_all();
 
+    // LED
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     gpio_put(LED_PIN, 0);
 
-    // Primer disparo y habilitar fuente
-    timer_hw->alarm[0] = timer_hw->timerawl + PERIOD_US;
-    hw_set_bits(&timer_hw->inte, 1u << 0);
-
-    // NVIC: instalar, prioridad y habilitar
-    irq_set_exclusive_handler(TIMER_IRQ_0, on_timer0_irq);
-    irq_set_priority(TIMER_IRQ_0, NVIC_PRIO(4));   // alta razonable
-    irq_set_enabled(TIMER_IRQ_0, true);
-
-    while (true) { tight_loop_contents(); }
-}
-```
-
----
-
-## Ejemplo B — **UART RX** (IRQ tipo *level*)
-
-```c
-// uart_rx_irq_example.c
-#include "pico/stdlib.h"
-#include "hardware/irq.h"
-#include "hardware/uart.h"
-#include "hardware/gpio.h"
-
-#ifndef __NVIC_PRIO_BITS
-#  error "__NVIC_PRIO_BITS no definido por CMSIS"
-#endif
-#define NVIC_PRIO(level) ((uint8_t)((level) << (8 - __NVIC_PRIO_BITS)))
-
-#define UART_ID    uart0
-#define BAUD       115200
-#define UART_TXPIN 0
-#define UART_RXPIN 1
-
-void on_uart0_irq(void) {
-    // La IRQ permanece mientras RX FIFO tenga datos (level-triggered)
-    while (uart_is_readable(UART_ID)) {
-        uint8_t ch = uart_getc(UART_ID);      // drena FIFO (elimina la condición)
-        uart_putc_raw(UART_ID, ch);           // eco rápido (evitar printf en ISR)
-    }
-}
-
-int main() {
-    stdio_init_all();
-
-    // Pines UART
-    gpio_set_function(UART_TXPIN, GPIO_FUNC_UART);
-    gpio_set_function(UART_RXPIN, GPIO_FUNC_UART);
-
-    uart_init(UART_ID, BAUD);
-
-    // NVIC
-    irq_set_exclusive_handler(UART0_IRQ, on_uart0_irq);
-    irq_set_priority(UART0_IRQ, NVIC_PRIO(6)); // media-alta si hay tráfico
-    irq_set_enabled(UART0_IRQ, true);
-
-    // Fuente: habilitar interrupción de RX (no TX)
-    uart_set_irq_enables(UART_ID, true, false);
-
-    while (true) { tight_loop_contents(); }
-}
-```
-
----
-
-## Ejemplo C — **Entrada externa GPIO** (edge + polaridad)
-
-```c
-// gpio_irq_example.c
-#include "pico/stdlib.h"
-#include "hardware/irq.h"
-#include "hardware/gpio.h"
-
-#ifndef __NVIC_PRIO_BITS
-#  error "__NVIC_PRIO_BITS no definido por CMSIS"
-#endif
-#define NVIC_PRIO(level) ((uint8_t)((level) << (8 - __NVIC_PRIO_BITS)))
-
-#define LED_PIN 25        // ajusta según tu placa
-#define BTN_PIN  2        // botón a GND, pull-up interno
-
-void gpio_irq_callback(uint gpio, uint32_t events) {
-    // Ack temprano (especialmente importante en level)
-    gpio_acknowledge_irq(gpio, events);
-
-    if (gpio == BTN_PIN && (events & GPIO_IRQ_EDGE_FALL)) {
-        gpio_put(LED_PIN, !gpio_get(LED_PIN));
-    }
-}
-
-int main() {
-    stdio_init_all();
-
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, GPIO_OUT);
-    gpio_put(LED_PIN, 0);
-
+    // Botón: entrada sin pulls internos (usas el pull-up externo del hardware)
     gpio_init(BTN_PIN);
     gpio_set_dir(BTN_PIN, GPIO_IN);
-    gpio_pull_up(BTN_PIN);
+    gpio_disable_pulls(BTN_PIN);   // importante: no mezclar con pull interno
 
-    // Prioridad NVIC (0 = más alta)
-    irq_set_priority(IO_IRQ_BANK0, NVIC_PRIO(12));
+    // Interrupción por flanco de bajada (alto -> bajo al presionar)
+    gpio_set_irq_enabled_with_callback(BTN_PIN,
+                                       GPIO_IRQ_EDGE_RISE,
+                                       true,
+                                       &button_isr);
 
-    // Habilitar falling edge y registrar callback global de GPIO
-    gpio_set_irq_enabled_with_callback(
-        BTN_PIN,
-        GPIO_IRQ_EDGE_FALL,
-        true,
-        &gpio_irq_callback
-    );
-
-    while (true) { tight_loop_contents(); }
+    while (true) {
+        tight_loop_contents();
+    }
 }
+
 ```
 
-**Debounce (rápido):** ignora eventos < X ms con `time_us_64()` o confirma estado con un Timer 10–20 ms tras el flanco.
+``` c title="Ejemplo de uso Encadenado"
+#include "pico/stdlib.h"
+#include "hardware/gpio.h"
+#include "hardware/irq.h"
 
----
+#define LED_A_PIN   0    // LED para botón A (externo)
+#define LED_B_PIN   25   // LED para botón B (onboard Pico 2)
 
-## Tabla mental de *ack/clear* (cómo “apagar” la IRQ)
+#define BTN_A_PIN   16   // Botón A con pull-up externo, a GND (FALL al presionar)
+#define BTN_B_PIN   17   // Botón B con pull-up externo, a GND (FALL al presionar)
 
-| Periférico | Qué la dispara | Cómo limpiarla en la ISR |
-|---|---|---|
-| Timer/Alarm | `timer == alarm[i]` | `timer_hw->intr = 1u << i;` y programar próximo `alarm[i]` |
-| UART RX | RX FIFO **no vacía** | Leer bytes hasta `!uart_is_readable()` |
-| UART TX | TX FIFO con espacio | Escribir hasta completar; deshabilitar IRQ de TX si no se necesita |
-| DMA | Canal completado | W1C en registro de estado/IRQ del canal |
-| PIO | IRQ de SM / nivel de FIFO | Leer/limpiar flags de PIO o drenar FIFO |
-| PWM wrap | Contador hace *wrap* | W1C en bit de IRQ de PWM |
+// Prototipo del callback global de GPIO (unico por core)
+static void gpio_isr(uint pin, uint32_t event_mask);
+
+// Parpadeo bloqueante (SOLO para demostración en ISR; en producción, evitar)
+static void blink_blocking(uint led_pin, int times, int ms_delay) {
+    for (int i = 0; i < times; ++i) {
+        gpio_xor_mask(1u << led_pin);
+        busy_wait_ms(ms_delay);   // bloqueo intencional para notar la “ocupación”
+        gpio_xor_mask(1u << led_pin);
+        busy_wait_ms(ms_delay);
+    }
+}
+
+int main(void) {
+    stdio_init_all();
+
+    // LEDs
+    gpio_init(LED_A_PIN);
+    gpio_set_dir(LED_A_PIN, GPIO_OUT);
+    gpio_put(LED_A_PIN, 0);
+
+    gpio_init(LED_B_PIN);
+    gpio_set_dir(LED_B_PIN, GPIO_OUT);
+    gpio_put(LED_B_PIN, 0);
+
+    gpio_init(BTN_A_PIN);
+    gpio_set_dir(BTN_A_PIN, GPIO_IN);
+    gpio_disable_pulls(BTN_A_PIN);
+
+    gpio_init(BTN_B_PIN);
+    gpio_set_dir(BTN_B_PIN, GPIO_IN);
+    gpio_disable_pulls(BTN_B_PIN);
+
+    // Habilitar IRQ por flanco de BAJADA en ambos pines
+    gpio_set_irq_enabled_with_callback(BTN_A_PIN,
+                                       GPIO_IRQ_EDGE_FALL,
+                                       true,
+                                       &gpio_isr);
+    // El segundo pin usa el MISMO callback:
+    gpio_set_irq_enabled(BTN_B_PIN, GPIO_IRQ_EDGE_FALL, true);
+
+    irq_set_priority(IO_IRQ_BANK0, 0x80);   // cualquier valor (no hay otra línea para competir)
+    irq_set_enabled(IO_IRQ_BANK0, true);
+
+    while (true) {
+        tight_loop_contents();
+    }
+}
+
+// Callback 
+static void gpio_isr(uint pin, uint32_t event_mask) {
+    if (event_mask & GPIO_IRQ_EDGE_FALL) {
+        if (pin == BTN_A_PIN) {
+            // Cada botón tiene SU propio “blink_blocking”
+            blink_blocking(LED_A_PIN, 4, 1000);  // 4 veces, 1 s
+        } else if (pin == BTN_B_PIN) {
+            blink_blocking(LED_B_PIN, 4, 1000);  // 4 veces, 1 s
+        }
+    }
+    gpio_acknowledge_irq(pin, event_mask);
+}
+```
