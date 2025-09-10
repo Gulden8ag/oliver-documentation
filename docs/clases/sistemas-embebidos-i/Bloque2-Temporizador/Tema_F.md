@@ -82,7 +82,7 @@ En la ISR:
 
 ---
 
-## Ejemplos rápidos
+**Calculos de ejemplos:**
 
 **Periodo 10 µs (100 kHz)**  
 - **Modo µs:** \(\text{intervalo\_ticks}=10\)  
