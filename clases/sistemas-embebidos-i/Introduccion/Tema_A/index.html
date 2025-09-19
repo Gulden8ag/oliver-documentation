@@ -1,0 +1,2966 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Introduccion/">
+      
+      
+        <link rel="next" href="../../../../tutoriales/Maquinas/tutoriales_Laser/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>¿Qué es un sistema embebido? - COORDINACIÓN IMT/ICE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/overrides.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#que-es-un-sistema-embebido" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="COORDINACIÓN IMT/ICE" class="md-header__button md-logo" aria-label="COORDINACIÓN IMT/ICE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COORDINACIÓN IMT/ICE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ¿Qué es un sistema embebido?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="COORDINACIÓN IMT/ICE" class="md-nav__button md-logo" aria-label="COORDINACIÓN IMT/ICE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COORDINACIÓN IMT/ICE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contactos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contactos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Contactos/departamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Departamento de Ciencias e Ingenierias
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Contactos/fablab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Departamento de Ciencias e Ingenierias
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Contactos/oliver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Academicos de Mecatronica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Recursos Carrera
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Recursos Carrera
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Recursos_Carrera/Plan_Electronica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plan Electronica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Recursos_Carrera/Plan_Mecatronica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plan Mecatronica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Recursos_Carrera/cer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consejo de Estudiantes de Representantes (CER)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Recursos_Carrera/intercambios_mecatronica_electronica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🌍 Intercambios Académicos — Mecatrónica y Electrónica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Clases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Clases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    FabAcademy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            FabAcademy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FabAcademy/info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Informacion general
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduccion mecatronica
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduccion mecatronica
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion-mecatronica/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Electronica 101
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion-mecatronica/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCU 101
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduccion-mecatronica/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actuadores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Robotica articulada
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Robotica articulada
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robotica-articulada/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Protected] Instalación de ROS 2 Jazzy Jalisco (WSL2 + WSLg)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robotica-articulada/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Protected] Tema2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robotica-articulada/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Protected] Tema3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Robotica movil
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Robotica movil
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robotica-movil/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Protected] Instalación de ROS 2 Jazzy Jalisco (WSL2 + WSLg)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robotica-movil/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Protected] Tema2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robotica-movil/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    [Protected] Tema3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sistemas embebidos i
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas embebidos i
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Instrucciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Capstone Micromouse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5_2" id="__nav_4_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque1 GPIO
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque1 GPIO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1-GPIO/Tema_B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Entorno y Toolchain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1-GPIO/Tema_C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control de GPIO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1-GPIO/Tema_D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Entradas digitales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1-GPIO/Tema_E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interrupciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5_3" id="__nav_4_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque2 Temporizador
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque2 Temporizador
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque2-Temporizador/Tema_F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Temporizadores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5_4" id="__nav_4_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduccion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Introduccion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduccion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ¿Qué es un sistema embebido?
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    ¿Qué es un sistema embebido?
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definición">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rasgos-caracteristicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rasgos característicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-pc-vs-sistema-embebido" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparativa PC vs Sistema Embebido
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-no-es-un-sistema-embebido" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué no es un sistema embebido?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casos de uso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-tipica-de-un-sistema-embebido" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estructura típica de un sistema embebido
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura típica de un sistema embebido">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes Clave:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buses-de-interconexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buses de interconexión
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memorias-tipos-y-usos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memorias: tipos y usos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memorias: tipos y usos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volatiles-rapidas-se-pierden-al-apagar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volátiles (rápidas, se pierden al apagar)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-volatiles-persisten-sin-energia" class="md-nav__link">
+    <span class="md-ellipsis">
+      No volátiles (persisten sin energía)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checklist de memoria
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelos de memoria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tamano-de-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Tamaño de la arquitectura"
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&#34;Tamaño de la arquitectura&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#efectos-del-tamano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efectos del Tamaño:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-entre-tamanos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparacion entre Tamaños
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-de-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de aplicaciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplos de aplicaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#misma-palabra-32-bits-von-neumann-vs-harvard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Misma palabra (32 bits), Von Neumann vs. Harvard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misma-arquitectura-harvard-distinto-tamano-de-palabra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Misma arquitectura (Harvard), distinto tamaño de palabra
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isa-y-microarquitectura-risc-vs-cisc-para-embebidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISA y microarquitectura: RISC vs CISC para embebidos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ISA y microarquitectura: RISC vs CISC para embebidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#risc-reduced-instruction-set-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      RISC (Reduced Instruction Set Computer).
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cisc-complex-instruction-set-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      CISC (Complex Instruction Set Computer).
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-risc-vs-cisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparativa RISC vs CISC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-para-elegir-un-mcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checklist para elegir un MCU
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutoriales
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Tutoriales
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Maquinas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Maquinas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Maquinas/tutoriales_Laser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cortadora Laser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Maquinas/tutoriales_Router/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Maquinas/tutoriales_monofab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TUTORIAL MINI MILL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Maquinas/tutoriales_print3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Impresora 3D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Software/tutoriales_cura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial de Cura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Software/tutoriales_mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial MODS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutoriales/Software/tutoriales_pslicer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial de PrusaSlicer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="que-es-un-sistema-embebido">¿Qué es un sistema embebido?</h1>
+<h2 id="definicion">Definición</h2>
+<p>Un <strong>sistema embebido</strong> es un sistema de cómputo <strong>diseñado para realizar funciones específicas</strong> dentro de un producto mayor, que interactúa con el mundo físico mediante sensores y actuadores.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Debe ser un producto final, no una PC independiente.</p>
+</div>
+<h3 id="rasgos-caracteristicos">Rasgos característicos</h3>
+<ul>
+<li><strong>Propósito específico</strong>: realiza una tarea o conjunto acotado de tareas.</li>
+<li><strong>Interacción físico-digital</strong>: adquisición de variables (sensores) y acción (actuadores).</li>
+<li><strong>Restricciones duras</strong>: consumo energético, memoria, procesamiento, costo, tamaño.</li>
+<li><strong>Confiabilidad y disponibilidad</strong>: ciclos de vida largos, operación continua.</li>
+<li><strong>Tiempo real (frecuente)</strong>: respuestas dentro de límites temporales definidos.</li>
+<li><strong>Co-diseño HW/SW</strong>: decisión conjunta de electrónica, firmware y software.</li>
+<li><strong>Seguridad y ciberseguridad</strong>: protección del usuario y del entorno (funcional y digital).</li>
+</ul>
+<h3 id="comparativa-pc-vs-sistema-embebido">Comparativa PC vs Sistema Embebido</h3>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>PC propósito general</th>
+<th>Sistema embebido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alcance funcional</td>
+<td>Amplio, multitarea</td>
+<td>Específico a la aplicación</td>
+</tr>
+<tr>
+<td>Interfaz con usuario</td>
+<td>Teclado, mouse, pantalla</td>
+<td>Puede carecer de UI; LEDs, botones, HMI dedicada</td>
+</tr>
+<tr>
+<td>Recursos (CPU/RAM/almacen.)</td>
+<td>Abundantes</td>
+<td>Limitados por costo/energía/espacio</td>
+</tr>
+<tr>
+<td>SO</td>
+<td>Windows/macOS/Linux de escritorio</td>
+<td>Bare-metal/RTOS/Linux embebido</td>
+</tr>
+<tr>
+<td>Tiempo real</td>
+<td>No determinista</td>
+<td>Frecuentemente determinista</td>
+</tr>
+<tr>
+<td>Energía</td>
+<td>Red eléctrica</td>
+<td>Batería/ultrabajo de potencia</td>
+</tr>
+<tr>
+<td>Robustez/ambiental</td>
+<td>Moderada</td>
+<td>Alta (temperatura, vibración, EMI)</td>
+</tr>
+<tr>
+<td>Ciclo de vida</td>
+<td>Corto/mediano</td>
+<td>Largo (años o décadas)</td>
+</tr>
+<tr>
+<td>Ciberseguridad funcional</td>
+<td>Importante</td>
+<td>Crítica (seguridad física + seguridad informática)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="que-no-es-un-sistema-embebido">¿Qué no es un sistema embebido?</h3>
+<ul>
+<li>Una PC de escritorio usada tal cual (no integrada a un producto).</li>
+<li>Un servidor genérico de propósito general.</li>
+<li>Un script en laptop que lee un sensor USB (salvo que la laptop sea parte del producto final).</li>
+</ul>
+<h3 id="casos-de-uso">Casos de uso</h3>
+<table>
+<thead>
+<tr>
+<th>Dominio</th>
+<th>Producto/Función</th>
+<th>Requisito clave</th>
+<th>Tiempo real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automotriz</td>
+<td>ECU de frenos (ABS/ESP)</td>
+<td>Latencia y seguridad funcional</td>
+<td>Duro</td>
+</tr>
+<tr>
+<td>Médico</td>
+<td>Marcapasos</td>
+<td>Confiabilidad y biocompatibilidad</td>
+<td>Duro</td>
+</tr>
+<tr>
+<td>Industrial</td>
+<td>Control de motor en línea</td>
+<td>Determinismo y robustez</td>
+<td>Duro</td>
+</tr>
+<tr>
+<td>Consumo</td>
+<td>Termostato inteligente</td>
+<td>Conectividad y eficiencia</td>
+<td>Blando</td>
+</tr>
+<tr>
+<td>IoT portátil</td>
+<td>Wearable (smartwatch)</td>
+<td>Bajo consumo y UX</td>
+<td>Blando</td>
+</tr>
+<tr>
+<td>Domótica</td>
+<td>Cerradura inteligente</td>
+<td>Seguridad/cifrado</td>
+<td>Variable</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Tiempo real duro</strong></em>: incumplir una deadline implica fallo del sistema (p. ej., Freno ABS).<br />
+<em><strong>Tiempo real blando</strong></em>: las demoras degradan la calidad pero no implican fallo (p. ej., audio).</p>
+<hr />
+<h2 id="estructura-tipica-de-un-sistema-embebido">Estructura típica de un sistema embebido</h2>
+<ul>
+<li>
+<p><strong>MCU Microcontrolador</strong>: CPU + memoria + periféricos en un mismo chip, optimizado para control de E/S en tiempo real.</p>
+</li>
+<li>
+<p><strong>MPU MicroProcesador</strong>: CPU “sola” (memoria y periféricos externos). SoC: término paraguas que puede incluir GPU, radios, etc.</p>
+</li>
+</ul>
+<h3 id="componentes-clave">Componentes Clave:</h3>
+<p><strong><em>Diagrama 1 — Visión de alto nivel</em></strong></p>
+<pre class="mermaid"><code>flowchart LR
+  %% ---------- External signals ----------
+  CLK["Reloj / PLL"]
+  RST["Reset"]
+  PWR["Gestión de energía&lt;br/&gt;(LDO / DCDC / Sleep)"]
+  EXT_IO["Sensores / Actuadores externos"]
+
+  %% ---------- MCU boundary ----------
+  subgraph MCU["Microcontrolador (SoC)"]
+    direction LR
+
+    %% Central interconnect
+    BUS[["Interconexión SoC&lt;br/&gt;(AXI / AHB / APB)"]]
+
+    %% CPU subsystem (keep it simple at high level)
+    subgraph CPU["CPU"]
+      direction TB
+      CORE["Núcleo (Core)"]
+      INTCTRL["Control de interrupciones (NVIC/INTC)"]
+      REGFILE["Registros"]
+      ALU["ALU (FPU/DSP opcional)"]
+      CORE --- INTCTRL
+      CORE --- REGFILE
+      CORE --- ALU
+    end
+
+    %% Memory
+    subgraph MEM["Memoria"]
+      direction TB
+      FLASH[(Flash - Código)]
+      SRAM[(SRAM - Datos)]
+      EEPROM[(EEPROM/Emulada - Parámetros)]
+      TCM[(Cache / TCM opcional)]
+    end
+
+    %% Peripherals (grouped)
+    subgraph PER["Periféricos"]
+      direction TB
+      GPIO[[GPIO / I/O digital]]
+      TIM[[Timers / PWM / RTC]]
+      ANA[[ADC / DAC / Comparador]]
+      COM[[UART · SPI · I2C · CAN · USB · ETH]]
+      WDT[[Watchdog]]
+      DMA[[DMA]]
+    end
+  end
+
+  %% ---------- Clean wiring via hub ----------
+  CPU --- BUS
+  MEM --- BUS
+  PER --- BUS
+  DMA --- BUS
+
+  %% External world
+  EXT_IO --- GPIO
+
+  %% Service signals (limit fan-out to reduce clutter)
+  CLK --&gt; CPU
+  CLK --&gt; PER
+  RST --&gt; CPU
+  RST --&gt; PER
+  PWR --&gt; CPU
+  PWR --&gt; MEM</code></pre>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Función principal</th>
+<th>Puntos de diseño / riesgo típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALU / FPU / DSP</td>
+<td>Cálculo entero, flotante, señal</td>
+<td>Latencia, precisión, consumo; ¿se justifica FPU?</td>
+</tr>
+<tr>
+<td>Unidad de Control</td>
+<td>Secuenciar instrucciones</td>
+<td>Soporte ISA</td>
+</tr>
+<tr>
+<td>Registros/PC/SP</td>
+<td>Estado interno y flujo</td>
+<td>Tamaño de banco, llamadas/ISR anidadas</td>
+</tr>
+<tr>
+<td>NVIC/INTC</td>
+<td>Gestión de interrupciones</td>
+<td>Prioridades, latencias, determinismo</td>
+</tr>
+<tr>
+<td>DMA</td>
+<td>Transferencia sin CPU</td>
+<td>Configuración correcta, coherencia de caché</td>
+</tr>
+<tr>
+<td>Flash</td>
+<td>Almacenar firmware</td>
+<td>Endurance, tiempos de programación/lectura</td>
+</tr>
+<tr>
+<td>SRAM</td>
+<td>Datos en ejecución</td>
+<td>Tamaño/costos, inicialización y protección</td>
+</tr>
+<tr>
+<td>EEPROM</td>
+<td>Parámetros persistentes</td>
+<td>Ciclos de escritura, wear leveling</td>
+</tr>
+<tr>
+<td>GPIO</td>
+<td>I/O digital</td>
+<td>Pull-ups, debounce, protección ESD</td>
+</tr>
+<tr>
+<td>Timers/PWM/RTC</td>
+<td>Tiempo, captura/compare, control</td>
+<td>Resolución, jitter, sincronización con ADC</td>
+</tr>
+<tr>
+<td>ADC/DAC/Comp.</td>
+<td>Interfaces analógicas</td>
+<td>Ruido, referencia, tasa de muestreo, linealidad</td>
+</tr>
+<tr>
+<td>UART/SPI/I²C/CAN…</td>
+<td>Comunicaciones</td>
+<td>Velocidad, errores, EMC, protocolos superiores</td>
+</tr>
+<tr>
+<td>Reloj/PLL</td>
+<td>Base de tiempo</td>
+<td>Estabilidad, arranque, consumo</td>
+</tr>
+<tr>
+<td>Reset/Watchdog</td>
+<td>Recuperación de fallos</td>
+<td>Ventanas, falsas activaciones, cobertura de fallos</td>
+</tr>
+<tr>
+<td>Power Mgmt</td>
+<td>Modos sleep/standby</td>
+<td>Latencias de wake-up, retención de estado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="buses-de-interconexion">Buses de interconexión</h3>
+<p>Dentro de un sistema embebido, los bloques funcionales se comunican entre sí a través de buses de interconexión. Estos buses permiten la transferencia de datos, direcciones y señales de control entre los diferentes componentes del sistema. Existen varios tipos de buses, cada uno con sus propias características y propósitos:</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Un bus es el conjunto de conexiones físicas que permiten la comunicación entre los diferentes componentes de un sistema.</p>
+</div>
+<ol>
+<li><strong>Bus de datos</strong>: Transporta la información entre los componentes.</li>
+<li><strong>Bus de direcciones</strong>: Lleva las direcciones de memoria a las que se accede.</li>
+<li><strong>Bus de control</strong>: Transmite señales de control que coordinan las operaciones del sistema.</li>
+</ol>
+<p>Así mismo podemos denominar:</p>
+<ul>
+<li><strong>Maestros/Iniciadores</strong> (AMBA: Initiator): Dispositivos que inician las transferencias de datos (p. ej., CPU, DMA).</li>
+<li><strong>Esclavos/Objetivos</strong> (AMBA: Target): Dispositivos que responden a las solicitudes de los maestros (p. ej., memoria, periféricos).</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+  subgraph Fabric[Matriz / Bus interno]
+    CPU2["CPU (Maestro)"]
+    DMA2["DMA (Maestro)"]
+    MEM2["Memorias (Esclavos): Flash/SRAM"]
+    P1["Periféricos APB (Esclavos)"]
+    P2["Periféricos rápidos (Esclavos)"]
+  end
+
+  CPU2 --&gt;|Dirección/Control| MEM2
+  MEM2 --&gt;|Datos| CPU2
+
+  CPU2 &lt;---&gt; P1
+  CPU2 &lt;---&gt; P2
+  DMA2 &lt;---&gt; MEM2
+  DMA2 &lt;---&gt; P2</code></pre>
+<h2 id="memorias-tipos-y-usos">Memorias: tipos y usos</h2>
+<p>En un sistema embebido elegimos memorias según <strong>volatilidad</strong>, <strong>latencia/ancho de banda</strong>, <strong>endurance</strong> (ciclos de escritura), <strong>tamaño</strong> y <strong>costo/energía</strong>. Aquí un mapa práctico.</p>
+<h3 id="volatiles-rapidas-se-pierden-al-apagar">Volátiles (rápidas, se pierden al apagar)</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th style="text-align: center;">Volátil</th>
+<th>Lectura/Escritura</th>
+<th style="text-align: right;">Endurance aprox.</th>
+<th style="text-align: right;">Tamaño típico en MCUs</th>
+<th>Uso típico</th>
+<th>Riesgos / diseño</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SRAM</strong></td>
+<td style="text-align: center;">Sí</td>
+<td>Muy rápida / rápida</td>
+<td style="text-align: right;">Ilimitada (lógica)</td>
+<td style="text-align: right;">2–512 KiB</td>
+<td>Variables en ejecución, buffers</td>
+<td>Consumo en sleep; tamaño limitado</td>
+</tr>
+<tr>
+<td><strong>TCM (ITCM/DTCM)</strong></td>
+<td style="text-align: center;">Sí</td>
+<td><strong>Muy rápida</strong> (casi 1 ciclo)</td>
+<td style="text-align: right;">Ilimitada</td>
+<td style="text-align: right;">16–512 KiB</td>
+<td>Código crítico o datos de ISR en tiempo real</td>
+<td>Tamaño pequeño; requiere linker script</td>
+</tr>
+<tr>
+<td><strong>Caché (I/D)</strong></td>
+<td style="text-align: center;">Sí</td>
+<td>Transparente (aceleración)</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td>Acelerar acceso a Flash/externa</td>
+<td>Inval./coherencia con DMA</td>
+</tr>
+<tr>
+<td><strong>PSRAM</strong></td>
+<td style="text-align: center;">Sí</td>
+<td>Media / media</td>
+<td style="text-align: right;">Ilimitada</td>
+<td style="text-align: right;">2–16 MiB (externa)</td>
+<td>Framebuffers, UI, ML ligero</td>
+<td>Latencia mayor que SRAM; consumo</td>
+</tr>
+<tr>
+<td><strong>SDRAM/DDR</strong></td>
+<td style="text-align: center;">Sí</td>
+<td>Alta BW / latencia media</td>
+<td style="text-align: right;">Ilimitada</td>
+<td style="text-align: right;">16–1024 MiB (MPU/SoC)</td>
+<td>Linux/GUI, visión/ML, grandes buffers</td>
+<td>Controlador complejo; refresh, EMC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no-volatiles-persisten-sin-energia">No volátiles (persisten sin energía)</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th style="text-align: center;">Volátil</th>
+<th>Lectura/Escritura</th>
+<th style="text-align: right;">Endurance aprox.</th>
+<th style="text-align: right;">Tamaño típico</th>
+<th>Uso típico</th>
+<th>Riesgos / diseño</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flash interna (NOR)</strong></td>
+<td style="text-align: center;">No</td>
+<td>Lectura rápida; <strong>escritura/borrado por páginas/bloques</strong></td>
+<td style="text-align: right;">10³–10⁵ ciclos</td>
+<td style="text-align: right;">64 KiB–2 MiB</td>
+<td><strong>Firmware</strong>, constantes, a veces logs</td>
+<td>Tamaño de página; <em>wait states</em>; <strong>wear leveling</strong> para logs</td>
+</tr>
+<tr>
+<td><strong>QSPI NOR externa</strong></td>
+<td style="text-align: center;">No</td>
+<td>Lectura rápida; XIP posible</td>
+<td style="text-align: right;">10³–10⁵</td>
+<td style="text-align: right;">4–256 MiB</td>
+<td>Código XIP, assets (UI), modelos pequeños</td>
+<td>Latencia &gt; interna; líneas QSPI; protección/firmware seguro</td>
+</tr>
+<tr>
+<td><strong>NAND (eMMC/SD)</strong></td>
+<td style="text-align: center;">No</td>
+<td>BW alto secuencial; aleatorio lento</td>
+<td style="text-align: right;">10³–10⁵</td>
+<td style="text-align: right;">4–256 GiB</td>
+<td>Datos masivos: archivos, audio/video, <em>databases</em></td>
+<td>Sistema de archivos, <strong>wear leveling</strong>, integridad (journaling)</td>
+</tr>
+<tr>
+<td><strong>EEPROM</strong></td>
+<td style="text-align: center;">No</td>
+<td>Escritura por bytes/páginas (simple)</td>
+<td style="text-align: right;">10⁵–10⁶</td>
+<td style="text-align: right;">512 B–256 KiB</td>
+<td><strong>Parámetros</strong> de calibración/configuración</td>
+<td>Endurance: distribuir escrituras; tiempo de escritura</td>
+</tr>
+<tr>
+<td><strong>FRAM</strong></td>
+<td style="text-align: center;">No</td>
+<td><strong>Casi SRAM</strong> (rápida) lectura/escritura</td>
+<td style="text-align: right;">10¹²–10¹⁴</td>
+<td style="text-align: right;">4–1024 KiB</td>
+<td>Logs frecuentes, contadores, estado crítico</td>
+<td>Costo/KB; disponibilidad</td>
+</tr>
+<tr>
+<td><strong>MRAM</strong> <em>(opc.)</em></td>
+<td style="text-align: center;">No</td>
+<td>Rápida; no volátil</td>
+<td style="text-align: right;">10¹²+</td>
+<td style="text-align: right;">128 KiB–16 MiB</td>
+<td>Estado seguro ante fallos de energía</td>
+<td>Costo; oferta limitada</td>
+</tr>
+<tr>
+<td><strong>OTP / eFuse</strong></td>
+<td style="text-align: center;">No</td>
+<td>Programación única</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">Decenas–cientos bits</td>
+<td>IDs, claves, configuración de arranque</td>
+<td><strong>Irreversible</strong>; planificar bien campos</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Reglas rápidas</p>
+<ul>
+<li><strong>Código</strong>: Flash interna; si no cabe o quieres <strong>XIP</strong>, QSPI NOR externa.  </li>
+<li><strong>Datos en tiempo real</strong> (colas ISR, filtros): SRAM/TCM.  </li>
+<li><strong>Parámetros</strong> que cambian poco: EEPROM / FRAM (si cambian mucho).  </li>
+<li><strong>Logs frecuentes</strong>: FRAM o estrategia de wear leveling en Flash.  </li>
+<li><strong>Activos grandes</strong> (imágenes, audio): QSPI NOR o SD/eMMC.  </li>
+<li><strong>Linux/GUI/ML pesado</strong>: SDRAM/DDR + almacenamiento masivo.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">¿Qué es XIP (Execute-In-Place)?</p>
+<p>Ejecutar código <strong>directamente</strong> desde una memoria externa (p. ej., QSPI NOR) sin copiarlo a SRAM. Ahorra SRAM, a costa de latencia; ideal para código no crítico.</p>
+</div>
+<h3 id="checklist-de-memoria">Checklist de memoria</h3>
+<ul>
+<li>Tamaño de <strong>firmware</strong> (Flash) y <strong>datos en ejecución</strong> (SRAM/TCM).  </li>
+<li>¿Necesitas <strong>XIP</strong>? ¿Qué latencia tolera tu bucle crítico?  </li>
+<li><strong>Endurance</strong> esperado (parámetros/logs) y estrategia de <strong>wear leveling</strong>.  </li>
+<li>¿DMA y caché? Plan de coherencia/inval.  </li>
+<li>Consumo en <strong>sleep/retención</strong> y tiempos de <strong>wake-up</strong>.  </li>
+<li>Integridad/seguridad: <strong>firmware firmado</strong>, protección de lectura/escritura.</li>
+</ul>
+<h2 id="modelos-de-memoria">Modelos de memoria</h2>
+<p>Los sistemas embebidos utilizan diferentes modelos de memoria para gestionar el almacenamiento y acceso a datos. </p>
+<p>Esto lo hace a través de instrucciones y datos que se almacenan en diferentes tipos de memoria.</p>
+<ul>
+<li>Instrucciones: Son las operaciones que la CPU debe realizar y se almacenan en la memoria de programa.</li>
+<li>Datos: Son la información sobre la que opera la CPU y se almacenan en la memoria de datos.</li>
+</ul>
+<p>Algunos de los modelos más comunes son:</p>
+<ol>
+<li>
+<p><strong>Modelo de memoria von Neumann</strong>: La CPU usa una sola memoria para instrucciones y datos, lo que simplifica el diseño, pero limita el rendimiento porque no puede acceder a ambos al mismo tiempo.</p>
+</li>
+<li>
+<p><strong>Modelo de memoria Harvard</strong>: Este modelo utiliza memorias separadas para instrucciones y datos, lo que permite accesos simultáneos y mejora el rendimiento. Sin embargo, es más complejo de implementar.</p>
+</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+
+%% =======================
+%%   VON NEUMANN (izq.)
+%% =======================
+subgraph VN["Von Neumann"]
+direction TB
+  VN_MEM["Memoria (Datos + Código)"]
+  VN_CPU["CPU"]
+  VN_IO["Dispositivos I/O"]
+
+  VN_MEM --&gt;|Datos| VN_CPU
+  VN_CPU --&gt;|Dirección| VN_MEM
+  VN_CPU --&gt;|Datos| VN_IO
+end
+
+%% =======================
+%%   HARVARD (der.)
+%% =======================
+subgraph HV["Harvard"]
+direction TB
+  HV_PM["Memoria de Programa"]
+  HV_DM["Memoria de Datos"]
+  HV_CPU["CPU"]
+  HV_IO["Dispositivos I/O"]
+
+  %% Mantener PM y DM en la misma fila superior
+  HV_PM --- HV_DM
+
+  %% Instrucciones (PM -&gt; CPU) y su dirección (CPU -&gt; PM)
+  HV_PM --&gt;|Instrucción| HV_CPU
+  HV_CPU -.-&gt;|Dirección de instrucción| HV_PM
+
+  %% Datos (DM -&gt; CPU) y su dirección (CPU -&gt; DM)
+  HV_DM --&gt;|Datos| HV_CPU
+  HV_CPU -.-&gt;|Dirección de variable| HV_DM
+
+  %% I/O debajo de la CPU
+  HV_CPU --&gt;|Datos| HV_IO
+end
+
+%% ==== Estilo opcional (puedes quitarlo si no lo necesitas) ====
+classDef box fill:#f7f7f7,stroke:#444,stroke-width:1px;
+class VN_MEM,VN_CPU,VN_IO,HV_PM,HV_DM,HV_CPU,HV_IO box;
+linkStyle default stroke:#444,stroke-width:1px;</code></pre>
+<h2 id="tamano-de-la-arquitectura">"Tamaño de la arquitectura"</h2>
+<p>El “tamaño de la arquitectura” suele referirse al ancho de palabra de la CPU (número de bits de sus registros generales y de la ALU: 8, 16, 32, 64 bits). Sin embargo, para decidir hardware también interesan:</p>
+<ul>
+<li><strong>Ancho del bus de direcciones</strong> (cuántas direcciones distintas puede emitir la CPU/DMA).</li>
+<li><strong>Ancho del bus de datos</strong> (cuántos bits se pueden transferir en paralelo).</li>
+<li><strong>Tamaño de punteros</strong> (cuántos bits se utilizan para representar una dirección de memoria).</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Puede haber combinaciones, es decir CPU de 32 bits con 24 bits de direcciones, o buses de datos hacia perifericos de 8/16 bits.</p>
+</div>
+<h4 id="efectos-del-tamano">Efectos  del Tamaño:</h4>
+<ol>
+<li>El ancho de direcciones limita la memoria maxima</li>
+<li>Mas bits permiten operaciones aritmeticas y de memoria en menos ciclos</li>
+<li>Las arquitecturas pequenas pueden ahorrar energia y precio.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><strong>Ancho de direcciones</strong></th>
+<th style="text-align: right;"><strong>Máximo direccionable</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">8 bit</td>
+<td style="text-align: right;">256 B</td>
+</tr>
+<tr>
+<td style="text-align: right;">16 bit</td>
+<td style="text-align: right;">64 KiB</td>
+</tr>
+<tr>
+<td style="text-align: right;">24 bit</td>
+<td style="text-align: right;">16 MiB</td>
+</tr>
+<tr>
+<td style="text-align: right;">32 bit</td>
+<td style="text-align: right;">4 GiB</td>
+</tr>
+<tr>
+<td style="text-align: right;">40 bit</td>
+<td style="text-align: right;">1 TiB</td>
+</tr>
+<tr>
+<td style="text-align: right;">48 bit</td>
+<td style="text-align: right;">256 TiB</td>
+</tr>
+<tr>
+<td style="text-align: right;">64 bit</td>
+<td style="text-align: right;">16 EiB (teórico)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="comparacion-entre-tamanos">Comparacion entre Tamaños</h4>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th><strong>8/16 bits</strong></th>
+<th><strong>32 bits (MCU/MPU)</strong></th>
+<th><strong>64 bits (SoC)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complejidad / costo HW</strong></td>
+<td>Muy bajo</td>
+<td>Bajo–medio</td>
+<td>Medio–alto</td>
+</tr>
+<tr>
+<td><strong>Consumo energético</strong></td>
+<td>Muy bajo (frecuencias modestas)</td>
+<td>Bajo con buen rendimiento/Hz</td>
+<td>Mayor en promedio</td>
+</tr>
+<tr>
+<td><strong>Espacio direccionable (orientativo)</strong></td>
+<td>8–16 b: 256 B–64 KiB</td>
+<td>Hasta 4 GiB (teórico)</td>
+<td>Hasta 16 EiB (teórico)</td>
+</tr>
+<tr>
+<td><strong>Tamaño de puntero típico (C/C++)</strong></td>
+<td>16 b</td>
+<td>32 b</td>
+<td>64 b</td>
+</tr>
+<tr>
+<td><strong>Desempeño en enteros/32 b</strong></td>
+<td>Limitado (multi-ciclo)</td>
+<td>Muy bueno (nativo)</td>
+<td>Excelente</td>
+</tr>
+<tr>
+<td><strong>FPU/DSP / Criptografía</strong></td>
+<td>Raro / externo</td>
+<td>Frecuente (M4/M7/RV32-F/D; aceleradores AES/SHA)</td>
+<td>Frecuente / avanzado (SIMD, AES-NI, etc.)</td>
+</tr>
+<tr>
+<td><strong>RTOS / Tiempo real</strong></td>
+<td>Posible, con límites</td>
+<td>Muy bueno (determinismo + periféricos modernos)</td>
+<td>Menos determinista en SoC complejos</td>
+</tr>
+<tr>
+<td><strong>SO viable</strong></td>
+<td>Bare-metal/RTOS</td>
+<td>Bare-metal/RTOS; Linux en 32 b con <strong>MMU</strong> (Cortex-A, etc.)</td>
+<td>Linux/Unix de pleno derecho</td>
+</tr>
+<tr>
+<td><strong>Conectividad moderna (TLS/OTA)</strong></td>
+<td>Limitada</td>
+<td>Sólida (Wi-Fi/BLE/Cell + TLS)</td>
+<td>Completa (redes, contenedores, etc.)</td>
+</tr>
+<tr>
+<td><strong>Temporizadores (resolución/rango)</strong></td>
+<td>Resolución buena, rango corto</td>
+<td>Excelente equilibrio (timers 32 b)</td>
+<td>Depende del SoC; no foco principal</td>
+</tr>
+<tr>
+<td><strong>Time-to-market (ecosistema)</strong></td>
+<td>Menor oferta actual</td>
+<td>Muy alto (toolchains, HAL, stacks, RTOS)</td>
+<td>Alto, pero mayor complejidad</td>
+</tr>
+<tr>
+<td><strong>Casos típicos</strong></td>
+<td>Control simple, legacy, ultra-bajo costo</td>
+<td>IoT, control de motor, audio básico, gateways ligeros, HMI simple</td>
+<td>Linux, UI compleja, visión/ML ligero, RAM &gt; 1–2 GiB</td>
+</tr>
+<tr>
+<td><strong>Riesgos</strong></td>
+<td>Tope de memoria, software limitado</td>
+<td>Elegir de más/menos (over/under-spec)</td>
+<td>Consumo, costo, integración compleja</td>
+</tr>
+<tr>
+<td><strong>Ejemplos comerciales</strong></td>
+<td><em>Microchip PIC16/PIC18</em>, <em>AVR ATmega328P/ATmega32U4</em>, <em>TI MSP430</em> (16 b), <em>Renesas RL78</em></td>
+<td><em>ST STM32</em> (F0/G0/F4/H7…), <em>NXP LPC55Sxx / Kinetis</em>, <em>Microchip SAMD21/SAMC21/SAME5x</em>, <em>Nordic nRF52/nRF53</em>, <em>Espressif ESP32/ESP32-C3</em>, <em>Raspberry Pi RP2040</em></td>
+<td><em>Broadcom BCM2711 (Raspberry Pi 4, Cortex-A72)</em>, <em>NXP i.MX 8M (Cortex-A53)</em>, <em>TI Sitara AM64x (Cortex-A53)</em>, <em>Rockchip RK3566/68 (Cortex-A55)</em>, <em>Allwinner A64 (Cortex-A53)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ejemplos-de-aplicaciones">Ejemplos de aplicaciones</h2>
+<h3 id="misma-palabra-32-bits-von-neumann-vs-harvard">Misma palabra (32 bits), Von Neumann vs. Harvard</h3>
+<p>Asumamos la siguiente operacion de programacion</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Para este codigo tendremos los siguientes supuestos:</p>
+<ul>
+<li>Carga de 32 bits = 1 acceso de datos.</li>
+<li>ADD = 1 ciclo de ALU.</li>
+<li>Bifurcación/final de bucle = 1 instrucción (se cuenta su fetch).</li>
+<li>Sin caché, sin esperas de memoria, pipeline simple.</li>
+<li>En Von Neumann hay un bus único (instrucciones y datos compiten).</li>
+<li>En Harvard hay dos buses (instrucciones y datos en paralelo).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th style="text-align: right;">Von Neumann (bus único)</th>
+<th style="text-align: right;">Harvard (buses I/D)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fetch <code>LDR</code> (leer instrucción)</td>
+<td style="text-align: right;">1 ciclo</td>
+<td style="text-align: right;">1 ciclo (I-bus)</td>
+</tr>
+<tr>
+<td>Lectura <code>A[i]</code> (dato 32b)</td>
+<td style="text-align: right;">1 ciclo</td>
+<td style="text-align: right;">1 ciclo (D-bus, <strong>en paralelo</strong>)</td>
+</tr>
+<tr>
+<td>Fetch <code>ADD</code></td>
+<td style="text-align: right;">1 ciclo</td>
+<td style="text-align: right;">1 ciclo (I-bus)</td>
+</tr>
+<tr>
+<td>Fetch <code>BNE</code>/fin de bucle</td>
+<td style="text-align: right;">1 ciclo</td>
+<td style="text-align: right;">1 ciclo (I-bus)</td>
+</tr>
+<tr>
+<td><strong>Total por iteración</strong></td>
+<td style="text-align: right;"><strong>≈ 4 ciclos</strong></td>
+<td style="text-align: right;"><strong>≈ 3 ciclos</strong></td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>%%{init: {'gantt': {'axisFormat': '%Q'}} }%%
+gantt
+  dateFormat  x
+  title Von Neumann 32 bits (ciclos por iteración)
+  section Bus único
+  Fetch LDR             :a1, 0, 1
+  Fetch de datos (A[i]) :a2, 1, 1
+  Fetch ADD             :a3, 2, 1
+  Fetch BNE/loop        :a4, 3, 1
+</code></pre>
+<pre class="mermaid"><code>%%{init: {'gantt': {'axisFormat': '%Q'}} }%%
+gantt
+  dateFormat  x
+  title Harvard 32 bits (ciclos por iteración)
+  section I-bus (instrucciones)
+  Fetch LDR        :i1, 0, 1
+  Fetch ADD        :i2, 1, 1
+  Fetch BNE/loop   :i3, 2, 1
+  section D-bus (datos)
+  Read A[i]        :d1, 0, 1
+</code></pre>
+<h3 id="misma-arquitectura-harvard-distinto-tamano-de-palabra">Misma arquitectura (Harvard), distinto tamaño de palabra</h3>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Tomaremos los siguientes supuestos donde w es el tamaño de palabra:</p>
+<ul>
+<li>Cargas: 32 / w accesos de datos</li>
+<li>Suma: 32 / w operaciones de ALU</li>
+<li>Bifurcación: ≈ 1 instrucción
+Ciclos ≈ 2·(32/w) + 1</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Tamaño de palabra <strong>w</strong></th>
+<th style="text-align: right;">Cargas (32/w)</th>
+<th style="text-align: right;">Sumas (32/w)</th>
+<th style="text-align: right;">Branch</th>
+<th style="text-align: right;"><strong>Total aprox.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong>8 bits</strong></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><strong>≈ 9</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>16 bits</strong></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><strong>≈ 5</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>32 bits</strong></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><strong>≈ 3</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En la práctica abundan diseños <strong>Harvard modificados</strong> (separación I/D con caminos de cruce o regiones compartidas para facilitar DMA/bootloader).</p>
+</div>
+<hr />
+<h2 id="isa-y-microarquitectura-risc-vs-cisc-para-embebidos">ISA y microarquitectura: RISC vs CISC para embebidos</h2>
+<ul>
+<li>ISA (Instruction Set Architecture) es el conjunto de instrucciones que un procesador puede entender y ejecutar, así como el manejo de excepciones/interrupciones.</li>
+<li>Una microarquitectura es la manera en que una arquitectura del conjunto de instrucciones (ISA) se implementa físicamente en un procesador que caen en principalmente dos categorías.</li>
+<li>RISC (Reduced Instruction Set Computer).</li>
+<li>CISC (Complex Instruction Set Computer).</li>
+</ul>
+<h3 id="risc-reduced-instruction-set-computer">RISC (Reduced Instruction Set Computer).</h3>
+<p>La idea principal detrás de esto es simplificar el hardware mediante el uso de un conjunto de instrucciones de unos pocos pasos basicos para cargar, evaluar y almacenar operación, por ejemplo un comando de carga (LOAD) o un comando de almacenamiento (STORE).</p>
+<p>Sus principales características son:</p>
+<ul>
+<li>Instrucciones más simples, por lo tanto decodificación de instrucciones sencilla.</li>
+<li>La instrucción viene en un tamaño inferior a una palabra.</li>
+<li>La instrucción permite un pipeline corto; idealmente ~1 instrucción/ciclo.</li>
+<li>Registros más generales.</li>
+<li>Modos de direccionamiento simples.</li>
+<li>Menos tipos de datos.</li>
+<li>Es posible crear un pipeline.</li>
+</ul>
+<h3 id="cisc-complex-instruction-set-computer">CISC (Complex Instruction Set Computer).</h3>
+<p>La idea principal es que una sola instrucción realizará todas las operaciones de carga, evaluación y almacenamiento, tal como un comando de multiplicación hará cosas como cargar datos, evaluarlos y almacenarlos, por lo tanto, es complejo.</p>
+<p>Sus principales características son:</p>
+<ul>
+<li>Instrucción compleja, por lo tanto decodificación de instrucciones complejas.</li>
+<li>Las instrucciones tienen un tamaño mayor a una palabra.</li>
+<li>La instrucción puede tardar más de un ciclo de reloj para ejecutarse.</li>
+<li>Históricamente menor número de registros de propósito general, ya que las operaciones se realizan en la propia memoria.</li>
+<li>Modos de direccionamiento complejos.</li>
+<li>Más tipos de datos.</li>
+</ul>
+<h3 id="comparativa-risc-vs-cisc">Comparativa RISC vs CISC</h3>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>RISC</th>
+<th>CISC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tamaño de código</strong></td>
+<td>Mayor (se requieren más instrucciones).</td>
+<td>Menor (instrucciones complejas reducen líneas de código).</td>
+</tr>
+<tr>
+<td><strong>Velocidad de ejecución</strong></td>
+<td>Más rápida (instrucciones simples, fácil decodificación).</td>
+<td>Más lenta (instrucciones complejas, mayor tiempo de decodificación).</td>
+</tr>
+<tr>
+<td><strong>Consumo de energía</strong></td>
+<td>Menor (ventaja para dispositivos portátiles/embebidos).</td>
+<td>Mayor (complejidad del conjunto de instrucciones).</td>
+</tr>
+<tr>
+<td><strong>Uso de memoria (programa)</strong></td>
+<td>Mayor (más instrucciones para tareas complejas).</td>
+<td>Menor / más eficiente (menos instrucciones para tareas complejas).</td>
+</tr>
+<tr>
+<td><strong>Complejidad del diseño/ISA</strong></td>
+<td>Menor (conjunto más pequeño y regular).</td>
+<td>Mayor (conjunto amplio y heterogéneo; diseño y fabricación más complejos).</td>
+</tr>
+<tr>
+<td><strong>Número de instrucciones</strong></td>
+<td>Se necesitan más instrucciones para tareas complejas.</td>
+<td>Menos instrucciones para la misma tarea (cada instrucción hace más).</td>
+</tr>
+<tr>
+<td><strong>Costo de desarrollo/fabricación</strong></td>
+<td>Puede ser mayor (según tu nota original).</td>
+<td>Puede ser menor relativo a RISC (según tu nota original).</td>
+</tr>
+<tr>
+<td><strong>Ejemplos de ISAs/familias y usos típicos</strong></td>
+<td><strong>ARM</strong> (Cortex-M/A/R): STMicro (STM32), NXP, TI, Microchip (SAM), Nordic, Renesas, Samsung Exynos, Qualcomm Snapdragon, Broadcom (Raspberry Pi), Apple M-series; <strong>RISC-V</strong>: SiFive, Espressif (ESP32-C3/C6/H2), Kendryte K210, Bouffalo Lab BL602/604, StarFive; <strong>MIPS</strong> (hist.): Microchip PIC32, Loongson (GP); <strong>Power/PowerPC</strong>: NXP MPC5xxx (auto), IBM (servidor); <strong>SPARC</strong> (LEON en aeroespacial); <strong>SuperH</strong> (Renesas SH); <strong>AVR</strong> (Atmel/Microchip 8-bit); <strong>MSP430</strong> (TI 16-bit); <strong>ARC</strong> (Synopsys); <strong>Xtensa</strong> (Cadence, p.ej. ESP32 “clásico” LX6/LX7); <strong>OpenRISC</strong>; <strong>Nios II</strong> (Intel FPGA), <strong>MicroBlaze</strong> (Xilinx FPGA).</td>
+<td><strong>x86/x86-64</strong>: Intel (Core/Atom), AMD (Ryzen/EPYC); <strong>Motorola 68000/ColdFire</strong> (hist./embebidos clásicos), <strong>VAX</strong> (hist.); <strong>Z80</strong> (Zilog, clásico/retro/embebido simple), <strong>6502</strong> (WDC 65C02/65C816, retro/industrial), <strong>8051</strong> (MCS-51, múltiples fabricantes como Nuvoton/Silicon Labs), <strong>Renesas RX/RL78</strong> (CISC 32/16-bit), <strong>68HC11/HC12</strong> (clásicos).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="checklist-para-elegir-un-mcu">Checklist para elegir un MCU</h2>
+<p><strong>Checklist rápido para elegir MCU</strong></p>
+<ul>
+<li>Requisitos de tiempo real (duro/blando) y latencia de E/S</li>
+<li>Consumo/energía y modos sleep</li>
+<li>Periféricos clave (ADC, PWM, DMA, comms)</li>
+<li>Memoria necesaria (Flash/SRAM) + seguridad (WDT, MPUs)</li>
+<li>Ecosistema (HAL, RTOS, toolchain, comunidad)</li>
+<li>Coste y disponibilidad (vida útil del producto)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.tooltips", "toc.integrate", "navigation.sections"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
