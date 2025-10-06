@@ -1,7 +1,31 @@
 site_name: COORDINACIÓN IMT/ICE
 
+theme:
+  name: material
+  highlightjs: true
+  palette:
+    - scheme: default
+      primary: red
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+    - scheme: slate
+      primary: red
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+  features:
+    - content.code.copy
+    - content.tooltips
+    - toc.integrate
+    - navigation.sections
+
+# Markdown extensions
 markdown_extensions:
   - abbr
+  - admonition
+  - attr_list
+  - md_in_html
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
@@ -14,10 +38,7 @@ markdown_extensions:
       mode: view
   - pymdownx.caret
   - pymdownx.keys
-  - attr_list
-  - md_in_html
   - pymdownx.blocks.caption
-  - admonition
   - pymdownx.details
   - pymdownx.emoji
   - pymdownx.tabbed:
@@ -27,74 +48,31 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.critic:
-      mode: view
-  - pymdownx.caret
-  - pymdownx.keys
-  - attr_list
-  - md_in_html
-  - pymdownx.blocks.caption
-  - pymdownx.superfences:
-      custom_fences:
-          - name: mermaid
-            class: mermaid
-            format: !!python/name:pymdownx.superfences.fence_code_format
-  - admonition
-  - pymdownx.details
-  - pymdownx.emoji
-  - pymdownx.tabbed:
-      alternate_style: true
-# Use the ReadTheDocs theme
-theme:
-  name: material
-  highlightjs: true 
-  palette:
-      - scheme: default
-        toggle:
-            icon: material/weather-night
-            name: Light mode
-        primary: red
 
-      - scheme: slate
-        toggle:
-            icon: material/weather-sunny
-            name: Dark mode
-        primary: red
-  features:
-    - content.code.copy
-    - content.tooltips
-    - toc.integrate
-    - navigation.sections
+# Extra assets
 extra_css:
   - css/overrides.css
   - https://use.fontawesome.com/releases/v6.5.2/css/all.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
+
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-
+# Plugins
 plugins:
-  - meta                      # aplica metadatos por carpeta (.meta.yml)
+  - meta
   - search
   - encryptcontent:
-      # que lo protegido NO entre al índice de búsqueda
       search_index: 'encrypted'
-      # que recuerde las llaves entre páginas
       remember_keys: true
-      # (opcional) agrega un botón junto al campo
-      # password_button: true
       password_inventory:
         robotica_movil:       !ENV [RM_PASSWORD, 'MISSING_RM_PASSWORD']
         robotica_articulada:  !ENV [RA_PASSWORD, 'MISSING_RA_PASSWORD']
       threshold_warning_min_entropy: 0
-      arithmatex: false   # silence "arithmatex" INFO
-      mermaid2:  false    # silence "mermaid2" INFO
+      arithmatex: false   # keep disabled (you use pymdownx instead)
+      mermaid2:  false    # keep disabled (you use pymdownx instead)
+
+# Validation
 validation:
   nav:
     omitted_files: ignore
