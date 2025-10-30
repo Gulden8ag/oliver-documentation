@@ -1,0 +1,30 @@
+/* docs/stylesheets/extra.css */
+
+/* 1) Icono personalizado (puedes copiar otro SVG desde .icons y pegar aquí) */
+:root {
+  --md-admonition-icon--coordsistemas: url('data:image/svg+xml;charset=utf-8,<svg …tu SVG aquí…></svg>');
+}
+
+/* 2) Borde y fondo para admonition estática */
+.md-typeset .admonition.coordsistemas {
+  border-color: rgb(34, 200, 51);
+}
+.md-typeset .coordsistemas > .admonition-title {
+  background-color: rgba(34, 100, 200, 0.1);
+}
+.md-typeset .coordsistemas > .admonition-title::before {
+  background-color: rgb(200, 114, 34);
+  mask-image: var(--md-admonition-icon--coordsistemas);
+}
+
+/* 3) Borde y fondo para collapsible (<details>) */
+.md-typeset details.coordsistemas {
+  border-color: rgb(189, 200, 34);
+}
+.md-typeset details.coordsistemas > summary {
+  background-color: rgba(34, 100, 200, 0.1);
+}
+.md-typeset details.coordsistemas > summary::before {
+  background-color: rgb(189, 200, 34);
+  mask-image: var(--md-admonition-icon--coordsistemas);
+}
