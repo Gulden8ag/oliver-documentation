@@ -90,7 +90,7 @@ Sensores generales en MCUs, medición de corriente con shunt, control y automati
 ***Uso típico***
 Básculas de precisión, instrumentación lenta, audio de alta fidelidad, mediciones de temperatura y presión de alta resolución.
 
-### 3.3 Flash y Pipeline
+### 3.3 Flash
 
 ![ADC Pipeline](../../../images/flash.avif){width="60%" align="center"}
 
@@ -170,6 +170,8 @@ Frecuencia de corte sugerida para señales lentas: fc ≈ 0.4 a 0.5 de Fs útil 
     * ADC0 –  GPIO26
     * ADC1 –  GPIO27
     * ADC2 –  GPIO28
+    * ADC3 –  GPIO29 (existe pero no está conectado a pines)
+    * ADC4 –  Sensor de temperatura interno
 * Vref se toma de la red de 3.3 V o del pin VREF si está disponible en la placa.
 * No hay modo diferencial expuesto. Evitar compartir líneas analógicas con cargas digitales ruidosas. Separar rutas de retorno cuando sea posible.
 
@@ -228,11 +230,11 @@ int main() {
 }
 ```
 
-## 8. Mejora de mediciones por software
+## 6. Mejora de mediciones por software
 
-### 8.1 Promediado y mediana
+### 6.1 Promediado y mediana
 
-* Media móvil, media exponencial para rechazar picos.
+* Media móvil y media exponencial para rechazar picos.
 
 ```c title="Ejemplo de Media Movil"
 #include <stdio.h>
@@ -285,7 +287,7 @@ int main() {
 }
 ```
 
-* Media exponencial para suavizado rápido con menor retardo, usa una formiula recursiva para suavizar el ruido. Formula:
+* Media exponencial para suavizado rápido con menor retardo, usa una formula recursiva para suavizar el ruido. Formula:
   $$
   y(n) = alpha \cdot x(n) + (1 - alpha) \cdot y(n-1)
   $$
@@ -332,14 +334,16 @@ int main() {
 
 ```
 
-### 8.2 Sobremuestreo y decimación
+### 6.2 Sobremuestreo y decimación
 
 * Aumentar la tasa de muestreo M veces y promediar para ganar bits efectivos. Regla aproximada: cada 4 veces de sobremuestreo aumenta 1 bit si el ruido es suficiente para dither.
 
-### 8.3 Filtros IIR y FIR
+### 6.3 Filtros IIR y FIR
 
 * IIR de primer orden para suavizado rápido. FIR para fases lineales.
 
-### 8.4 Linealización y calibración de dos puntos
+### 6.4 Linealización y calibración de dos puntos
 
 * Medir salida con 0 V y con un punto de referencia conocido cercano a Vref. Calcular offset y ganancia y corregir en software.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hIRZeYgcG5E?si=uIy8H0GFnar9grEK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
