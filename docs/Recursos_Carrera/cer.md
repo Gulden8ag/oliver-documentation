@@ -23,7 +23,7 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         </div>
     </div>
 
-!!! info "Danna Paola Garcia Sanchez del Villar — Tesorera"
+!!! info "Danna Paola Garcia Sanchez — Tesorera"
     <div style="display: flex; align-items: center; gap: 1rem;">
         <img src="../../images/danna.jpg" alt="Tesorera" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
         <div>
@@ -51,7 +51,7 @@ Son el enlace entre los estudiantes de una licenciatura y las distintas áreas d
         </div>
     </div>
 
-!!! info "Jose Emmanuel del Villar Soto de Garcia— Mesa de trabajo"
+!!! info "Jose Emmanuel del Villar Soto — Mesa de trabajo"
     <div style="display: flex; align-items: center; gap: 1rem;">
         <img src="../../images/emma.jpg" alt="Mesa de trabajo" style="border-radius:50%; width:120px; height:120px; object-fit:cover;">
         <div>
