@@ -1,0 +1,2233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../Recursos_Carrera/intercambios_mecatronica_electronica/">
+      
+      
+        <link rel="next" href="../Domo_2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Capítulo 1 · Fundamentos de Electrónica para Robótica y Domótica - COORDINACIÓN IMT/ICE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/overrides.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#capitulo-1-fundamentos-de-electronica-para-robotica-y-domotica" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="COORDINACIÓN IMT/ICE" class="md-header__button md-logo" aria-label="COORDINACIÓN IMT/ICE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COORDINACIÓN IMT/ICE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Capítulo 1 · Fundamentos de Electrónica para Robótica y Domótica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="COORDINACIÓN IMT/ICE" class="md-nav__button md-logo" aria-label="COORDINACIÓN IMT/ICE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COORDINACIÓN IMT/ICE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contactos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contactos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contactos/departamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Departamento de Ciencias e Ingenierias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contactos/fablab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Departamento de Ciencias e Ingenierias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contactos/oliver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Academicos de Mecatronica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos Carrera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recursos Carrera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Recursos_Carrera/Lengua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lengua Extranjera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Recursos_Carrera/Plan_Electronica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan Electronica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Recursos_Carrera/Plan_Mecatronica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan Mecatronica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Recursos_Carrera/cer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consejo de Estudiantes de Representantes (CER)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Recursos_Carrera/intercambios_mecatronica_electronica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌍 Intercambios Académicos — Mecatrónica y Electrónica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Clases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domotica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Domotica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capítulo 1 · Fundamentos de Electrónica para Robótica y Domótica
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capítulo 1 · Fundamentos de Electrónica para Robótica y Domótica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-por-que-electronica-en-roboticadomotica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Por qué electrónica en robótica/domótica?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conceptos-electricos-esenciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Conceptos eléctricos esenciales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Conceptos eléctricos esenciales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-voltaje-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Voltaje (V)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-corriente-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Corriente (I)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-resistencia-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Resistencia (R)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ley-de-ohm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Ley de Ohm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-potencia-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Potencia (P)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-corriente-continua-dc-vs-alterna-ac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Corriente continua (DC) vs. alterna (AC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-que-es-un-circuito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ¿Qué es un circuito?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-errores-comunes-y-como-evitarlos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Errores comunes (y cómo evitarlos)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-componentes-basicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Componentes básicos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Componentes básicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-protoboard-breadboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Protoboard (breadboard)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-resistores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Resistores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-leds-diodos-emisores-de-luz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 LEDs (diodos emisores de luz)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-capacitores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Capacitores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-circuitos-integrados-ic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Circuitos integrados (IC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-fuentes-de-energia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Fuentes de energía
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-equipos-de-medicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Equipos de medición
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Equipos de medición">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-multimetro-digital-dmm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Multímetro digital (DMM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-osciloscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Osciloscopio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-el-temporizador-555" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. El temporizador 555
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. El temporizador 555">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-que-es-el-555" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 ¿Qué es el 555?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-pinout-del-555-dip-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Pinout del 555 (DIP-8)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ejercicio-guiado-555-en-astable-led-parpadeante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Ejercicio guiado: 555 en astable (LED parpadeante)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Ejercicio guiado: 555 en astable (LED parpadeante)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Objetivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Materiales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-diseno-frecuencia-y-ciclo-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Diseño (frecuencia y ciclo de trabajo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-conexion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Conexión (paso a paso)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-lista-de-verificacion-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Lista de verificación (debug)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-seguridad-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Seguridad básica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Seguridad básica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glosario-rapido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glosario rápido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Domo_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capítulo 2 · Historia y Evolución de la Robótica y su Relación con la Domótica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Domo_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía práctica para un sistema hidropónico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FabAcademy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FabAcademy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FabAcademy/info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informacion general
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduccion mecatronica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduccion mecatronica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduccion-mecatronica/tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electronica 101
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduccion-mecatronica/tema2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCU 101
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduccion-mecatronica/tema3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actuadores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduccion-mecatronica/tema4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visión por Computadora 101
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduccion-mecatronica/tema5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control PID 101
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutoriales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutoriales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maquinas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Maquinas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Maquinas/tutoriales_Laser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cortadora Laser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Maquinas/tutoriales_Router/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Maquinas/tutoriales_monofab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TUTORIAL MINI MILL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Maquinas/tutoriales_print3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Impresora 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Software/tutoriales_cura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial de Cura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Software/tutoriales_mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial MODS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutoriales/Software/tutoriales_pslicer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial de PrusaSlicer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="capitulo-1-fundamentos-de-electronica-para-robotica-y-domotica">Capítulo 1 · Fundamentos de Electrónica para Robótica y Domótica</h1>
+<blockquote>
+<p>Objetivo: Comprender los conceptos base de electricidad y electrónica (V, I, R, P, AC/DC), conocer componentes y equipos de medición, evitar errores típicos de montaje y construir un primer circuito funcional con el temporizador 555.</p>
+</blockquote>
+<hr />
+<h2 id="1-por-que-electronica-en-roboticadomotica">1. ¿Por qué electrónica en robótica/domótica?</h2>
+<p>La robótica y la domótica integran <strong>sensores</strong>, <strong>actuadores</strong> y <strong>controladores</strong>. La electrónica es el lenguaje físico que permite que la información (señales) se convierta en acciones (movimiento, luz, sonido, comunicación). Dominar los fundamentos te permitirá diagnosticar fallas y construir soluciones fiables.</p>
+<p><img alt="Diagrama de bloques de un sistema domótico" loading="lazy" src="../../../images/domotica_electronica.png" width="50%" /></p>
+<hr />
+<h2 id="2-conceptos-electricos-esenciales">2. Conceptos eléctricos esenciales</h2>
+<p><img alt="Analogía hidráulica" loading="lazy" src="../../../images/agua_voltage.png" /></p>
+<h3 id="21-voltaje-v">2.1 Voltaje (V)</h3>
+<ul>
+<li><strong>Definición:</strong> Diferencia de potencial eléctrico. Es la “presión” que empuja a los electrones.</li>
+<li><strong>Unidad:</strong> Volt (V).</li>
+<li><strong>Analogía hidráulica:</strong> Presión del agua en una tubería.</li>
+</ul>
+<h3 id="22-corriente-i">2.2 Corriente (I)</h3>
+<ul>
+<li><strong>Definición:</strong> Flujo de carga por unidad de tiempo.</li>
+<li><strong>Unidad:</strong> Ampere (A).</li>
+<li><strong>Analogía hidráulica:</strong> Caudal de agua (litros/segundo) en una tubería.</li>
+</ul>
+<h3 id="23-resistencia-r">2.3 Resistencia (R)</h3>
+<ul>
+<li><strong>Definición:</strong> Oposición al paso de la corriente.</li>
+<li><strong>Unidad:</strong> Ohm (Ω).</li>
+<li><strong>Ejemplo:</strong> Un resistor “estrecha” la tubería, limitando el caudal (corriente).</li>
+</ul>
+<h3 id="24-ley-de-ohm">2.4 Ley de Ohm</h3>
+<div class="arithmatex">\[
+V = I \cdot R \quad\Rightarrow\quad I = \frac{V}{R},\quad R = \frac{V}{I}
+\]</div>
+<p><strong>Ejemplo numérico:</strong> LED rojo (≈2.0 V) con fuente de 5 V a 10 mA deseados:</p>
+<div class="arithmatex">\[
+R = \frac{5 - 2.0}{0.010} = 300~\Omega \;\; \Rightarrow \;\; \text{usar } 330~\Omega \text{ (comercial)}
+\]</div>
+<h3 id="25-potencia-p">2.5 Potencia (P)</h3>
+<ul>
+<li><strong>Definición:</strong> Tasa de transferencia de energía.</li>
+<li><strong>Fórmulas:</strong></li>
+</ul>
+<div class="arithmatex">\[
+P = V \cdot I = I^2 \cdot R = \frac{V^2}{R}
+\]</div>
+<ul>
+<li><strong>Unidad:</strong> Watt (W).</li>
+<li><strong>Implicación práctica:</strong> Verifica la <strong>potencia del resistor</strong> (¼ W, ½ W, etc.) para evitar sobrecalentamientos.</li>
+</ul>
+<p><strong>RESUMEN RÁPIDO:</strong></p>
+<p><img alt="Formula resumen" loading="lazy" src="../../../images/relacion_PVI.png" /></p>
+<h3 id="26-corriente-continua-dc-vs-alterna-ac">2.6 Corriente continua (DC) vs. alterna (AC)</h3>
+<ul>
+<li><strong>DC:</strong> La polaridad no cambia con el tiempo (baterías, fuentes reguladas 5 V/12 V).<ul>
+<li>Las baterías, pilas y paneles solares generan corriente continua (DC) porque los electrones fluyen naturalmente en un solo sentido.</li>
+<li>Problema: si quieres mandar energía a muchos kilómetros, las pérdidas son grandes.</li>
+</ul>
+</li>
+<li><strong>AC:</strong> La polaridad cambia periódicamente (red eléctrica; 60 Hz en México).</li>
+<li><strong>Cuándo usar:</strong></li>
+<li><strong>DC:</strong> Electrónica, microcontroladores, sensores, la mayoría de robots.</li>
+<li><strong>AC:</strong> Alimentación de alta potencia y larga distancia (⚠️ No trabajar AC de red en protoboard).</li>
+</ul>
+<p><img alt="DC" loading="lazy" src="../../../images/Direct-Current-DC.gif" style="display:block; margin:auto;" width="50%" /></p>
+<p><img alt="AC" loading="lazy" src="../../../images/Alternate-Current-AC.gif" style="display:block; margin:auto;" width="50%" /></p>
+<hr />
+<h2 id="3-que-es-un-circuito">3. ¿Qué es un circuito?</h2>
+<p><img alt="Circuitos" loading="lazy" src="../../../images/circuito_ok.png" /></p>
+<p>Un <strong>circuito</strong> es un <strong>camino cerrado</strong> para que la corriente fluya desde la fuente (V+) y regrese a su referencia (GND). Si el camino no se cierra, <strong>no hay corriente</strong>; si hay un atajo directo V+→GND, hay un <strong>corto</strong>.</p>
+<ul>
+<li><strong>Circuito en serie:</strong> La corriente es la misma por todos los elementos.</li>
+<li><strong>Circuito en paralelo:</strong> El voltaje es el mismo en todas las ramas.</li>
+</ul>
+<hr />
+<h2 id="4-errores-comunes-y-como-evitarlos">4. Errores comunes (y cómo evitarlos)</h2>
+<ol>
+<li><strong>Cortos:</strong> Puentes directos entre V+ y GND por cables mal puestos → usa el multímetro en <strong>continuidad</strong> antes de energizar.</li>
+</ol>
+<p><img alt="Corto circuito" loading="lazy" src="../../../images/corto_circuito.png" /></p>
+<ol>
+<li><strong>Circuito abierto:</strong> Falta cerrar el lazo (olvidar la conexión a GND común).</li>
+</ol>
+<p><img alt="Circuito abierto" loading="lazy" src="../../../images/circuito_abierto.png" /></p>
+<ol>
+<li><strong>LED sin resistor:</strong> El LED se quema → siempre limita corriente con un resistor calculado.</li>
+</ol>
+<p><img alt="Resistencia muy baja" loading="lazy" src="../../../images/low_resistance.png" /></p>
+<ol>
+<li><strong>Polaridad invertida:</strong> Diodos/LEDs/capacitores electrolíticos/IC con orientación incorrecta → ubica <strong>pin 1</strong> y marcas de cátodo/anodo.</li>
+<li><strong>Protoboard mal usada:</strong> Rails de alimentación <strong>rotos a mitad</strong> o no comunes → verifica continuidad de rieles.</li>
+<li><strong>No compartir tierra:</strong> Varios módulos o fuentes sin <strong>GND común</strong> → el sistema “no se ve”.</li>
+<li><strong>Resistencia mal elegida:</strong> Confundir <strong>kΩ</strong> con <strong>Ω</strong> → revisa el código de colores o el multímetro.</li>
+<li><strong>Medir corriente como voltaje:</strong> Colocar el multímetro en A <strong>en paralelo</strong> causa cortos. Para corriente: <strong>en serie</strong> y con cable al borne de A.</li>
+</ol>
+<hr />
+<h2 id="5-componentes-basicos">5. Componentes básicos</h2>
+<h3 id="51-protoboard-breadboard">5.1 Protoboard (breadboard)</h3>
+<ul>
+<li>Permite prototipado sin soldadura.</li>
+<li><strong>Conexiones internas:</strong> Columnas/filas internas y rieles de V+/GND (a veces interrumpidos).</li>
+<li><strong>Buenas prácticas:</strong> Cables cortos, colores consistentes (rojo=V+, negro=GND).</li>
+</ul>
+<p><img alt="Protoboard 1" loading="lazy" src="../../../images/proto1.webp" /></p>
+<p><img alt="Protoboard 2" loading="lazy" src="../../../images/proto2.webp" /></p>
+<h3 id="52-resistores">5.2 Resistores</h3>
+<ul>
+<li>Limitan corriente, fijan tensiones, forman redes temporizadoras.</li>
+<li><strong>Código de colores</strong> y <strong>tolerancia</strong> (±1 %, ±5 %, etc.).</li>
+<li><strong>Potencia:</strong> ¼ W típico en prototipos.</li>
+</ul>
+<p><img alt="Resistor" loading="lazy" src="../../../images/Resistors.png" /></p>
+<p><a href="https://www.digikey.com.mx/es/resources/conversion-calculators/conversion-calculator-resistor-color-code">Calculadora de resistencias</a></p>
+<h3 id="53-leds-diodos-emisores-de-luz">5.3 LEDs (diodos emisores de luz)</h3>
+<ul>
+<li><strong>Polaridad:</strong> Ánodo (+) y cátodo (−, patita más corta o lado plano).</li>
+<li><strong>Vf típica:</strong> Rojo (1.8–2.2 V), verde/azul/blanco (2.0–3.3 V).</li>
+<li><strong>Siempre</strong> con resistor en serie.</li>
+</ul>
+<p><img alt="Led" loading="lazy" src="../../../images/led.webp" /></p>
+<h3 id="54-capacitores">5.4 Capacitores</h3>
+<ul>
+<li><strong>Función:</strong> Almacenan energía. Filtrado, temporización, acoplo.</li>
+<li><strong>Tipos:</strong> Cerámicos (no polarizados), electrolíticos (polarizados).</li>
+<li><strong>Parámetros:</strong> Capacitancia (µF, nF), tensión máxima (Vmax). <strong>Nunca</strong> exceder Vmax.</li>
+</ul>
+<p><img alt="Capacitores" loading="lazy" src="../../../images/capacitor.webp" /></p>
+<h3 id="55-circuitos-integrados-ic">5.5 Circuitos integrados (IC)</h3>
+<ul>
+<li>Paquetes DIP/SOIC/QFN, etc. <strong>Pin 1</strong> marcado con punto o muesca.</li>
+<li>Alimentación: Vcc y GND en pines específicos (lee la hoja de datos).</li>
+</ul>
+<p><img alt="IC" loading="lazy" src="../../../images/integrados.jpg" /></p>
+<h3 id="56-fuentes-de-energia">5.6 Fuentes de energía</h3>
+<ul>
+<li><strong>Baterías</strong> (9 V, 18650, LiPo—con cuidado).</li>
+<li><strong>Fuentes de banco</strong> reguladas.</li>
+<li><strong>Convertidores DC-DC</strong> (buck/boost).</li>
+<li><strong>Regla de oro:</strong> <strong>GND común</strong> entre todos los módulos.</li>
+</ul>
+<hr />
+<h2 id="6-equipos-de-medicion">6. Equipos de medición</h2>
+<h3 id="61-multimetro-digital-dmm">6.1 Multímetro digital (DMM)</h3>
+<ul>
+<li><strong>Voltaje DC/AC:</strong> Medir en <strong>paralelo</strong> al elemento (configurar V, puntas en VΩ y COM).</li>
+<li><strong>Corriente DC:</strong> Medir en <strong>serie</strong> (mover punta roja al borne de A/mA, rango adecuado).</li>
+<li><strong>Resistencia:</strong> Medir con circuito <strong>desenergizado</strong>.</li>
+<li><strong>Continuidad/diode test:</strong> Verifica cortos y orientación de diodos.</li>
+</ul>
+<p><img alt="Multímetro" loading="lazy" src="../../../images/multimetro.png" /></p>
+<ol>
+<li><strong>Pantalla</strong>: Donde se muestran las lecturas de las mediciones.</li>
+<li><strong>Dial de selección</strong>: Se utiliza para seleccionar el tipo de medición. Las opciones incluyen:<ul>
+<li>Voltaje de CC (V-)</li>
+<li>Voltaje de CA (V~)</li>
+<li>Voltaje de CC (mV-)</li>
+<li>Continuidad (simbolizada por una onda sonora)</li>
+<li>Resistencia (Ω)</li>
+<li>Capacitancia (-||-)</li>
+<li>Probador de diodos (―⯈⊢)</li>
+<li>Corriente continua (A-)</li>
+<li>Corriente alterna (A~)</li>
+</ul>
+</li>
+<li><strong>Puertos para cables de prueba:</strong><ul>
+<li>COM (Común): Donde se conecta el cable negro.</li>
+<li>VΩ: Se utiliza para voltaje, resistencia y otras opciones sin corriente. El cable rojo se conecta aquí para estas funciones.</li>
+<li>10 A: Se utiliza exclusivamente para mediciones de alta corriente (hasta 10 amperios). El cable rojo se conecta aquí para estas funciones.</li>
+</ul>
+</li>
+<li><strong>Cables de prueba</strong>: rojo para positivo, negro para negativo, se utilizan para conectar el multímetro al objeto que se está midiendo.</li>
+<li><strong>Rango</strong>: Permite que el multímetro seleccione el rango adecuado para la medición. De lo contrario, intenta seleccionar automáticamente el correcto.</li>
+<li><strong>Botón HOLD</strong>: Congela la lectura actual en la pantalla para facilitar la visualización.</li>
+<li><strong>Botón Max/Min</strong>: se utiliza para mantener leído el valor máximo o mínimo.</li>
+</ol>
+<h3 id="62-osciloscopio">6.2 Osciloscopio</h3>
+<ul>
+<li><strong>Sonda x1/x10:</strong> Usar <strong>x10</strong> reduce carga sobre el circuito.</li>
+<li><strong>Clip de tierra:</strong> Conectar a GND del circuito (⚠️ los osciloscopios de banco suelen tener tierra referida a chasis; evita conectar a red AC sin aislamiento).</li>
+<li><strong>Qué observar:</strong> Forma de onda, frecuencia, amplitud, duty cycle.</li>
+</ul>
+<p><img alt="Osciloscopio" loading="lazy" src="../../../images/osciloscopio.png" /></p>
+<ol>
+<li><strong>Pantalla</strong>: Muestra las formas de onda. La cuadrícula muestra el voltaje (vertical) y el tiempo (horizontal).</li>
+<li><strong>Botón de encendido</strong>: enciende o apaga el osciloscopio.</li>
+<li><strong>Entradas de canal (CH1 y CH2)</strong>: Terminales de entrada para conectar señales a medir.</li>
+<li><strong>Controles verticales</strong>: Ajusta la escala del voltaje en la pantalla. La opción "Posición" mueve las formas de onda verticalmente.</li>
+<li><strong>Controles horizontales</strong>: Ajusta la escala de tiempo. La opción "Posición" mueve las formas de onda horizontalmente.</li>
+<li><strong>Controles de disparo</strong>: Establece las condiciones para el inicio de la captura de forma de onda. El nivel establece el voltaje de disparo.</li>
+<li><strong>Botón Ejecutar/Detener</strong>: inicia o detiene la captura de forma de onda.</li>
+<li><strong>Botón de medición</strong>: herramientas para medir las características de la forma de onda.</li>
+<li><strong>Botón del cursor</strong>: Herramientas para medir características de forma de onda.</li>
+</ol>
+<hr />
+<h2 id="7-el-temporizador-555">7. El temporizador 555</h2>
+<h3 id="71-que-es-el-555">7.1 ¿Qué es el 555?</h3>
+<p>Un IC clásico con dos comparadores, un <strong>flip-flop SR</strong> y un transistor de descarga. Permite crear <strong>temporizadores</strong> y <strong>osciladores</strong> con muy pocos componentes.</p>
+<ul>
+<li><strong>Modos de operación:</strong></li>
+<li><strong>Astable:</strong> Oscilador libre (parpadeos, PWM simple).</li>
+<li><strong>Monostable:</strong> Pulso único temporizado (retardos, anti-rebote).</li>
+<li><strong>Biestable:</strong> Conmutación tipo flip-flop.</li>
+</ul>
+<h3 id="72-pinout-del-555-dip-8">7.2 Pinout del 555 (DIP-8)</h3>
+<ol>
+<li><strong>GND</strong>  </li>
+<li><strong>TRIG</strong> (disparo, umbral 1/3 Vcc)  </li>
+<li><strong>OUT</strong> (salida)  </li>
+<li><strong>RESET</strong> (activo en bajo; normalmente a Vcc)  </li>
+<li><strong>CTRL</strong> (control; típicamente con <strong>10 nF</strong> a GND)  </li>
+<li><strong>THRES</strong> (umbral, 2/3 Vcc)  </li>
+<li><strong>DISCH</strong> (descarga del capacitor)  </li>
+<li><strong>Vcc</strong> (alimentación 5–15 V típicamente)</li>
+</ol>
+<p><img alt="Pinout 555" loading="lazy" src="../../../images/integrados.jpg" width="60%" /></p>
+<hr />
+<h2 id="8-ejercicio-guiado-555-en-astable-led-parpadeante">8. Ejercicio guiado: 555 en astable (LED parpadeante)</h2>
+<h3 id="81-objetivo">8.1 Objetivo</h3>
+<p>Construir un oscilador que haga parpadear un LED y <strong>medir</strong> su frecuencia/duty con multímetro (si tiene frecuencia) u osciloscopio.</p>
+<p><img alt="555 astable" loading="lazy" src="../../../images/555.gif" /></p>
+<h3 id="82-materiales">8.2 Materiales</h3>
+<ul>
+<li>1 × <strong>NE555</strong> (DIP-8)</li>
+<li>1 × <strong>LED</strong> </li>
+<li>1 × <strong>Resistor</strong> para LED (330 Ω o 470 Ω)</li>
+<li>2 × <strong>Resistores temporizadores</strong> (ver diseño)</li>
+<li>1 × <strong>Capacitor</strong> de temporización (ver diseño)</li>
+<li>1 × <strong>Capacitor</strong> 10 nF para pin 5 (CTRL) → estabilidad</li>
+<li><strong>Protoboard</strong>, <strong>cables</strong>, <strong>fuente</strong> 5 V regulada</li>
+</ul>
+<h3 id="83-diseno-frecuencia-y-ciclo-de-trabajo">8.3 Diseño (frecuencia y ciclo de trabajo)</h3>
+<p><img alt="555 astable diseño" loading="lazy" src="../../../images/555_astable_design.png" /></p>
+<p><a href="https://www.digikey.com.mx/es/resources/conversion-calculators/conversion-calculator-555-timer?srsltid=AfmBOoo14ScFP-mHQo60bwhC7biB1sec_qN__TEnDhrBqFStxNub1KGD">Calculadora 555 astable</a></p>
+<h3 id="84-conexion-paso-a-paso">8.4 Conexión (paso a paso)</h3>
+<ol>
+<li>Coloca el <strong>NE555</strong> en la protoboard, centrado en el canal. Identifica <strong>pin 1 (GND)</strong> y <strong>pin 8 (Vcc)</strong> por la muesca/punto.</li>
+<li><strong>Alimentación:</strong> Pin 8 a <strong>+5 V</strong> y pin 1 a <strong>GND</strong>.</li>
+<li><strong>Reset:</strong> Pin 4 a <strong>+5 V</strong>.</li>
+<li><strong>Control:</strong> Pin 5 a GND mediante <strong>10 nF</strong>.</li>
+<li><strong>Temporización:</strong></li>
+<li>Conecta <span class="arithmatex">\( R_A \)</span> entre <strong>Vcc (5 V)</strong> y <strong>pin 7 (DISCH)</strong>.</li>
+<li>Conecta <span class="arithmatex">\( R_B \)</span> entre <strong>pin 7 (DISCH)</strong> y <strong>pin 2/6</strong> (TRIG/THRES unidos).</li>
+<li>Conecta el <strong>capacitor C</strong> entre <strong>pin 2/6</strong> y <strong>GND</strong> (si es electrolítico, lado <strong>−</strong> a GND).</li>
+<li><strong>Salida:</strong> Pin 3 → <strong>resistor 330 Ω</strong> → <strong>LED</strong> → <strong>GND</strong> (cátodo a GND).</li>
+<li>Revisa todo con <strong>continuidad</strong> antes de energizar.</li>
+</ol>
+<h3 id="85-lista-de-verificacion-debug">8.5 Lista de verificación (debug)</h3>
+<ul>
+<li>[ ] LED está al revés.  </li>
+<li>[ ] Falta resistor en LED.  </li>
+<li>[ ] Capacitor electrolítico invertido.  </li>
+<li>[ ] Pin 4 (RESET) flotante (debe ir a Vcc).  </li>
+<li>[ ] Falta unión <strong>2–6</strong> (TRIG y THRES).  </li>
+<li>[ ] <span class="arithmatex">\( R_A \)</span> o <span class="arithmatex">\( R_B \)</span> con valor equivocado (Ω vs kΩ).  </li>
+<li>[ ] Rieles de la protoboard no están realmente conectados.  </li>
+<li>[ ] No hay <strong>GND común</strong>.</li>
+</ul>
+<hr />
+<h2 id="9-seguridad-basica">9. Seguridad básica</h2>
+<ul>
+<li><strong>Nunca</strong> conectes <strong>AC de red</strong> a protoboard.  </li>
+<li>Desenergiza antes de cambiar conexiones.  </li>
+<li>Verifica continuidad para evitar cortos.  </li>
+<li>En osciloscopios de banco, el clip de tierra suele ir a tierra física: evita medir directamente la red eléctrica.</li>
+</ul>
+<hr />
+<h3 id="glosario-rapido">Glosario rápido</h3>
+<ul>
+<li><strong>V (voltaje):</strong> “presión” eléctrica.  </li>
+<li><strong>I (corriente):</strong> flujo de carga.  </li>
+<li><strong>R (resistencia):</strong> oposición al flujo.  </li>
+<li><strong>P (potencia):</strong> energía por unidad de tiempo.  </li>
+<li><strong>DC/AC:</strong> corriente continua/alterna.  </li>
+<li><strong>555:</strong> temporizador/oscila­dor versátil.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tooltips", "toc.integrate", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
