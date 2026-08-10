@@ -1,0 +1,126 @@
+Modified Text
+"# Cortadora Laser
+
+
+## Software
+
+### Descargar y operar el instalador
+
+El software deberá pedir a un instructor local que nos proporcionará el enlace para descargar el instalador.
+Es fundamental seguir sus instrucciones al utilizarlo, ya que tiene algunas secciones escritas completamente en chino.
+
+![Laser 1](../../images/láser_1.jpg){loading=lazy}
+
+Uno de los pasos más importantes de la instalación es seleccionar el idioma y el tipo de sistema correctos.
+Nuestra cortadora láser es del quinto sistema normal, como se muestra en esta imagen:
+
+![Laser 2](../../images/láser_2.jpg){loading=lazy}
+
+Una vez instalado correctamente, necesitaremos la clave de licencia USB. 
+Solicítela a su instructor y cuídela bien; puede parecer modesta, pero es un equipo importante y costoso. Al conectarla a su ordenador, podrá iniciar el software.
+
+### Importar archivo
+
+Al iniciar el programa, veremos la opción Archivo en la esquina superior izquierda de la pantalla. Al seleccionarla, se abrirá el menú Archivo, donde haremos clic en Importar.
+Importaremos el archivo .dxf que creamos a partir de nuestro dibujo.
+
+![Laser 3](../../images/láser_3.jpg){loading=lazy}
+
+Una vez importado, el dibujo se alineará con el punto de origen predeterminado en el programa, que en nuestro caso es la esquina inferior derecha.
+
+### Parámetros de entrada del láser
+
+Seleccione todos los elementos del dibujo; a la derecha de la pantalla verá el panel de control. Aquí seleccionaremos el mismo color que el del dibujo, en este caso el negro.
+Una vez seleccionado el color, introduzca la potencia máxima y mínima del láser, así como su velocidad de trabajo. Obtuvimos estos valores en las pruebas realizadas en grupo para determinar el equilibrio correcto entre potencia y velocidad que nos permita obtener los cortes más rápidos y limpios posibles, minimizando las ranuras. En nuestras pruebas, determinamos que la combinación óptima de valores oscila entre el 60 % y el 80 % de potencia y una velocidad de 40 a 60 mm/s.
+Decidí optar por un 70 % de potencia y una velocidad de 40 mm/s, con la que, tras las pruebas, quedé satisfecho. Tras configurar los parámetros, hago clic en el botón ""Aplicar"" en la parte inferior del panel gráfico, a la izquierda de la pantalla.
+
+![Laser 4](../../images/láser_4.jpg){loading=lazy}
+
+
+Una vez terminado guarde el archivo en una USB para utilizarlo en la computadora de la láser.
+
+## Encendido de Maquina
+
+
+Fab Lab Puebla cuenta con tres cortadoras láser de CO2 de la marca CAMFive. Estas máquinas pueden cortar y grabar diversos materiales, como tableros de fibra de densidad media (MDF), acrílico y cartón. La máquina utilizado para clases es la CFL-CMA1390T , con un área de trabajo de 1300 x 900 mm, una potencia de 100 vatios y un sistema de cabezal láser dual. Para más detalles, puede consultar nuestra tarea grupal aquí LINK PAGINA PUEBLA.
+
+Para usar esta máquina, debemos seguir este proceso:
+
+### 1. Registro. 
+A la hora de recibir la licencia, recibimos también la llave de la máquina. Usaremos esta última para operar la cortadora láser. Antes de comenzar a trabajar con la cortadora láser, debemos registrar la hora de inicio de uso en el registro del Fab Lab con Andres Lopez o Zeus Zapotl, junto con nuestro nombre, número de identificación de estudiante, el departamento o curso para el que la usamos y el nombre del responsable(Es muy importante que se haya autorizado previamente por tu coordinador).
+
+### 2. Ventilación. 
+Para empezar a trabajar con la cortadora, el primer paso es activar el sistema de ventilación. Para ello, activamos el contacto múltiple en la parte trasera de la máquina. Una vez activado, debemos comprobar si el sistema de ventilación presenta obstrucciones y asegurarnos de que el depósito de agua esté lleno.
+
+![Laser 5](../../images/láser_5.jpg){loading=lazy}
+
+![Laser 6](../../images/láser_6.jpg){loading=lazy}
+
+### 3. Energía. 
+En el lado izquierdo de la máquina, veremos un interruptor azul en su posición de apagado, accionaremos el interruptor para darle energía a los sistemas principales de la máquina.
+
+![Laser 7](../../images/láser_7.jpg){loading=lazy}
+
+### 4. Paro de emergencia
+
+En la parte frontal derecha de la máquina se encuentra el botón de parada de emergencia, que siempre está activado cuando la máquina no está en uso. Para desactivarlo, hay que girarlo en sentido horario hasta que salte.
+
+![Laser 8](../../images/láser_8.jpg){loading=lazy}
+
+### 5. Llave
+
+El último paso es insertar y girar la llave en la cerradura situada en la parte superior derecha de la máquina, justo detrás de la consola. Con esto, la máquina está completamente operativa y lista para el corte.
+
+## Proceso de corte por láser
+
+Una vez finalizada la activación y la máquina se encuentra en pleno estado operativo, tenemos que seguir estos pasos para comenzar nuestro proceso de corte:
+
+### 1. Abrir Archivo en la computadora
+
+### 2. Cargar Material
+
+Para cargar el material, en mi caso una lámina de MDF de 1,5 x 1 metro y 2,5 mm de grosor, primero debemos despejar el área de trabajo del cabezal láser. Podemos controlar su posición con las flechas. Esto se puede hacer desde el menú principal o tras seleccionar nuestro archivo.
+Pulsamos la flecha hacia arriba hasta que el cabezal láser esté lo suficientemente atrás, donde podamos asegurarnos de no golpearlo al cargar el material. También revisamos el área de trabajo para detectar cualquier residuo que pueda alterar la elevación del material.
+Una vez despejada el área de trabajo, simplemente colocamos el material dentro; podemos ayudarnos con los bordes del área de trabajo para mantener el material en una posición óptima.
+
+![Laser 10](../../images/láser_10.jpg){loading=lazy}
+
+### 4. Calibrar altura láser
+
+Para asegurar un corte preciso con una ranura mínima, debemos ajustar la elevación del cabezal láser en relación con el material, siendo la distancia óptima entre ellos de 5 mm. Debemos ser extremadamente cuidadosos durante este paso para evitar dañarlo.
+Primero, colocamos el cabezal láser sobre un borde del material donde podamos observarlo y manipularlo fácilmente. Procedemos a verificar la distancia entre el cabezal láser y el material. Podemos hacer esto con cualquier objeto de 5 mm de altura, que, casualmente, es la altura aproximada de un conector USB, por lo que puede usar el mismo USB que usó para cargar sus archivos.
+Si la distancia es demasiado corta o demasiado larga, podemos ajustarla aflojando el tornillo grande del cabezal láser y moviéndolo hacia arriba o hacia abajo. Tenga mucho cuidado, sujete el cabezal firmemente para evitar que se caiga y asegúrese de no desconectar ningún componente.
+Una vez en la posición correcta, vuelva a apretar el tornillo.
+
+![Laser 11](../../images/láser_11.jpg){loading=lazy}
+
+### 5. Activar Laser
+
+El último paso antes de comenzar el corte es activar el láser. Dado que el láser es invisible al ojo humano y está expuesto sobre el eje del cabezal, debemos cerrar la puerta de la máquina como medida de seguridad para evitar el contacto accidental con el láser.
+Una vez cerrada la puerta, giramos el potenciómetro del láser elegido en sentido horario hasta el máximo, o ambos potenciómetros si queremos cortar el mismo diseño dos veces al mismo tiempo. Al usar ambos láseres, ajuste correctamente las dimensiones de sus diseños y la distancia entre los cabezales, que puede cambiar manualmente.
+Usaré solo el cabezal láser derecho, así que giro el potenciómetro derecho a su posición máxima. Cuando la potencia del láser esté al máximo, presionamos el botón de activación del láser junto al puerto de la llave; esto encenderá el láser.
+Recuerde: una vez que el láser esté encendido, no abra la puerta.
+
+![Laser 12](../../images/láser_12.jpg){loading=lazy}
+
+### 6. Corte
+
+Realizamos una comprobación final: lima, origen, marco y salida láser. Ahora podemos pulsar el botón de inicio y el corte comenzará de inmediato.
+
+![Laser 13](../../images/láser_13.jpg){loading=lazy}(FALTA)
+
+Ahora solo queda supervisar la máquina hasta que finalice el proceso. Debemos estar preparados para activar el tope de seguridad en cualquier momento si observamos alguna anomalía, especialmente incendios.
+
+![Laser 14](../../images/láser_14.jpg){loading=lazy}
+
+### 7. Desactivación de Laser
+
+
+1. Una vez finalizado nuestro corte, debemos seguir estos pasos para apagar la máquina:
+2. Presionamos el botón de encendido del láser para apagarlo y devolver el potenciómetro del láser a su posición cero.
+3. Trasladamos el cabezal láser a la parte trasera para retirar la lámina sin riesgo de colisión accidental con las lentes. Abrimos la puerta y retiramos la lámina.
+Retiramos el producto final y cualquier resto que pudiera quedar en el área de trabajo.
+4. Desactivamos la máquina repitiendo la secuencia de activación, pero ahora a la inversa, empezando por retirar la llave, luego accionando el tope de seguridad, apagando el interruptor de corriente y por último, apagando el sistema de ventilación.
+5. Retire todo el material sobrante de las instalaciones, no olvide el USB en el puerto de la máquina y devuelva la clave de licencia del software y la clave de la máquina a su instructor.
+6. Registra la hora en que terminaste de trabajar en el log del Fab Lab.
+"

@@ -1,0 +1,197 @@
+/* Coordinación Sistemas Computacionales */
+.md-typeset details.info.coord-sistemas {
+  border: 2px solid #008080 !important;
+}
+.md-typeset details.info.coord-sistemas > summary:after {
+  color: #008080 !important;
+}
+.md-typeset details.info.coord-sistemas > summary:focus {
+  outline: 2px solid #008080 !important;
+}
+.md-typeset details.info.coord-sistemas > summary {
+  background-color: rgba(0,128,128,0.1) !important;
+  border-left: 4px solid #008080 !important;
+}
+
+/* Coordinación Mecánica */
+.md-typeset details.info.coord-mecanica {
+  border: 2px solid #E67E22 !important;
+}
+.md-typeset details.info.coord-mecanica > summary:after {
+  color: #E67E22 !important;
+}
+.md-typeset details.info.coord-mecanica > summary:focus {
+  outline: 2px solid #E67E22 !important;
+}
+.md-typeset details.info.coord-mecanica > summary {
+  background-color: rgba(230,126,34,0.1) !important;
+  border-left: 4px solid #E67E22 !important;
+}
+
+/* Coordinación Electrónica/Mecatrónica */
+.md-typeset details.info.coord-oliver {
+  border: 2px solid #1E90FF !important;
+}
+.md-typeset details.info.coord-oliver > summary:after {
+  color: #1E90FF !important;
+}
+.md-typeset details.info.coord-oliver > summary:focus {
+  outline: 2px solid #1E90FF !important;
+}
+.md-typeset details.info.coord-oliver > summary {
+  background-color: rgba(30,144,255,0.1) !important;
+  border-left: 4px solid #1E90FF !important;
+}
+
+/* Coordinación Biomédica */
+.md-typeset details.info.coord-biomedica {
+  border: 2px solid #27AE60 !important;
+}
+.md-typeset details.info.coord-biomedica > summary:after {
+  color: #27AE60 !important;
+}
+.md-typeset details.info.coord-biomedica > summary:focus {
+  outline: 2px solid #27AE60 !important;
+}
+.md-typeset details.info.coord-biomedica > summary {
+  background-color: rgba(39,174,96,0.1) !important;
+  border-left: 4px solid #27AE60 !important;
+}
+
+/* Coordinación Negocios */
+.md-typeset details.info.coord-negocios {
+  border: 2px solid #F1C40F !important;
+}
+.md-typeset details.info.coord-negocios > summary:after {
+  color: #F1C40F !important;
+}
+.md-typeset details.info.coord-negocios > summary:focus {
+  outline: 2px solid #F1C40F !important;
+}
+.md-typeset details.info.coord-negocios > summary {
+  background-color: rgba(241,196,15,0.1) !important;
+  border-left: 4px solid #F1C40F !important;
+}
+
+/* Coordinación Ciencias Básicas */
+.md-typeset details.info.coord-ciencias {
+  border: 2px solid #7F8C8D !important;
+}
+.md-typeset details.info.coord-ciencias > summary:after {
+  color: #7F8C8D !important;
+}
+.md-typeset details.info.coord-ciencias > summary:focus {
+  outline: 2px solid #7F8C8D !important;
+}
+.md-typeset details.info.coord-ciencias > summary {
+  background-color: rgba(127,140,141,0.1) !important;
+  border-left: 4px solid #7F8C8D !important;
+}
+
+/* Coordinación Ingeniería Industrial */
+.md-typeset details.info.coord-industrial {
+  border: 2px solid #2C3E50 !important;
+}
+.md-typeset details.info.coord-industrial > summary:after {
+  color: #2C3E50 !important;
+}
+.md-typeset details.info.coord-industrial > summary:focus {
+  outline: 2px solid #2C3E50 !important;
+}
+.md-typeset details.info.coord-industrial > summary {
+  background-color: rgba(44,62,80,0.1) !important;
+  border-left: 4px solid #2C3E50 !important;
+}
+
+/* Coordinación Reflexión Universitaria / Otros */
+.md-typeset details.info.coord-otros {
+  border: 2px solid #9B59B6 !important;
+}
+.md-typeset details.info.coord-otros > summary:after {
+  color: #9B59B6 !important;
+}
+.md-typeset details.info.coord-otros > summary:focus {
+  outline: 2px solid #9B59B6 !important;
+}
+.md-typeset details.info.coord-otros > summary {
+  background-color: rgba(155,89,182,0.1) !important;
+  border-left: 4px solid #9B59B6 !important;
+}
+
+/* Tabla 'horario' dentro de admoniciones */
+.md-typeset .admonition table.horario {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.md-typeset .admonition .horario th,
+.md-typeset .admonition .horario td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* Colores de celdas (con mayor especificidad y !important) */
+.md-typeset .admonition .horario td.docencia  { background-color: #ef9a9a !important; }
+.md-typeset .admonition .horario td.gestion   { background-color: #bbdefb !important; }
+.md-typeset .admonition .horario td.atencion  { background-color: #c8e6c9 !important; }
+.md-typeset .admonition .horario td.comida    { background-color: #eeeeee !important; }
+.md-typeset .admonition .horario td.circun    { background-color: #fff59d !important; }
+.md-typeset .admonition .horario td.off       { background-color: #fafafa !important; color: #999 !important; }
+
+/* Scroll horizontal y primera columna adhesiva en pantallas pequeñas */
+@media (max-width: 900px) {
+  .md-typeset .admonition table.horario { display: block; overflow-x: auto; white-space: nowrap; }
+  .md-typeset .admonition .horario th,
+  .md-typeset .admonition .horario td { min-width: 120px; }
+  .md-typeset .admonition .horario th:first-child {
+    position: sticky; left: 0; z-index: 1;
+    background: var(--md-default-bg-color, #fff);
+  }
+}
+
+.md-typeset .admonition .horario thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--md-default-bg-color, #fff);
+}
+
+/* Asegura legibilidad del texto sobre fondos claros */
+.md-typeset .admonition .horario td.docencia,
+.md-typeset .admonition .horario td.gestion,
+.md-typeset .admonition .horario td.atencion,
+.md-typeset .admonition .horario td.comida,
+.md-typeset .admonition .horario td.circun {
+  color: #111 !important;
+}
+
+
+.img-circular {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+  border: 3px solid #ccc;
+}
+
+/* Leyenda de coordinaciones: estilo base */
+.leyenda-coord { display:inline-flex; align-items:center; gap:.4rem; margin:.25rem .75rem .25rem 0; }
+.leyenda-coord .swatch {
+  width:14px; height:14px; border-radius:3px; border:2px solid currentColor; display:inline-block;
+}
+
+/* Colores tomados de tus clases coord-* */
+.swatch-sistemas   { color:#008080; background:rgba(0,128,128,0.12); }
+.swatch-mecanica   { color:#E67E22; background:rgba(230,126,34,0.12); }
+.swatch-oliver     { color:#1E90FF; background:rgba(30,144,255,0.12); }
+.swatch-biomedica  { color:#27AE60; background:rgba(39,174,96,0.12); }
+.swatch-negocios   { color:#F1C40F; background:rgba(241,196,15,0.18); }
+.swatch-ciencias   { color:#7F8C8D; background:rgba(127,140,141,0.15); }
+.swatch-industrial { color:#2C3E50; background:rgba(44,62,80,0.12); }
+.swatch-otros      { color:#9B59B6; background:rgba(155,89,182,0.14); }
+
+/* Opcional: contenedor para alinear en varias filas si se desborda */
+.leyenda-wrap { display:flex; flex-wrap:wrap; gap:.25rem .75rem; align-items:center; }
